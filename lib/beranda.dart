@@ -65,12 +65,20 @@ class Beranda extends StatelessWidget {
                             ),
                           ),
                           //List Kartu Agenda
-                          KartuAgenda(
-                            tajukAcara: "Expo GIASS Surabaya 2024",
-                            lokasiAcara: "Dolly, Surabaya",
-                            waktuAcara: DateTime.now(),
-                            statusApprove: true,
-                          ),
+                          Container(
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: 4,
+                              itemBuilder: (context, index) {
+                                return KartuAgenda(
+                                  tajukAcara: "Expo GIASS Surabaya 2024",
+                                  lokasiAcara: "Dolly, Surabaya",
+                                  waktuAcara: DateTime.now(),
+                                  statusApprove: true,
+                                );
+                              },
+                            ),
+                          )
                         ],
                       ),
                     ),
