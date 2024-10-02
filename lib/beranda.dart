@@ -159,12 +159,13 @@ class Beranda extends StatelessWidget {
 }
 
 class NavigasiBar extends StatefulWidget {
-  const NavigasiBar({
+  NavigasiBar({
     super.key,
     required this.lebarLayar,
   });
 
   final double lebarLayar;
+  int indexNav = 1;
 
   @override
   State<NavigasiBar> createState() => _NavigasiBarState();
@@ -176,7 +177,7 @@ class _NavigasiBarState extends State<NavigasiBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 60,
       width: double.infinity,
       margin: EdgeInsets.only(
         left: 10 / 100 * widget.lebarLayar,
@@ -194,18 +195,75 @@ class _NavigasiBarState extends State<NavigasiBar> {
         ],
       ),
       child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: iconNavigasi.map(
-            (e) {
-              return CircleAvatar(
-                backgroundColor: Colors.amber,
-                child: IconButton(
-                  icon: Icon(e),
-                  onPressed: () {},
-                ),
-              );
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          IconNavbar(
+            ikon: Icons.home,
+            status: widget.indexNav == 1,
+            onPressed: () {
+              setState(() {
+                widget.indexNav = 1;
+              });
             },
-          ).toList()),
+          ),
+          IconNavbar(
+            ikon: Icons.event_note_rounded,
+            status: widget.indexNav == 2,
+            onPressed: () {
+              setState(() {
+                widget.indexNav = 2;
+              });
+            },
+          ),
+          CircleAvatar(
+            backgroundColor: Colors.blue,
+            child: IconButton(
+              color: Colors.white,
+              icon: Icon(Icons.add),
+              onPressed: () {},
+            ),
+          )
+           ,IconNavbar(
+            ikon: Icons.account_balance_wallet_rounded,
+            status: widget.indexNav == 3,
+            onPressed: () {
+              setState(() {
+                widget.indexNav = 3;
+              });
+            },
+          ),
+          IconNavbar(
+            ikon: Icons.auto_graph_sharp,
+            status: widget.indexNav == 4,
+            onPressed: () {
+              setState(() {
+                widget.indexNav = 4;
+              });
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class IconNavbar extends StatelessWidget {
+  const IconNavbar(
+      {super.key,
+      required this.ikon,
+      required this.status,
+      required this.onPressed});
+
+  final void Function() onPressed;
+  final bool status;
+  final IconData ikon;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(ikon),
+      color: status ? Colors.blue : Colors.black38,
+      onPressed: onPressed,
     );
   }
 }
