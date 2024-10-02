@@ -12,125 +12,25 @@ class Beranda extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          //BG BLue
-          Container(
-            margin: EdgeInsets.only(top: 200),
-            decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius:
-                    BorderRadiusDirectional.vertical(top: Radius.circular(20))),
-          ),
           //Main Content
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 5 / 100 * lebarLayar),
-            padding: EdgeInsets.only(top: 30),
-            child: Column(
+            child: Stack(
               children: [
-                //Profile, Greeting, Notification
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    //profiledan greetings
-                    Container(
-                      //userProfile
-                      child: Row(
-                        children: [
-                          Container(
-                              padding: EdgeInsets.only(right: 5),
-                              child: CircleAvatar()),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Assalamualaikum",
-                                style:
-                                    TextStyle(fontSize: 12, color: Colors.blue),
-                              ),
-                              Text(
-                                "Admisi Unimma!",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.blue),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                    //notiifikasi
-                    IconButton(
-                        onPressed: () => {},
-                        icon: Icon(
-                          Icons.notifications_rounded,
-                          color: Colors.blue,
-                        ))
-                  ],
-                ),
-                //Lokasi Device
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 20),
-                  child: IconTextKecil(
-                    isiIkon: Icons.location_on_rounded,
-                    isiText: "Mertoyudan, Magelang",
-                  ),
-                ),
-                //High priority card
-                Container(
-                  width: double.infinity,
-                  height: 140,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black.withOpacity(0.05),
-                          blurRadius: 30,
-                          spreadRadius: 1)
-                    ],
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  padding: EdgeInsets.all(15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      //Text, dan Tajuk Acara Prioritas
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Agenda terdekatmu",
-                            style:
-                                TextStyle(fontSize: 12, color: Colors.black54),
-                          ),
-                          Text(
-                            "Presentasi SMK Muhammadiyah Kebumen",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.blue),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          )
-                        ],
-                      ),
-                      //Ikon Teks Waktu dan Jam
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconTextKecil(
-                              isiIkon: Icons.calendar_month_rounded,
-                              isiText: "Minggu, 14 November 2019"),
-                          IconTextKecil(
-                              isiIkon: Icons.schedule_rounded,
-                              isiText: "08:00 WIB")
-                        ],
-                      )
-                    ],
-                  ),
-                ),
                 //Agenda Berikutnya
                 Container(
-                  margin: EdgeInsets.only(top: 20),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadiusDirectional.vertical(
+                      top: Radius.circular(30),
+                    ),
+                  ),
+                  margin: EdgeInsets.only(top: 200),
+                  padding: EdgeInsets.only(
+                    top: 100,
+                    bottom: 50,
+                    left: 5 / 100 * lebarLayar,
+                    right: 5 / 100 * lebarLayar,
+                  ),
                   child: Column(
                     children: [
                       //SubTitle : Agenda akan datang - Lihat semua
@@ -170,8 +70,67 @@ class Beranda extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),
+                //Pin Lokasi dan HighPriority Card
+                Container(
+                  margin: EdgeInsets.only(
+                      left: 5 / 100 * lebarLayar,
+                      right: 5 / 100 * lebarLayar,
+                      top: 100),
+                  child: Column(
+                    children: [
+                      //Lokasi Device
+                      PinLokasi(),
+                      //High priority card
+                      HighPriorityCard(),
+                    ],
+                  ),
                 )
-                //
+              ],
+            ),
+          ),
+          //Profile, Greeting, Notification
+          Container(
+            height: 50,
+            margin: EdgeInsets.symmetric(
+                horizontal: 5 / 100 * lebarLayar, vertical: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                //profile dan greetings
+                Container(
+                  //userProfile
+                  child: Row(
+                    children: [
+                      Container(
+                          padding: EdgeInsets.only(right: 5),
+                          child: CircleAvatar()),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Assalamualaikum",
+                            style: TextStyle(fontSize: 12, color: Colors.blue),
+                          ),
+                          Text(
+                            "Admisi Unimma!",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                //notiifikasi
+                IconButton(
+                    onPressed: () => {},
+                    icon: Icon(
+                      Icons.notifications_rounded,
+                      color: Colors.blue,
+                    ))
               ],
             ),
           ),
@@ -181,9 +140,93 @@ class Beranda extends StatelessWidget {
             child: Container(
               height: 50,
               width: double.infinity,
-              margin: EdgeInsets.only(left: 10/100 * lebarLayar, right: 10/100 * lebarLayar, bottom: 20,),
-              decoration: BoxDecoration(color: Colors.yellow),
+              margin: EdgeInsets.only(
+                left: 10 / 100 * lebarLayar,
+                right: 10 / 100 * lebarLayar,
+                bottom: 20,
+              ),
+              decoration: BoxDecoration(
+                  color: Colors.yellow,
+                  borderRadius: BorderRadius.circular(30)),
             ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class PinLokasi extends StatelessWidget {
+  const PinLokasi({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 20),
+      child: IconTextKecil(
+        isiIkon: Icons.location_on_rounded,
+        isiText: "Mertoyudan, Magelang",
+      ),
+    );
+  }
+}
+
+class HighPriorityCard extends StatelessWidget {
+  const HighPriorityCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 140,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 30,
+              spreadRadius: 1)
+        ],
+        borderRadius: BorderRadius.circular(20),
+      ),
+      padding: EdgeInsets.all(15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          //Text, dan Tajuk Acara Prioritas
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Agenda terdekatmu",
+                style: TextStyle(fontSize: 12, color: Colors.black54),
+              ),
+              Text(
+                "Presentasi SMK Muhammadiyah Kebumen",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Colors.blue),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              )
+            ],
+          ),
+          //Ikon Teks Waktu dan Jam
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconTextKecil(
+                  isiIkon: Icons.calendar_month_rounded,
+                  isiText: "Minggu, 14 November 2019"),
+              IconTextKecil(
+                  isiIkon: Icons.schedule_rounded, isiText: "08:00 WIB")
+            ],
           )
         ],
       ),
