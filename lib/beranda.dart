@@ -171,7 +171,7 @@ class NavigasiBar extends StatefulWidget {
 }
 
 class _NavigasiBarState extends State<NavigasiBar> {
-  final List<IconData> iconNavigasi = [Icons.add_rounded];
+  final List<IconData> iconNavigasi = [Icons.home_rounded, Icons.add_rounded];
 
   @override
   Widget build(BuildContext context) {
