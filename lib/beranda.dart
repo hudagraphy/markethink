@@ -14,78 +14,83 @@ class Beranda extends StatelessWidget {
         children: [
           //Main Content
           Container(
-            child: Stack(
+            margin: EdgeInsets.only(top: 80),
+            child: ListView(
               children: [
-                //Agenda Berikutnya
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadiusDirectional.vertical(
-                      top: Radius.circular(30),
-                    ),
-                  ),
-                  margin: EdgeInsets.only(top: 200),
-                  padding: EdgeInsets.only(
-                    top: 100,
-                    bottom: 50,
-                    left: 5 / 100 * lebarLayar,
-                    right: 5 / 100 * lebarLayar,
-                  ),
-                  child: Column(
-                    children: [
-                      //SubTitle : Agenda akan datang - Lihat semua
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Agenda beriktunya",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            "Lihat semua",
-                            style: TextStyle(
-                              fontSize: 10,
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
-                      ),
-                      //progressBarr
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 10),
-                        child: Text(
-                          "--Progress Bar di sini--",
-                          style: TextStyle(fontSize: 10),
+                Stack(
+                  children: [
+                    //Agenda Berikutnya
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadiusDirectional.vertical(
+                          top: Radius.circular(30),
                         ),
                       ),
-                      //List Kartu Agenda
-                      KartuAgenda(
-                        tajukAcara: "Expo GIASS Surabaya 2024",
-                        lokasiAcara: "Dolly, Surabaya",
-                        waktuAcara: DateTime.now(),
-                        statusApprove: true,
+                      margin: EdgeInsets.only(top: 100),
+                      padding: EdgeInsets.only(
+                        top: 100,
+                        bottom: 50,
+                        left: 5 / 100 * lebarLayar,
+                        right: 5 / 100 * lebarLayar,
                       ),
-                    ],
-                  ),
+                      child: Column(
+                        children: [
+                          //Agenda akan datang - Lihat semua
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Agenda beriktunya",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                "Lihat semua",
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.white,
+                                ),
+                              )
+                            ],
+                          ),
+                          //progressBarr
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 10),
+                            child: Text(
+                              "--Progress Bar di sini--",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ),
+                          //List Kartu Agenda
+                          KartuAgenda(
+                            tajukAcara: "Expo GIASS Surabaya 2024",
+                            lokasiAcara: "Dolly, Surabaya",
+                            waktuAcara: DateTime.now(),
+                            statusApprove: true,
+                          ),
+                        ],
+                      ),
+                    ),
+                    //Pin Lokasi dan HighPriority Card
+                    Container(
+                      margin: EdgeInsets.only(
+                          left: 5 / 100 * lebarLayar,
+                          right: 5 / 100 * lebarLayar,
+                          top: 0),
+                      child: Column(
+                        children: [
+                          //Lokasi Device
+                          PinLokasi(),
+                          //High priority card
+                          HighPriorityCard(),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
-                //Pin Lokasi dan HighPriority Card
-                Container(
-                  margin: EdgeInsets.only(
-                      left: 5 / 100 * lebarLayar,
-                      right: 5 / 100 * lebarLayar,
-                      top: 100),
-                  child: Column(
-                    children: [
-                      //Lokasi Device
-                      PinLokasi(),
-                      //High priority card
-                      HighPriorityCard(),
-                    ],
-                  ),
-                )
               ],
             ),
           ),
