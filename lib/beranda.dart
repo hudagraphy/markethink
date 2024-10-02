@@ -30,7 +30,7 @@ class Beranda extends StatelessWidget {
                       margin: EdgeInsets.only(top: 100),
                       padding: EdgeInsets.only(
                         top: 100,
-                        bottom: 50,
+                        bottom: 80,
                         left: 5 / 100 * lebarLayar,
                         right: 5 / 100 * lebarLayar,
                       ),
@@ -150,21 +150,62 @@ class Beranda extends StatelessWidget {
           //NavBar
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 50,
-              width: double.infinity,
-              margin: EdgeInsets.only(
-                left: 10 / 100 * lebarLayar,
-                right: 10 / 100 * lebarLayar,
-                bottom: 20,
-              ),
-              decoration: BoxDecoration(
-                  color: Colors.yellow,
-                  borderRadius: BorderRadius.circular(30)),
-            ),
+            child: NavigasiBar(lebarLayar: lebarLayar),
           )
         ],
       ),
+    );
+  }
+}
+
+class NavigasiBar extends StatefulWidget {
+  const NavigasiBar({
+    super.key,
+    required this.lebarLayar,
+  });
+
+  final double lebarLayar;
+
+  @override
+  State<NavigasiBar> createState() => _NavigasiBarState();
+}
+
+class _NavigasiBarState extends State<NavigasiBar> {
+  final List<IconData> iconNavigasi = [Icons.add_rounded];
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: double.infinity,
+      margin: EdgeInsets.only(
+        left: 10 / 100 * widget.lebarLayar,
+        right: 10 / 100 * widget.lebarLayar,
+        bottom: 30,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(30),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 10,
+          ),
+        ],
+      ),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: iconNavigasi.map(
+            (e) {
+              return CircleAvatar(
+                backgroundColor: Colors.amber,
+                child: IconButton(
+                  icon: Icon(e),
+                  onPressed: () {},
+                ),
+              );
+            },
+          ).toList()),
     );
   }
 }
