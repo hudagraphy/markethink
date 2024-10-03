@@ -1,3 +1,4 @@
+import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
 
 class InputAgenda extends StatelessWidget {
@@ -14,75 +15,88 @@ class InputAgenda extends StatelessWidget {
                 ? (5 / 100 * lebarLayar)
                 : (25 / 100 * lebarLayar)),
         child: Center(
-          child: Container(
-            clipBehavior: Clip.hardEdge,
-            height: 400,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: Stack(
-              children: [
-                //tombol tombol
-                Row(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.white),
+                child: Text("Agenda Baru"),
+              ),
+              Container(
+                clipBehavior: Clip.hardEdge,
+                height: 400,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Stack(
                   children: [
-                    //tombol balik
-                    Visibility(
-                      visible: true,
-                      child: Expanded(
-                        child: Container(
-                          padding: EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                          ),
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              "Balik",
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.blue),
+                    //tombol tombol
+                    Row(
+                      children: [
+                        //tombol balik
+                        Visibility(
+                          visible: true,
+                          child: Expanded(
+                            child: Container(
+                              padding: EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                              ),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Text(
+                                  "Balik",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.blue),
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                    //tombol lanjut
-                    Expanded(
-                      child: Container(
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                        ),
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Text(
-                            "Lanjut",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                        //tombol lanjut
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                            ),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                "Lanjut",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    )
+                        )
+                      ],
+                    ),
+                    //form input
+                    Container(
+                      height: 330,
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 30,
+                            )
+                          ]),
+                    ),
                   ],
                 ),
-                Container(
-                  height: 330,
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 30,
-                        )
-                      ]),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
