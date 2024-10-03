@@ -220,10 +220,44 @@ class _NavigasiBarState extends State<NavigasiBar> {
             child: IconButton(
               color: Colors.white,
               icon: Icon(Icons.add),
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(30))),
+                  builder: (context) {
+                    return Container(
+                      height: 250,
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          IsiBottomSheet(
+                            ikon: Icons.calendar_month_rounded,
+                            judul: "Buat Agenda",
+                            onPressed: () {},
+                          ),
+                          IsiBottomSheet(
+                            ikon: Icons.local_see_rounded,
+                            judul: "Dokumentasi Giat",
+                            onPressed: () {},
+                          ),
+                          IsiBottomSheet(
+                            ikon: Icons.payments_rounded,
+                            judul: "Catat Pengeluaran",
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+              },
             ),
-          )
-           ,IconNavbar(
+          ),
+          IconNavbar(
             ikon: Icons.account_balance_wallet_rounded,
             status: widget.indexNav == 3,
             onPressed: () {
@@ -242,6 +276,40 @@ class _NavigasiBarState extends State<NavigasiBar> {
             },
           ),
         ],
+      ),
+    );
+  }
+}
+
+class IsiBottomSheet extends StatelessWidget {
+  const IsiBottomSheet(
+      {super.key,
+      required this.ikon,
+      required this.judul,
+      required this.onPressed});
+
+  final String judul;
+  final IconData ikon;
+  final void Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 5),
+      child: ListTile(
+        leading: Icon(
+          ikon,
+          size: 28,
+        ),
+        iconColor: Colors.blue,
+        title: Text(
+          judul,
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        onTap: onPressed,
       ),
     );
   }
