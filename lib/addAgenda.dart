@@ -12,13 +12,13 @@ class InputAgenda extends StatefulWidget {
 
 class _InputAgendaState extends State<InputAgenda> {
   int step = 1;
+  List<String> opsiJenisAgenda = ["Roadshow", "Expo", "Presentasi", "Rapat"];
+
   final _kunciForm = GlobalKey<FormBuilderState>();
   @override
   Widget build(BuildContext context) {
     double lebarLayar = MediaQuery.of(context).size.width;
     double tinggiLayar = MediaQuery.of(context).size.height;
-    
-    
     return Scaffold(
       body: FormBuilder(
         key: _kunciForm,
@@ -124,6 +124,18 @@ class _InputAgendaState extends State<InputAgenda> {
                               visible: step == 1,
                               child: Column(
                                 children: [
+                                   //jenis Agenda660
+                                  FormBuilderDropdown<String>(
+                                    name: "jenisAgenda",
+                                    decoration: PengaturanDekorasiField(
+                                        hintText: "Jenis Agenda"),
+                                    items: opsiJenisAgenda.map((e) => DropdownMenuItem(
+                                      //alignment: AlignmentDirectional.center,
+                                      value: e,
+                                      child: Text(e),
+                                    )).toList(),
+                                  ),
+                                  SizedBox(height: 20),
                                   //fieldMangkate
                                   FormBuilderDateTimePicker(
                                     name: "waktuAgendaStart",
@@ -139,9 +151,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                       setState(() {});
                                     },
                                   ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
+                                  SizedBox(height: 20),
                                   //field Balikke?
                                   FormBuilderDateTimePicker(
                                     name: "waktuAgendaEnd",
@@ -149,9 +159,11 @@ class _InputAgendaState extends State<InputAgenda> {
                                     firstDate: _kunciForm.currentState
                                         ?.value['waktuAgendaStart'],
                                     lastDate: DateTime(2024, 12, 31),
-                                    decoration: PengaturanDekorasiField(
-                                        hintText: "Balikke?"),
+                                    decoration: PengaturanDekorasiField(hintText: "Balikke?"),
                                   ),
+                                  
+                                  
+                                  //
                                 ],
                               ),
                             ),
@@ -160,13 +172,7 @@ class _InputAgendaState extends State<InputAgenda> {
                               visible: step == 2,
                               child: Column(
                                 children: [
-                                  //jenis Agenda
-                                  FormBuilderDropdown(
-                                    name: "jenisAgenda",
-                                    decoration: PengaturanDekorasiField(
-                                        hintText: "Jenis Agenda"),
-                                    items: [],
-                                  )
+                                 
                                 ],
                               ),
                             ),
@@ -192,9 +198,14 @@ class _InputAgendaState extends State<InputAgenda> {
           borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide.none,
         ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: BorderSide.none,
+        ),
+        alignLabelWithHint: true,
         contentPadding: EdgeInsets.all(25),
         hintText: hintText,
-        hintStyle: TextStyle(fontWeight: FontWeight.bold),
+        hintStyle: TextStyle(fontWeight: FontWeight.bold, ),
         fillColor: Colors.blue.shade50,
         filled: true);
   }
