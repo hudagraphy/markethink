@@ -2,6 +2,7 @@ import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:intl/intl.dart';
+import 'package:multi_dropdown/multi_dropdown.dart';
 
 class InputAgenda extends StatefulWidget {
   const InputAgenda({super.key});
@@ -11,8 +12,9 @@ class InputAgenda extends StatefulWidget {
 }
 
 class _InputAgendaState extends State<InputAgenda> {
-  int step = 1;
+  int step = 2;
   List<String> opsiJenisAgenda = ["Roadshow", "Expo", "Presentasi", "Rapat"];
+  List<String> wilayahAgenda = ["Api"];
 
   final _kunciForm = GlobalKey<FormBuilderState>();
   @override
@@ -81,7 +83,10 @@ class _InputAgendaState extends State<InputAgenda> {
                           //tombol lanjut
                           Expanded(
                             child: GestureDetector(
-                              onTap: () => setState(() {step++; debugPrint(step.toString());}),
+                              onTap: () => setState(() {
+                                step++;
+                                debugPrint(step.toString());
+                              }),
                               child: Container(
                                 padding: EdgeInsets.all(20),
                                 decoration: BoxDecoration(
@@ -124,16 +129,18 @@ class _InputAgendaState extends State<InputAgenda> {
                               visible: step == 1,
                               child: Column(
                                 children: [
-                                   //jenis Agenda660
+                                  //jenis Agenda660
                                   FormBuilderDropdown<String>(
                                     name: "jenisAgenda",
                                     decoration: PengaturanDekorasiField(
                                         hintText: "Jenis Agenda"),
-                                    items: opsiJenisAgenda.map((e) => DropdownMenuItem(
-                                      //alignment: AlignmentDirectional.center,
-                                      value: e,
-                                      child: Text(e),
-                                    )).toList(),
+                                    items: opsiJenisAgenda
+                                        .map((e) => DropdownMenuItem(
+                                              //alignment: AlignmentDirectional.center,
+                                              value: e,
+                                              child: Text(e),
+                                            ))
+                                        .toList(),
                                   ),
                                   SizedBox(height: 20),
                                   //fieldMangkate
@@ -159,10 +166,9 @@ class _InputAgendaState extends State<InputAgenda> {
                                     firstDate: _kunciForm.currentState
                                         ?.value['waktuAgendaStart'],
                                     lastDate: DateTime(2024, 12, 31),
-                                    decoration: PengaturanDekorasiField(hintText: "Balikke?"),
+                                    decoration: PengaturanDekorasiField(
+                                        hintText: "Balikke?"),
                                   ),
-                                  
-                                  
                                   //
                                 ],
                               ),
@@ -172,7 +178,48 @@ class _InputAgendaState extends State<InputAgenda> {
                               visible: step == 2,
                               child: Column(
                                 children: [
-                                 
+                                  MultiDropdown<String>(
+                                    items: opsiJenisAgenda
+                                        .map(
+                                          (e) =>
+                                              DropdownItem(value: e, label: e),
+                                        )
+                                        .toList(),
+                                    fieldDecoration: FieldDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                        borderSide: BorderSide.none,
+                                      ),
+                                      borderRadius: 30,
+                                      padding: EdgeInsets.all(25),
+                                      backgroundColor: Colors.blue.shade50,
+                                      hintText: "Ningdi?",
+                                      hintStyle: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black26,
+                                      ),
+                                    ),
+                                    dropdownDecoration: DropdownDecoration(
+                                      backgroundColor: Colors.white,
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    searchDecoration: SearchFieldDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                        borderSide: BorderSide.none,
+                                      ),
+                                      hintText: "Golekki wae",
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                        borderSide: BorderSide.none,
+                                      ),
+                                    ),
+                                    chipDecoration: ChipDecoration(
+                                        backgroundColor: Colors.amber,
+                                        borderRadius: BorderRadius.circular(10),
+                                        wrap: true),
+                                    searchEnabled: true,
+                                  )
                                 ],
                               ),
                             ),
@@ -205,7 +252,10 @@ class _InputAgendaState extends State<InputAgenda> {
         alignLabelWithHint: true,
         contentPadding: EdgeInsets.all(25),
         hintText: hintText,
-        hintStyle: TextStyle(fontWeight: FontWeight.bold, ),
+        hintStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.black26,
+        ),
         fillColor: Colors.blue.shade50,
         filled: true);
   }
