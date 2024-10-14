@@ -1,6 +1,8 @@
 import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:intl/intl.dart';
 import 'package:multi_dropdown/multi_dropdown.dart';
 
@@ -14,7 +16,19 @@ class InputAgenda extends StatefulWidget {
 class _InputAgendaState extends State<InputAgenda> {
   int step = 2;
   List<String> opsiJenisAgenda = ["Roadshow", "Expo", "Presentasi", "Rapat"];
-  List<String> wilayahAgenda = ["Api"];
+  List<String> wilayahAgenda = [
+    "Kota Magelang",
+    "Kabupaten Magelang",
+    "Kabupaten Temanggung",
+    "Kabupaten Wonosobo",
+    "Kabupaten Purworejo",
+    "Kabupaten Kebumen"
+  ];
+  List<String> personalBAM = ["Huda", "Pungki", "Zafir", "Bapang"];
+  List<String> dataDosenTendik = ["Tuessi", "Zuhron", "Yudi", "Lilik"];
+
+  final controlllerPeta = MapController.withPosition(
+      initPosition: GeoPoint(latitude: 47.4358055, longitude: 8.4737324));
 
   final _kunciForm = GlobalKey<FormBuilderState>();
   @override
@@ -85,7 +99,10 @@ class _InputAgendaState extends State<InputAgenda> {
                             child: GestureDetector(
                               onTap: () => setState(() {
                                 step++;
+                                _kunciForm.currentState?.save();
                                 debugPrint(step.toString());
+                                debugPrint(
+                                    _kunciForm.currentState?.value.toString());
                               }),
                               child: Container(
                                 padding: EdgeInsets.all(20),
@@ -178,51 +195,60 @@ class _InputAgendaState extends State<InputAgenda> {
                               visible: step == 2,
                               child: Column(
                                 children: [
-                                  MultiDropdown<String>(
-                                    items: opsiJenisAgenda
-                                        .map(
-                                          (e) =>
-                                              DropdownItem(value: e, label: e),
-                                        )
-                                        .toList(),
-                                    fieldDecoration: FieldDecoration(
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                        borderSide: BorderSide.none,
-                                      ),
-                                      borderRadius: 30,
-                                      padding: EdgeInsets.all(25),
-                                      backgroundColor: Colors.blue.shade50,
-                                      hintText: "Ningdi?",
-                                      hintStyle: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black26,
-                                      ),
-                                    ),
-                                    dropdownDecoration: DropdownDecoration(
-                                      backgroundColor: Colors.white,
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    searchDecoration: SearchFieldDecoration(
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                        borderSide: BorderSide.none,
-                                      ),
-                                      hintText: "Golekki wae",
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                        borderSide: BorderSide.none,
-                                      ),
-                                    ),
-                                    chipDecoration: ChipDecoration(
-                                        backgroundColor: Colors.amber,
-                                        borderRadius: BorderRadius.circular(10),
-                                        wrap: true),
-                                    searchEnabled: true,
-                                  )
+                                  //wilayah Agenda
+                                  DropdownMultiple(
+                                    fieldName: "wilayahAgenda",
+                                    kunciForm: _kunciForm,
+                                    isiDropdown: wilayahAgenda,
+                                    hintText: "Ningdi?",
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  //detil Lokasi
+                                  FormBuilderTextField(
+                                    name: "detilLokasi",
+                                    decoration: PengaturanDekorasiField(
+                                        hintText: "Detail Lokasi (Nek Ono)"),
+                                  ),
+                                  //pinPicker
                                 ],
                               ),
                             ),
+                            //Step 3
+                            Visibility(
+                              visible: step == 3,
+                              child: Column(
+                                children: [
+                                  //personelBAM
+                                  DropdownMultiple(
+                                    fieldName: "personelBAM",
+                                    kunciForm: _kunciForm,
+                                    isiDropdown: personalBAM,
+                                    hintText: "Personel BAM",
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  //personelDosenTendik
+                                  DropdownMultiple(
+                                    fieldName: "personelDosenTendik",
+                                    kunciForm: _kunciForm,
+                                    isiDropdown: dataDosenTendik,
+                                    hintText: "Personel Dosen/Tendik",
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  //personelLainnya
+                                  FormBuilderTextField(
+                                    name: "personelLuar",
+                                    decoration: PengaturanDekorasiField(
+                                        hintText: "Personel Lainnya"),
+                                  )
+                                ],
+                              ),
+                            )
                           ],
                         ),
                       ),
@@ -258,5 +284,68 @@ class _InputAgendaState extends State<InputAgenda> {
         ),
         fillColor: Colors.blue.shade50,
         filled: true);
+  }
+}
+
+class DropdownMultiple extends StatelessWidget {
+  const DropdownMultiple(
+      {super.key,
+      required this.isiDropdown,
+      required this.hintText,
+      required this.kunciForm,
+      required this.fieldName});
+
+  final List<String> isiDropdown;
+  final String hintText;
+
+  final GlobalKey<FormBuilderState> kunciForm;
+  final String fieldName;
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiDropdown<String>(
+      items: isiDropdown
+          .map(
+            (e) => DropdownItem(value: e, label: e),
+          )
+          .toList(),
+      fieldDecoration: FieldDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: BorderSide.none,
+        ),
+        borderRadius: 30,
+        padding: EdgeInsets.all(25),
+        backgroundColor: Colors.blue.shade50,
+        hintText: hintText,
+        hintStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.black26,
+        ),
+      ),
+      dropdownDecoration: DropdownDecoration(
+        backgroundColor: Colors.white,
+        borderRadius: BorderRadius.circular(30),
+      ),
+      searchDecoration: SearchFieldDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: BorderSide.none,
+        ),
+        hintText: "Golekki wae",
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: BorderSide.none,
+        ),
+      ),
+      chipDecoration: ChipDecoration(
+          backgroundColor: Colors.amber,
+          borderRadius: BorderRadius.circular(10),
+          wrap: true),
+      searchEnabled: true,
+      onSelectionChange: (selectedItems) {
+        kunciForm.currentState?.setInternalFieldValue(fieldName, selectedItems);
+      },
+    );
   }
 }
