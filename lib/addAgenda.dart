@@ -201,6 +201,9 @@ class _InputAgendaState extends State<InputAgenda> {
                                     kunciForm: _kunciForm,
                                     isiDropdown: wilayahAgenda,
                                     hintText: "Ningdi?",
+                                    selectedItems: _kunciForm.currentState
+                                            ?.value['wilayahAgenda'] ??
+                                        [],
                                   ),
                                   SizedBox(
                                     height: 20,
@@ -226,6 +229,9 @@ class _InputAgendaState extends State<InputAgenda> {
                                     kunciForm: _kunciForm,
                                     isiDropdown: personalBAM,
                                     hintText: "Personel BAM",
+                                    selectedItems: _kunciForm.currentState
+                                            ?.value['personelBAM'] ??
+                                        [],
                                   ),
                                   SizedBox(
                                     height: 20,
@@ -236,6 +242,9 @@ class _InputAgendaState extends State<InputAgenda> {
                                     kunciForm: _kunciForm,
                                     isiDropdown: dataDosenTendik,
                                     hintText: "Personel Dosen/Tendik",
+                                    selectedItems: _kunciForm.currentState
+                                            ?.value['personelTendik'] ??
+                                        [],
                                   ),
                                   SizedBox(
                                     height: 20,
@@ -293,20 +302,26 @@ class DropdownMultiple extends StatelessWidget {
       required this.isiDropdown,
       required this.hintText,
       required this.kunciForm,
-      required this.fieldName});
+      required this.fieldName,
+      required this.selectedItems});
 
   final List<String> isiDropdown;
   final String hintText;
 
   final GlobalKey<FormBuilderState> kunciForm;
   final String fieldName;
+  final List<String> selectedItems;
 
   @override
   Widget build(BuildContext context) {
     return MultiDropdown<String>(
       items: isiDropdown
           .map(
-            (e) => DropdownItem(value: e, label: e),
+            (e) => DropdownItem(
+              value: e,
+              label: e,
+              selected: selectedItems.contains(e),
+            ),
           )
           .toList(),
       fieldDecoration: FieldDecoration(
