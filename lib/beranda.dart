@@ -554,15 +554,18 @@ class IconTextKecil extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Icon(
           isiIkon,
           size: 15,
           color: Colors.blue,
         ),
-        Text(
-          isiText,
-          style: TextStyle(fontSize: 10),
+        Expanded(
+          child: Text(
+            isiText,
+            style: TextStyle(fontSize: 10),
+          ),
         )
       ],
     );

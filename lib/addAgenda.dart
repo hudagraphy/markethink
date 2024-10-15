@@ -5,6 +5,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:form_builder_file_picker/form_builder_file_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:markethink/beranda.dart';
 import 'package:multi_dropdown/multi_dropdown.dart';
 
 class InputAgenda extends StatefulWidget {
@@ -121,7 +122,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 child: Align(
                                   alignment: Alignment.bottomCenter,
                                   child: Text(
-                                    "Lanjut",
+                                    step == 6 ? "Simpen" : "Lanjut",
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
@@ -356,88 +357,257 @@ class _InputAgendaState extends State<InputAgenda> {
                             Visibility(
                                 visible: step == 6,
                                 child: Container(
-                                  child: Row(
-                                    children: [
-                                      //kolom waktu
-                                      Expanded(
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            //berangkat
-                                            Container(
-                                              //height: 150,
-                                              color: Colors.amber,
-                                              child: Column(
-                                                children: [
-                                                  Text(
-                                                    "19",
-                                                    style: TextStyle(
-                                                        fontSize: 28,
+                                  child: IntrinsicHeight(
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        //kolom waktu
+                                        Container(
+                                          height: 340,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              //pulangnya
+                                              Container(
+                                                padding: EdgeInsets.all(15),
+                                                decoration: BoxDecoration(
+                                                  color: Colors.blue,
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                ),
+                                                child: Column(
+                                                  children: [
+                                                    Text(
+                                                      "2",
+                                                      style: TextStyle(
+                                                        fontSize: 26,
                                                         fontWeight:
                                                             FontWeight.bold,
-                                                        color: Colors.blue),
-                                                  ),
-                                                  Text(
-                                                    "Desember",
-                                                    style: TextStyle(
-                                                      fontSize: 14,
-                                                      color: Colors.blue,
+                                                        color: Colors.amber,
+                                                      ),
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    "2024",
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        color: Colors.blue),
-                                                  ),
-                                                  Text(
-                                                    "08:00 WIB",
-                                                    style: TextStyle(
-                                                      fontSize: 12,
-                                                    ),
-                                                  ),
-                                                ],
+                                                    Text(
+                                                      'hari lagi',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 12),
+                                                    )
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                            //pulangnya
-                                            Container(
-                                              child: Column(
-                                                children: [
-                                                  Text(
-                                                    "23",
-                                                    style: TextStyle(
-                                                        fontSize: 28,
+                                              //berangkat
+                                              Container(
+                                                child: Column(
+                                                  children: [
+                                                    Text(
+                                                      "Event",
+                                                      style: TextStyle(
+                                                        fontSize: 10,
                                                         fontWeight:
                                                             FontWeight.bold,
-                                                        color: Colors.blue),
-                                                  ),
-                                                  Text(
-                                                    "Desember",
-                                                    style: TextStyle(
-                                                      fontSize: 14,
-                                                      color: Colors.blue,
+                                                      ),
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    "2024",
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        color: Colors.blue),
-                                                  ),
-                                                  Text(
-                                                    "08:00 WIB",
-                                                    style: TextStyle(
-                                                      fontSize: 12,
+                                                    Text(
+                                                      "19",
+                                                      style: TextStyle(
+                                                          fontSize: 28,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.blue),
                                                     ),
-                                                  ),
-                                                ],
+                                                    Text(
+                                                      "Desember",
+                                                      style: TextStyle(
+                                                        fontSize: 12,
+                                                        color: Colors.blue,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "2024",
+                                                      style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: Colors.blue),
+                                                    ),
+                                                    Text(
+                                                      "08:00 WIB",
+                                                      style: TextStyle(
+                                                        fontSize: 10,
+                                                      ),
+                                                    ),
+                                                    //countdown event
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      )
-                                    ],
+                                        VerticalDivider(
+                                          width: 20,
+                                          thickness: 1,
+                                          indent: 10,
+                                          endIndent: 0,
+                                          color: Colors.blue,
+                                        ),
+                                        //kolom detil
+                                        Expanded(
+                                          child: Container(
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Container(
+                                                  padding: EdgeInsets.all(3),
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.blue,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15)),
+                                                  child: Text(
+                                                    "#Roadshow",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 8),
+                                                  ),
+                                                ),
+                                                //main title
+                                                Container(
+                                                  margin: EdgeInsets.only(
+                                                      bottom: 10),
+                                                  child: Text(
+                                                    'Roadshow Bojonegoro - Tuban',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 20,
+                                                        color: Colors.black87),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  margin: EdgeInsets.only(
+                                                      bottom: 10),
+                                                  child: IconTextKecil(
+                                                    isiIkon: Icons
+                                                        .location_on_rounded,
+                                                    isiText:
+                                                        "Kabupaten Magelang, Kota Magelang",
+                                                  ),
+                                                ),
+                                                Container(
+                                                  margin: EdgeInsets.only(
+                                                      bottom: 10),
+                                                  child: IconTextKecil(
+                                                      isiIkon: Icons
+                                                          .location_city_rounded,
+                                                      isiText:
+                                                          'Gedung Ahmad Haris Nasution'),
+                                                ),
+                                                Container(
+                                                  margin: EdgeInsets.only(
+                                                      bottom: 10),
+                                                  child: IconTextKecil(
+                                                      isiIkon: Icons
+                                                          .diversity_3_rounded,
+                                                      isiText:
+                                                          'Huda, Zafir, Pungki, Dina, Tian, Kun Hisnan Hajron, Rasidi Rasido'),
+                                                ),
+                                                Container(
+                                                  margin: EdgeInsets.only(
+                                                      bottom: 10),
+                                                  child: IconTextKecil(
+                                                      isiIkon:
+                                                          Icons.group_rounded,
+                                                      isiText:
+                                                          'Tuessi Ari Purnomo, Dr. Imron'),
+                                                ),
+                                                Container(
+                                                  margin: EdgeInsets.only(
+                                                      bottom: 10),
+                                                  child: IconTextKecil(
+                                                      isiIkon: Icons
+                                                          .person_add_rounded,
+                                                      isiText:
+                                                          'Mahasiswa Fikes'),
+                                                ),
+                                                Container(
+                                                  margin: EdgeInsets.only(
+                                                      bottom: 10),
+                                                  child: IconTextKecil(
+                                                      isiIkon: Icons
+                                                          .directions_car_filled_rounded,
+                                                      isiText: 'Luxio, Avanza'),
+                                                ),
+                                                Container(
+                                                  margin: EdgeInsets.only(
+                                                      bottom: 10),
+                                                  child: IconTextKecil(
+                                                      isiIkon:
+                                                          Icons.draw_rounded,
+                                                      isiText: '-'),
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Container(
+                                                      margin: EdgeInsets.only(
+                                                          bottom: 10,
+                                                          right: 15),
+                                                      child: CircleAvatar(
+                                                        radius: 12,
+                                                        backgroundColor:
+                                                            Colors.blue,
+                                                        child: Text(
+                                                          "SPPD",
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.amber,
+                                                              fontSize: 7,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Container(
+                                                      margin: EdgeInsets.only(
+                                                          bottom: 10,
+                                                          right: 15),
+                                                      child: CircleAvatar(
+                                                        radius: 12,
+                                                        backgroundColor:
+                                                            Colors.blue,
+                                                        child: Icon(
+                                                          Icons
+                                                              .directions_car_filled_sharp,
+                                                          size: 12,
+                                                          color: Colors.amber,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Container(
+                                                      margin: EdgeInsets.only(
+                                                          bottom: 10),
+                                                      child: CircleAvatar(
+                                                        radius: 12,
+                                                        backgroundColor:
+                                                            Colors.blue,
+                                                        child: Icon(
+                                                          Icons.task_rounded,
+                                                          size: 12,
+                                                          color: Colors.amber,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ))
                           ],
