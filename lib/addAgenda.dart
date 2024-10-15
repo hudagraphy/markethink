@@ -15,7 +15,7 @@ class InputAgenda extends StatefulWidget {
 }
 
 class _InputAgendaState extends State<InputAgenda> {
-  int step = 4;
+  int step = 6;
   List<String> opsiJenisAgenda = ["Roadshow", "Expo", "Presentasi", "Rapat"];
   List<String> wilayahAgenda = [
     "Kota Magelang",
@@ -351,7 +351,95 @@ class _InputAgendaState extends State<InputAgenda> {
                                   // )
                                 ],
                               ),
-                            )
+                            ),
+                            //preview Agenda
+                            Visibility(
+                                visible: step == 6,
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      //kolom waktu
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            //berangkat
+                                            Container(
+                                              //height: 150,
+                                              color: Colors.amber,
+                                              child: Column(
+                                                children: [
+                                                  Text(
+                                                    "19",
+                                                    style: TextStyle(
+                                                        fontSize: 28,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.blue),
+                                                  ),
+                                                  Text(
+                                                    "Desember",
+                                                    style: TextStyle(
+                                                      fontSize: 14,
+                                                      color: Colors.blue,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    "2024",
+                                                    style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: Colors.blue),
+                                                  ),
+                                                  Text(
+                                                    "08:00 WIB",
+                                                    style: TextStyle(
+                                                      fontSize: 12,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            //pulangnya
+                                            Container(
+                                              child: Column(
+                                                children: [
+                                                  Text(
+                                                    "23",
+                                                    style: TextStyle(
+                                                        fontSize: 28,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.blue),
+                                                  ),
+                                                  Text(
+                                                    "Desember",
+                                                    style: TextStyle(
+                                                      fontSize: 14,
+                                                      color: Colors.blue,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    "2024",
+                                                    style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: Colors.blue),
+                                                  ),
+                                                  Text(
+                                                    "08:00 WIB",
+                                                    style: TextStyle(
+                                                      fontSize: 12,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ))
                           ],
                         ),
                       ),
