@@ -481,31 +481,35 @@ class CardViewAgenda extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        //tanggal berangkat
                         Text(
-                          "19",
+                          DateFormat.d().format(waktuBerangkatAgenda),
                           style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.bold,
                               color: Colors.blue),
                         ),
+                        //bulan berangkat
                         Text(
-                          "Desember",
+                          DateFormat.MMMM().format(waktuBerangkatAgenda),
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.blue,
                           ),
                         ),
+                        //tahun berangkat
                         Text(
-                          "2024",
+                          DateFormat.y().format(waktuBerangkatAgenda),
                           style: TextStyle(fontSize: 12, color: Colors.blue),
                         ),
+                        //jam event
                         Text(
-                          "08:00 WIB",
+                          DateFormat.Hm().format(waktuBerangkatAgenda),
                           style: TextStyle(
                             fontSize: 10,
                           ),
                         ),
-                        //countdown event
+                        
                       ],
                     ),
                   ),
@@ -531,7 +535,7 @@ class CardViewAgenda extends StatelessWidget {
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(15)),
                       child: Text(
-                        "#Roadshow",
+                        "#${jenisAgenda}",
                         style: TextStyle(color: Colors.white, fontSize: 8),
                       ),
                     ),
@@ -539,7 +543,7 @@ class CardViewAgenda extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: Text(
-                        'Roadshow Bojonegoro - Tuban',
+                        '${tajukAgenda}',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -550,39 +554,43 @@ class CardViewAgenda extends StatelessWidget {
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                         isiIkon: Icons.location_on_rounded,
-                        isiText: "Kabupaten Magelang, Kota Magelang",
+                        isiText: "${kotaKabAgenda}",
                       ),
                     ),
+                    //detil Lokasi
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                           isiIkon: Icons.location_city_rounded,
-                          isiText: 'Gedung Ahmad Haris Nasution'),
+                          isiText: '${detilLokasiAgenda}'),
                     ),
+                    //personelBAM
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                           isiIkon: Icons.diversity_3_rounded,
                           isiText:
-                              'Huda, Zafir, Pungki, Dina, Tian, Kun Hisnan Hajron, Rasidi Rasido'),
+                              '${personelBAM}'),
                     ),
+                    //personelDosenTendik
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                           isiIkon: Icons.group_rounded,
-                          isiText: 'Tuessi Ari Purnomo, Dr. Imron'),
+                          isiText: '${personelDosenTendik}'),
                     ),
+                    //personelTambahan
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                           isiIkon: Icons.person_add_rounded,
-                          isiText: 'Mahasiswa Fikes'),
+                          isiText: '${personelTambahanAgenda}'),
                     ),
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                           isiIkon: Icons.directions_car_filled_rounded,
-                          isiText: 'Luxio, Avanza'),
+                          isiText: '${kendaraanAgenda}'),
                     ),
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
@@ -591,11 +599,12 @@ class CardViewAgenda extends StatelessWidget {
                     ),
                     Row(
                       children: [
+                        //SPPD
                         Container(
                           margin: EdgeInsets.only(bottom: 10, right: 15),
                           child: CircleAvatar(
                             radius: 12,
-                            backgroundColor: Colors.blue,
+                            backgroundColor: suratTugas ? Colors.blue : Colors.grey,
                             child: Text(
                               "SPPD",
                               textAlign: TextAlign.center,
@@ -606,11 +615,12 @@ class CardViewAgenda extends StatelessWidget {
                             ),
                           ),
                         ),
+                        //Kendaraan
                         Container(
                           margin: EdgeInsets.only(bottom: 10, right: 15),
                           child: CircleAvatar(
                             radius: 12,
-                            backgroundColor: Colors.blue,
+                            backgroundColor: suratPinjamKendaraan ? Colors.blue : Colors.grey,
                             child: Icon(
                               Icons.directions_car_filled_sharp,
                               size: 12,
@@ -618,11 +628,12 @@ class CardViewAgenda extends StatelessWidget {
                             ),
                           ),
                         ),
+                        //file
                         Container(
                           margin: EdgeInsets.only(bottom: 10),
                           child: CircleAvatar(
                             radius: 12,
-                            backgroundColor: Colors.blue,
+                            backgroundColor:  Colors.blue,
                             child: Icon(
                               Icons.task_rounded,
                               size: 12,
