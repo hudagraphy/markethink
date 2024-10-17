@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:form_builder_file_picker/form_builder_file_picker.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
 import 'package:markethink/beranda.dart';
 import 'package:multi_dropdown/multi_dropdown.dart';
@@ -16,7 +17,7 @@ class InputAgenda extends StatefulWidget {
 }
 
 class _InputAgendaState extends State<InputAgenda> {
-  int step = 6;
+  int step = 1;
   List<String> opsiJenisAgenda = ["Roadshow", "Expo", "Presentasi", "Rapat"];
   List<String> wilayahAgenda = [
     "Kota Magelang",
@@ -36,6 +37,7 @@ class _InputAgendaState extends State<InputAgenda> {
     "Hi Ace",
     "Kendaraan Pribadi"
   ];
+  Map<String, dynamic> hasilForm = {};
 
   final controlllerPeta = MapController.withPosition(
       initPosition: GeoPoint(latitude: 47.4358055, longitude: 8.4737324));
@@ -109,10 +111,11 @@ class _InputAgendaState extends State<InputAgenda> {
                             child: GestureDetector(
                               onTap: () => setState(() {
                                 step++;
-                                _kunciForm.currentState?.save();
-                                debugPrint(step.toString());
+                                _kunciForm.currentState?.saveAndValidate();
+                                hasilForm = _kunciForm.currentState!.value;
                                 debugPrint(
-                                    _kunciForm.currentState?.value.toString());
+                                  _kunciForm.currentState?.value.toString(),
+                                );
                               }),
                               child: Container(
                                 padding: EdgeInsets.all(20),
@@ -161,6 +164,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                     name: "jenisAgenda",
                                     decoration: PengaturanDekorasiField(
                                         hintText: "Jenis Agenda"),
+                                    validator: FormBuilderValidators.required(errorText: 'Wajib diisi leh'),
                                     items: opsiJenisAgenda
                                         .map((e) => DropdownMenuItem(
                                               //alignment: AlignmentDirectional.center,
@@ -175,11 +179,12 @@ class _InputAgendaState extends State<InputAgenda> {
                                     name: 'tajukAgenda',
                                     decoration: PengaturanDekorasiField(
                                         hintText: 'Tajuk Agenda'),
+                                    validator: FormBuilderValidators.required(errorText: 'Agenda apaan, mosok judul kosong'),
                                   ),
                                   SizedBox(height: 20),
                                   //fieldMangkate
                                   FormBuilderDateTimePicker(
-                                    name: "waktuAgendaStart",
+                                    name: "waktuBerangkatAgenda",
                                     firstDate: DateTime.now(),
                                     lastDate: DateTime(2024, 12, 31),
                                     decoration: PengaturanDekorasiField(
@@ -195,7 +200,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                   SizedBox(height: 20),
                                   //field Balikke?
                                   FormBuilderDateTimePicker(
-                                    name: "waktuAgendaEnd",
+                                    name: "waktuPulangAgenda",
                                     //enabled: ,
                                     firstDate: DateTime.now(),
                                     lastDate: DateTime(2024, 12, 31),
@@ -213,10 +218,11 @@ class _InputAgendaState extends State<InputAgenda> {
                                 children: [
                                   //wilayah Agenda
                                   DropdownMultiple(
-                                    fieldName: "wilayahAgenda",
+                                    fieldName: "kotaKabAgenda",
                                     kunciForm: _kunciForm,
                                     isiDropdown: wilayahAgenda,
-                                    hintText: "Ningdi?",
+                                    hintText: "*Ningdi?",
+                                    isWajib: true,
                                     selectedItems: _kunciForm.currentState
                                             ?.value['wilayahAgenda'] ??
                                         [],
@@ -226,9 +232,10 @@ class _InputAgendaState extends State<InputAgenda> {
                                   ),
                                   //detil Lokasi
                                   FormBuilderTextField(
-                                    name: "detilLokasi",
+                                    name: "detilLokasiAgenda",
+                                    validator: FormBuilderValidators.required(),
                                     decoration: PengaturanDekorasiField(
-                                        hintText: "Detail Lokasi (Nek Ono)"),
+                                        hintText: "*Detail Lokasi"),
                                   ),
                                   //pinPicker
                                 ],
@@ -245,6 +252,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                     kunciForm: _kunciForm,
                                     isiDropdown: personalBAM,
                                     hintText: "Personel BAM",
+                                    isWajib: true,
                                     selectedItems: _kunciForm.currentState
                                             ?.value['personelBAM'] ??
                                         [],
@@ -263,7 +271,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                   SizedBox(height: 20),
                                   //personelLainnya
                                   FormBuilderTextField(
-                                    name: "personelLuar",
+                                    name: "personelTambahanAgenda",
                                     decoration: PengaturanDekorasiField(
                                         hintText: "Personel Lainnya"),
                                   )
@@ -289,6 +297,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                   //suratpinjam kendaraan
                                   FormBuilderSwitch(
                                     name: 'suratPinjamKendaraan',
+                                    initialValue: false,
                                     title: Text(
                                       'Butuh pinjam kendaraan?',
                                       style: TextStyle(
@@ -304,6 +313,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                   //Surat tugas
                                   FormBuilderSwitch(
                                     name: 'suratTugasAgenda',
+                                    initialValue: true,
                                     title: Text(
                                       'Butuh surat tugas?',
                                       style: TextStyle(
@@ -325,7 +335,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 children: [
                                   //notes
                                   FormBuilderTextField(
-                                    name: 'catatanAgenda',
+                                    name: 'notesAgenda',
                                     decoration: PengaturanDekorasiField(
                                         hintText: 'Catatan (kalo ada)'),
                                     maxLines: 5,
@@ -357,11 +367,7 @@ class _InputAgendaState extends State<InputAgenda> {
                             Visibility(
                               visible: step == 6,
                               child: CardViewAgenda(
-                                jenisAgenda: 'Roadshow',
-                                kotaKabAgenda: ['Magelang'],
-                                personelBAM: ['Huda'],
-                                waktuBerangkatAgenda: DateTime.now(),
-                                waktuPulangAgenda: DateTime.now(),
+                                hasilForm: hasilForm,
                               ),
                             )
                           ],
@@ -403,35 +409,9 @@ class _InputAgendaState extends State<InputAgenda> {
 }
 
 class CardViewAgenda extends StatelessWidget {
-  const CardViewAgenda(
-      {super.key,
-      required this.jenisAgenda,
-      this.tajukAgenda = "Belum diisi bray",
-      this.detilLokasiAgenda = "-",
-      this.pinLokasiAgenda = '-7.521870816806128, 110.22661255994015',
-      this.personelTambahanAgenda = '-',
-      this.notesAgenda = '-',
-      required this.kotaKabAgenda,
-      required this.personelBAM,
-      this.personelDosenTendik = const ['-'],
-      this.kendaraanAgenda = const ['-'],
-      required this.waktuBerangkatAgenda,
-      required this.waktuPulangAgenda,
-      this.suratPinjamKendaraan = false,
-      this.suratTugas = false});
+  const CardViewAgenda({super.key, required this.hasilForm});
 
-  final String jenisAgenda,
-      tajukAgenda,
-      detilLokasiAgenda,
-      pinLokasiAgenda,
-      personelTambahanAgenda,
-      notesAgenda;
-  final List<String> kotaKabAgenda,
-      personelBAM,
-      personelDosenTendik,
-      kendaraanAgenda;
-  final DateTime waktuBerangkatAgenda, waktuPulangAgenda;
-  final bool suratTugas, suratPinjamKendaraan;
+  final Map<String, dynamic> hasilForm;
 
   @override
   Widget build(BuildContext context) {
@@ -483,7 +463,8 @@ class CardViewAgenda extends StatelessWidget {
                         ),
                         //tanggal berangkat
                         Text(
-                          DateFormat.d().format(waktuBerangkatAgenda),
+                          DateFormat.d()
+                              .format(hasilForm['waktuBerangkatAgenda']),
                           style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.bold,
@@ -491,7 +472,8 @@ class CardViewAgenda extends StatelessWidget {
                         ),
                         //bulan berangkat
                         Text(
-                          DateFormat.MMMM().format(waktuBerangkatAgenda),
+                          DateFormat.MMMM()
+                              .format(hasilForm['waktuBerangkatAgenda']),
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.blue,
@@ -499,17 +481,18 @@ class CardViewAgenda extends StatelessWidget {
                         ),
                         //tahun berangkat
                         Text(
-                          DateFormat.y().format(waktuBerangkatAgenda),
+                          DateFormat.y()
+                              .format(hasilForm['waktuBerangkatAgenda']),
                           style: TextStyle(fontSize: 12, color: Colors.blue),
                         ),
                         //jam event
                         Text(
-                          DateFormat.Hm().format(waktuBerangkatAgenda),
+                          DateFormat.Hm()
+                              .format(hasilForm['waktuBerangkatAgenda']),
                           style: TextStyle(
                             fontSize: 10,
                           ),
                         ),
-                        
                       ],
                     ),
                   ),
@@ -529,13 +512,14 @@ class CardViewAgenda extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    //jenisAgenda
                     Container(
                       padding: EdgeInsets.all(3),
                       decoration: BoxDecoration(
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(15)),
                       child: Text(
-                        "#${jenisAgenda}",
+                        "#${hasilForm['jenisAgenda']}",
                         style: TextStyle(color: Colors.white, fontSize: 8),
                       ),
                     ),
@@ -543,7 +527,7 @@ class CardViewAgenda extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: Text(
-                        '${tajukAgenda}',
+                        '${hasilForm['tajukAgenda']}',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -554,7 +538,7 @@ class CardViewAgenda extends StatelessWidget {
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                         isiIkon: Icons.location_on_rounded,
-                        isiText: "${kotaKabAgenda}",
+                        isiText: "${hasilForm['kotaKabAgenda']}",
                       ),
                     ),
                     //detil Lokasi
@@ -562,40 +546,45 @@ class CardViewAgenda extends StatelessWidget {
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                           isiIkon: Icons.location_city_rounded,
-                          isiText: '${detilLokasiAgenda}'),
+                          isiText: '${hasilForm['detilLokasiAgenda'] ?? '-'}'),
                     ),
                     //personelBAM
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                           isiIkon: Icons.diversity_3_rounded,
-                          isiText:
-                              '${personelBAM}'),
+                          isiText: '${hasilForm['personelBAM']}'),
                     ),
                     //personelDosenTendik
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                           isiIkon: Icons.group_rounded,
-                          isiText: '${personelDosenTendik}'),
+                          isiText:
+                              '${hasilForm['personelDosenTendik'] ?? '-'}'),
                     ),
                     //personelTambahan
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                           isiIkon: Icons.person_add_rounded,
-                          isiText: '${personelTambahanAgenda}'),
+                          isiText:
+                              '${hasilForm['personelTambahanAgenda'] ?? '-'}'),
                     ),
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                           isiIkon: Icons.directions_car_filled_rounded,
-                          isiText: '${kendaraanAgenda}'),
+                          isiText:
+                              '${hasilForm['kendaraanAgenda'] ?? 'Tanpa Kendaraan'}'),
                     ),
+                    //notesAgenda
                     Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
-                          isiIkon: Icons.draw_rounded, isiText: '-'),
+                        isiIkon: Icons.draw_rounded,
+                        isiText: "${hasilForm['notesAgenda'] ?? '-'}",
+                      ),
                     ),
                     Row(
                       children: [
@@ -604,7 +593,9 @@ class CardViewAgenda extends StatelessWidget {
                           margin: EdgeInsets.only(bottom: 10, right: 15),
                           child: CircleAvatar(
                             radius: 12,
-                            backgroundColor: suratTugas ? Colors.blue : Colors.grey,
+                            backgroundColor: hasilForm['suratTugasAgenda']
+                                ? Colors.blue
+                                : Colors.grey,
                             child: Text(
                               "SPPD",
                               textAlign: TextAlign.center,
@@ -620,7 +611,9 @@ class CardViewAgenda extends StatelessWidget {
                           margin: EdgeInsets.only(bottom: 10, right: 15),
                           child: CircleAvatar(
                             radius: 12,
-                            backgroundColor: suratPinjamKendaraan ? Colors.blue : Colors.grey,
+                            backgroundColor: hasilForm['suratPinjamKendaraan']
+                                ? Colors.blue
+                                : Colors.grey,
                             child: Icon(
                               Icons.directions_car_filled_sharp,
                               size: 12,
@@ -633,7 +626,7 @@ class CardViewAgenda extends StatelessWidget {
                           margin: EdgeInsets.only(bottom: 10),
                           child: CircleAvatar(
                             radius: 12,
-                            backgroundColor:  Colors.blue,
+                            backgroundColor: Colors.blue,
                             child: Icon(
                               Icons.task_rounded,
                               size: 12,
@@ -661,7 +654,8 @@ class DropdownMultiple extends StatelessWidget {
       required this.hintText,
       required this.kunciForm,
       required this.fieldName,
-      required this.selectedItems});
+      required this.selectedItems,
+      this.isWajib = false});
 
   final List<String> isiDropdown;
   final String hintText;
@@ -669,6 +663,7 @@ class DropdownMultiple extends StatelessWidget {
   final GlobalKey<FormBuilderState> kunciForm;
   final String fieldName;
   final List<String> selectedItems;
+  final bool isWajib;
 
   @override
   Widget build(BuildContext context) {
@@ -718,6 +713,12 @@ class DropdownMultiple extends StatelessWidget {
       searchEnabled: true,
       onSelectionChange: (selectedItems) {
         kunciForm.currentState?.setInternalFieldValue(fieldName, selectedItems);
+      },
+      validator: (selectedOptions) {
+        if ((selectedOptions == null || selectedOptions.isEmpty) && !isWajib) {
+          return 'Iki wajib leh!';
+        }
+        return null;
       },
     );
   }
