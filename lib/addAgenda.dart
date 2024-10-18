@@ -70,7 +70,7 @@ class _InputAgendaState extends State<InputAgenda> {
                 //mainForm
                 Container(
                   clipBehavior: Clip.hardEdge,
-                  height: 450,
+                  height: 460,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -110,8 +110,12 @@ class _InputAgendaState extends State<InputAgenda> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () => setState(() {
-                                step++;
-                                _kunciForm.currentState?.saveAndValidate();
+                                if (_kunciForm.currentState
+                                        ?.saveAndValidate() ==
+                                    true) {
+                                  step++;
+                                }
+                                ;
                                 hasilForm = _kunciForm.currentState!.value;
                                 debugPrint(
                                   _kunciForm.currentState?.value.toString(),
@@ -139,7 +143,7 @@ class _InputAgendaState extends State<InputAgenda> {
                       ),
                       //form input
                       Container(
-                        height: 385,
+                        height: 390,
                         padding: EdgeInsets.all(20),
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -164,7 +168,8 @@ class _InputAgendaState extends State<InputAgenda> {
                                     name: "jenisAgenda",
                                     decoration: PengaturanDekorasiField(
                                         hintText: "Jenis Agenda"),
-                                    validator: FormBuilderValidators.required(errorText: 'Wajib diisi leh'),
+                                    validator: FormBuilderValidators.required(
+                                        errorText: 'Wajib diisi leh'),
                                     items: opsiJenisAgenda
                                         .map((e) => DropdownMenuItem(
                                               //alignment: AlignmentDirectional.center,
@@ -179,33 +184,39 @@ class _InputAgendaState extends State<InputAgenda> {
                                     name: 'tajukAgenda',
                                     decoration: PengaturanDekorasiField(
                                         hintText: 'Tajuk Agenda'),
-                                    validator: FormBuilderValidators.required(errorText: 'Agenda apaan, mosok judul kosong'),
+                                    validator: FormBuilderValidators.required(
+                                        errorText:
+                                            'Agenda apaan, mosok kagak ada nama acaranya'),
                                   ),
                                   SizedBox(height: 20),
                                   //fieldMangkate
                                   FormBuilderDateTimePicker(
                                     name: "waktuBerangkatAgenda",
                                     firstDate: DateTime.now(),
-                                    lastDate: DateTime(2024, 12, 31),
+                                    lastDate: DateTime(2030, 12, 31),
+                                    validator: FormBuilderValidators.required(
+                                        errorText: 'Harus ada tanggalnya woy'),
                                     decoration: PengaturanDekorasiField(
                                       hintText: "Mangkate?",
                                     ),
-                                    onChanged: (value) {
-                                      _kunciForm.currentState?.save();
-                                      debugPrint(_kunciForm.currentState?.value
-                                          .toString());
-                                      setState(() {});
-                                    },
+                                    onChanged: (value) => setState(() {
+                                      _kunciForm.currentState
+                                          ?.saveAndValidate();
+                                    }),
                                   ),
                                   SizedBox(height: 20),
                                   //field Balikke?
-                                  FormBuilderDateTimePicker(
-                                    name: "waktuPulangAgenda",
-                                    //enabled: ,
-                                    firstDate: DateTime.now(),
-                                    lastDate: DateTime(2024, 12, 31),
-                                    decoration: PengaturanDekorasiField(
-                                        hintText: "Balikke?"),
+                                  Visibility(
+                                    visible: _kunciForm.currentState
+                                            ?.value['waktuBerangkatAgenda'] !=
+                                        null,
+                                    child: FormBuilderDateTimePicker(
+                                      name: "waktuPulangAgenda",
+                                      firstDate: DateTime.now(),
+                                      lastDate: DateTime(2024, 12, 31),
+                                      decoration: PengaturanDekorasiField(
+                                          hintText: "Balikke?"),
+                                    ),
                                   ),
                                   //
                                 ],
@@ -313,7 +324,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                   //Surat tugas
                                   FormBuilderSwitch(
                                     name: 'suratTugasAgenda',
-                                    initialValue: true,
+                                    initialValue: false,
                                     title: Text(
                                       'Butuh surat tugas?',
                                       style: TextStyle(
@@ -392,12 +403,22 @@ class _InputAgendaState extends State<InputAgenda> {
           borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide.none,
         ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: BorderSide.none,
+        ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide.none,
         ),
+        focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: BorderSide(color: Colors.amber)),
+        errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: BorderSide(color: Colors.amber)),
         alignLabelWithHint: true,
-        contentPadding: EdgeInsets.all(25),
+        contentPadding: EdgeInsets.all(20),
         hintText: hintText,
         hintStyle: TextStyle(
           fontWeight: FontWeight.bold,
@@ -538,7 +559,7 @@ class CardViewAgenda extends StatelessWidget {
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                         isiIkon: Icons.location_on_rounded,
-                        isiText: "${hasilForm['kotaKabAgenda']}",
+                        isiText: hasilForm['kotaKabAgenda'].join(', '),
                       ),
                     ),
                     //detil Lokasi
@@ -553,7 +574,7 @@ class CardViewAgenda extends StatelessWidget {
                       margin: EdgeInsets.only(bottom: 10),
                       child: IconTextKecil(
                           isiIkon: Icons.diversity_3_rounded,
-                          isiText: '${hasilForm['personelBAM']}'),
+                          isiText: '${hasilForm['personelBAM'].join(', ')}'),
                     ),
                     //personelDosenTendik
                     Container(
@@ -561,7 +582,7 @@ class CardViewAgenda extends StatelessWidget {
                       child: IconTextKecil(
                           isiIkon: Icons.group_rounded,
                           isiText:
-                              '${hasilForm['personelDosenTendik'] ?? '-'}'),
+                              '${hasilForm['personelDosenTendik']?.join(', ') ?? '-'}'),
                     ),
                     //personelTambahan
                     Container(
@@ -576,7 +597,7 @@ class CardViewAgenda extends StatelessWidget {
                       child: IconTextKecil(
                           isiIkon: Icons.directions_car_filled_rounded,
                           isiText:
-                              '${hasilForm['kendaraanAgenda'] ?? 'Tanpa Kendaraan'}'),
+                              '${hasilForm['kendaraanAgenda']?.join(', ') ?? 'Tanpa Kendaraan'}'),
                     ),
                     //notesAgenda
                     Container(
@@ -715,7 +736,7 @@ class DropdownMultiple extends StatelessWidget {
         kunciForm.currentState?.setInternalFieldValue(fieldName, selectedItems);
       },
       validator: (selectedOptions) {
-        if ((selectedOptions == null || selectedOptions.isEmpty) && !isWajib) {
+        if ((selectedOptions == null || selectedOptions.isEmpty) && isWajib) {
           return 'Iki wajib leh!';
         }
         return null;
