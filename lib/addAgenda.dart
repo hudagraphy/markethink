@@ -110,16 +110,12 @@ class _InputAgendaState extends State<InputAgenda> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () => setState(() {
+                                hasilForm = _kunciForm.currentState!.value;
                                 if (_kunciForm.currentState
                                         ?.saveAndValidate() ==
                                     true) {
                                   step++;
                                 }
-                                ;
-                                hasilForm = _kunciForm.currentState!.value;
-                                debugPrint(
-                                  _kunciForm.currentState?.value.toString(),
-                                );
                               }),
                               child: Container(
                                 padding: EdgeInsets.all(20),
