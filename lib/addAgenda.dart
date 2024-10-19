@@ -1,4 +1,5 @@
 import 'package:easy_stepper/easy_stepper.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -7,6 +8,7 @@ import 'package:form_builder_file_picker/form_builder_file_picker.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
 import 'package:markethink/beranda.dart';
+import 'package:markethink/dbFirebase.dart';
 import 'package:multi_dropdown/multi_dropdown.dart';
 
 class InputAgenda extends StatefulWidget {
@@ -109,14 +111,19 @@ class _InputAgendaState extends State<InputAgenda> {
                           //tombol lanjut
                           Expanded(
                             child: GestureDetector(
-                              onTap: () => setState(() {
+                              onTap: () async{
+                                await tambahAgenda(hasilForm);
+                                setState((){
                                 hasilForm = _kunciForm.currentState!.value;
                                 if (_kunciForm.currentState
                                         ?.saveAndValidate() ==
                                     true) {
                                   step++;
+                                 
+                                  
                                 }
-                              }),
+                              });
+                              },
                               child: Container(
                                 padding: EdgeInsets.all(20),
                                 decoration: BoxDecoration(
@@ -231,7 +238,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                     hintText: "*Ningdi?",
                                     isWajib: true,
                                     selectedItems: _kunciForm.currentState
-                                            ?.value['wilayahAgenda'] ??
+                                            ?.value['kotaKabAgenda'] ??
                                         [],
                                   ),
                                   SizedBox(
@@ -346,6 +353,10 @@ class _InputAgendaState extends State<InputAgenda> {
                                     decoration: PengaturanDekorasiField(
                                         hintText: 'Catatan (kalo ada)'),
                                     maxLines: 5,
+                                    onChanged: (value) {
+                                      _kunciForm.currentState?.saveAndValidate();
+                                    },
+                                    
                                   ),
                                   SizedBox(height: 20),
                                   //filePicker

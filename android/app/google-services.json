@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "267505524494",
+    "project_id": "markethink-59488",
+    "storage_bucket": "markethink-59488.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267505524494:android:c763f1de77fb05e49d815f",
+        "android_client_info": {
+          "package_name": "com.markethink.unimma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267505524494-q58moht9m5hbs4pqs1abpph6q6dng3lt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAm_zYn5D2Ccmhj_Vv0Y1RDXEKPgmjyF8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267505524494-q58moht9m5hbs4pqs1abpph6q6dng3lt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
