@@ -21,7 +21,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(textTheme: GoogleFonts.latoTextTheme()),
-        home: InputAgenda() //Beranda(),
+        home: Beranda(),
         );
   }
 }

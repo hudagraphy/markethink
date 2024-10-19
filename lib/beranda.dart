@@ -1,6 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:markethink/addAgenda.dart';
 
 class Beranda extends StatelessWidget {
   const Beranda({super.key});
@@ -15,6 +16,7 @@ class Beranda extends StatelessWidget {
           //Main Content
           Container(
             margin: EdgeInsets.only(top: 80),
+            color: Colors.amber,
             child: ListView(
               children: [
                 Stack(
@@ -237,7 +239,14 @@ class _NavigasiBarState extends State<NavigasiBar> {
                           IsiBottomSheet(
                             ikon: Icons.calendar_month_rounded,
                             judul: "Buat Agenda",
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const InputAgenda(),
+                                ),
+                              );
+                            },
                           ),
                           IsiBottomSheet(
                             ikon: Icons.local_see_rounded,
