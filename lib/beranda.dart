@@ -2,6 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:markethink/addAgenda.dart';
+import 'package:markethink/dbFirebase.dart';
 
 class Beranda extends StatelessWidget {
   const Beranda({super.key});
@@ -71,11 +72,16 @@ class Beranda extends StatelessWidget {
                               shrinkWrap: true,
                               itemCount: 4,
                               itemBuilder: (context, index) {
-                                return KartuAgenda(
-                                  tajukAcara: "Expo GIASS Surabaya 2024",
-                                  lokasiAcara: "Dolly, Surabaya",
-                                  waktuAcara: DateTime.now(),
-                                  statusApprove: true,
+                                return GestureDetector(
+                                  onTap: () async{
+                                    await ambilDataAgenda();
+                                  }, 
+                                  child: KartuAgenda(
+                                    tajukAcara: "Expo GIASS Surabaya 2024",
+                                    lokasiAcara: "Dolly, Surabaya",
+                                    waktuAcara: DateTime.now(),
+                                    statusApprove: true,
+                                  ),
                                 );
                               },
                             ),

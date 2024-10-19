@@ -10,3 +10,19 @@ Future tambahAgenda(Map<String, dynamic> hasilFormAgenda) {
       )
       .catchError((err) => print('Gagal u=input data karena $err'));
 }
+
+Future ambilDataAgenda() {
+  CollectionReference agenda = FirebaseFirestore.instance.collection('agenda');
+
+  return agenda.get().then(
+    (hasil) {
+      hasil.docs.forEach(
+        (element) {
+          print("${element.id} ::: ${element.data()}");
+        },
+      );
+    },
+  ).catchError((err){
+    print(err);
+  });
+}
