@@ -111,18 +111,17 @@ class _InputAgendaState extends State<InputAgenda> {
                           //tombol lanjut
                           Expanded(
                             child: GestureDetector(
-                              onTap: () async{
-                                await tambahAgenda(hasilForm);
-                                setState((){
+                              onTap: () async {
                                 hasilForm = _kunciForm.currentState!.value;
                                 if (_kunciForm.currentState
                                         ?.saveAndValidate() ==
                                     true) {
                                   step++;
-                                 
-                                  
+                                  if (step == 7){
+                                    await tambahAgenda(hasilForm);
+                                  }
                                 }
-                              });
+                                setState(() {});
                               },
                               child: Container(
                                 padding: EdgeInsets.all(20),
@@ -354,9 +353,9 @@ class _InputAgendaState extends State<InputAgenda> {
                                         hintText: 'Catatan (kalo ada)'),
                                     maxLines: 5,
                                     onChanged: (value) {
-                                      _kunciForm.currentState?.saveAndValidate();
+                                      _kunciForm.currentState
+                                          ?.saveAndValidate();
                                     },
-                                    
                                   ),
                                   SizedBox(height: 20),
                                   //filePicker

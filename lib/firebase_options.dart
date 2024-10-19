@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'markethink-59488.appspot.com',
     measurementId: 'G-B4CRNYMLL2',
   );
+
 }
