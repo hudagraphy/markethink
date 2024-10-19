@@ -16,7 +16,6 @@ class Beranda extends StatelessWidget {
           //Main Content
           Container(
             margin: EdgeInsets.only(top: 80),
-            color: Colors.amber,
             child: ListView(
               children: [
                 Stack(
@@ -91,6 +90,7 @@ class Beranda extends StatelessWidget {
                           right: 5 / 100 * lebarLayar,
                           top: 0),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           //Lokasi Device
                           PinLokasi(),
@@ -356,7 +356,8 @@ class PinLokasi extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 20),
       child: IconTextKecil(
         isiIkon: Icons.location_on_rounded,
-        isiText: "Mertoyudan, Magelang",
+        isiText:
+            "Mertoyudan, Magelang",
       ),
     );
   }
@@ -564,13 +565,15 @@ class IconTextKecil extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Icon(
           isiIkon,
           size: 15,
           color: Colors.blue,
         ),
-        Expanded(
+        Flexible(
+          fit: FlexFit.loose,
           child: Text(
             isiText,
             style: TextStyle(fontSize: 10),
