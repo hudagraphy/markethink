@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:markethink/addAgenda.dart';
 import 'package:markethink/dbFirebase.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Beranda extends StatelessWidget {
   const Beranda({super.key});
@@ -67,25 +68,37 @@ class Beranda extends StatelessWidget {
                             ),
                           ),
                           //List Kartu Agenda
-                          Container(
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: 4,
-                              itemBuilder: (context, index) {
-                                return GestureDetector(
-                                  onTap: () async{
-                                    await ambilDataAgenda();
-                                  }, 
-                                  child: KartuAgenda(
-                                    tajukAcara: "Expo GIASS Surabaya 2024",
-                                    lokasiAcara: "Dolly, Surabaya",
-                                    waktuAcara: DateTime.now(),
-                                    statusApprove: true,
-                                  ),
-                                );
-                              },
-                            ),
-                          )
+                          FutureBuilder(
+                              future: ambilDataAgenda(userAkun: 'Bapang'),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  
+                                  return Container(
+                                    child: ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: snapshot.data.length,
+                                      itemBuilder: (context, index) {
+                                        var dataAgenda = snapshot.data[index].data();
+                                        return GestureDetector(
+                                          onTap: () async {
+                                            print(dataAgenda);
+                                          },
+                                          child: KartuAgenda(
+                                            tajukAcara:
+                                                dataAgenda['tajukAgenda'],
+                                            lokasiAcara: dataAgenda['kotaKabAgenda'].join(', '),
+                                            waktuAcara: dataAgenda['waktuBerangkatAgenda'].toDate(),
+                                            statusApprove: true,
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  );
+                                }else if(snapshot.hasError){
+                                  return Text('Error leh ${snapshot.error}');
+                                }
+                                return Text('Sik Yo');
+                              })
                         ],
                       ),
                     ),
@@ -362,8 +375,7 @@ class PinLokasi extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 20),
       child: IconTextKecil(
         isiIkon: Icons.location_on_rounded,
-        isiText:
-            "Mertoyudan, Magelang",
+        isiText: "Mertoyudan, Magelang gfgsfgfsgfsgfsgfsgfsgsfgfgfsgsfgfgfsgsfggfgfsgfgfsgfgfgfsgfsggfgf ",
       ),
     );
   }
@@ -489,25 +501,29 @@ class KartuAgenda extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       //info lokasi
-                      IconTextKecil(
-                        isiIkon: Icons.location_on_rounded,
-                        isiText: "${lokasiAcara}",
+                      Container(
+                        child: IconTextKecil(
+                          isiIkon: Icons.location_on_rounded,
+                          isiText: "${lokasiAcara}",
+                        ),
                       ),
                       //informasi tambahan (proof dan kendaraan)
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.done_all_rounded,
-                            size: 15,
-                            color: statusApprove ? Colors.blue : Colors.black12,
-                          ),
-                          Icon(
-                            Icons.directions_car_filled_rounded,
-                            size: 15,
-                            color:
-                                statusKendaraan ? Colors.blue : Colors.black12,
-                          )
-                        ],
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.done_all_rounded,
+                              size: 15,
+                              color: statusApprove ? Colors.blue : Colors.black12,
+                            ),
+                            Icon(
+                              Icons.directions_car_filled_rounded,
+                              size: 15,
+                              color:
+                                  statusKendaraan ? Colors.blue : Colors.black12,
+                            )
+                          ],
+                        ),
                       )
                     ],
                   )

@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:markethink/beranda.dart';
 import 'package:markethink/dbFirebase.dart';
 import 'package:multi_dropdown/multi_dropdown.dart';
+import  'package:uuid/uuid.dart';
 
 class InputAgenda extends StatefulWidget {
   const InputAgenda({super.key});
@@ -124,7 +125,12 @@ class _InputAgendaState extends State<InputAgenda> {
                                 _kunciForm.currentState?.setInternalFieldValue('berkasAgenda', 'https://drive.google.com/open?id=1PBnYQZ1VupTTgA4Zy6lQ90Wte3NZJARy&usp=drive_fs');
                                 step++;
                                 if (step == 7){
-                                  await tambahAgenda(hasilForm);
+                                  await tambahAgenda(hasilForm, "${hasilForm['jenisAgenda']}_${Uuid().v1().substring(0, 13)}");
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  setState(() {
+                                    
+                                  });
                                 }
                               }
                               setState(() {});
