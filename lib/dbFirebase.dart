@@ -12,7 +12,7 @@ Future ambilDataAgenda({required String userAkun, String dokumen = 'all'}) {
   FirebaseFirestore db = FirebaseFirestore.instance;
   CollectionReference agenda = db.collection('agenda');
 
-  final hasil = agenda.where('personelBAM', arrayContains: userAkun).get().then((value) {
+  final hasil = agenda.where('personelBAM', arrayContains: userAkun).orderBy('waktuBerangkatAgenda').get().then((value) {
     return value.docs;
   },);
   return hasil;

@@ -12,117 +12,131 @@ class Beranda extends StatelessWidget {
   Widget build(BuildContext context) {
     double lebarLayar = MediaQuery.of(context).size.width;
     double tinggiLayar = MediaQuery.of(context).size.height;
+    String userAkun = "Pungki";
     return Scaffold(
       body: Stack(
         children: [
           //Main Content
-          Container(
-            margin: EdgeInsets.only(top: 80),
-            child: ListView(
-              children: [
-                Stack(
-                  children: [
-                    //Agenda Berikutnya
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadiusDirectional.vertical(
-                          top: Radius.circular(30),
-                        ),
-                      ),
-                      margin: EdgeInsets.only(top: 100),
-                      padding: EdgeInsets.only(
-                        top: 100,
-                        bottom: 80,
-                        left: 5 / 100 * lebarLayar,
-                        right: 5 / 100 * lebarLayar,
-                      ),
-                      child: Column(
+          FutureBuilder(
+              future: ambilDataAgenda(userAkun: userAkun),
+              builder: (context, snapshot) {
+                if(snapshot.hasData){
+                return Container(
+                  margin: EdgeInsets.only(top: 80),
+                  child: ListView(
+                    children: [
+                      Stack(
                         children: [
-                          //Agenda akan datang - Lihat semua
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Agenda beriktunya",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Text(
-                                "Lihat semua",
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  color: Colors.white,
-                                ),
-                              )
-                            ],
-                          ),
-                          //progressBarr
+                          //Agenda Berikutnya
                           Container(
-                            margin: EdgeInsets.symmetric(vertical: 10),
-                            child: Text(
-                              "--Progress Bar di sini--",
-                              style: TextStyle(fontSize: 10),
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadiusDirectional.vertical(
+                                top: Radius.circular(30),
+                              ),
+                            ),
+                            margin: EdgeInsets.only(top: 100),
+                            padding: EdgeInsets.only(
+                              top: 100,
+                              bottom: 80,
+                              left: 5 / 100 * lebarLayar,
+                              right: 5 / 100 * lebarLayar,
+                            ),
+                            child: Column(
+                              children: [
+                                //Agenda akan datang - Lihat semua
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Agenda beriktunya",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Text(
+                                      "Lihat semua",
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                //progressBarr
+                                Container(
+                                  margin: EdgeInsets.symmetric(vertical: 10),
+                                  child: Text(
+                                    "--Progress Bar di sini--",
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ),
+                                //List Kartu Agenda
+
+                                Container(
+                                  child: ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: snapshot.data.length - 1,
+                                    itemBuilder: (context, index) {
+                                      var dataAgenda =
+                                          snapshot.data[index+1].data();
+                                      return GestureDetector(
+                                        onTap: () async {
+                                          dialogViewAgenda(context, lebarLayar, dataAgenda);
+                                        },
+                                        child: KartuAgenda(
+                                          tajukAcara: dataAgenda['tajukAgenda'],
+                                          lokasiAcara:
+                                              dataAgenda['kotaKabAgenda']
+                                                  .join(', '),
+                                          waktuAcara:
+                                              dataAgenda['waktuBerangkatAgenda']
+                                                  .toDate(),
+                                          statusApprove: true,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                )
+                              ],
                             ),
                           ),
-                          //List Kartu Agenda
-                          FutureBuilder(
-                              future: ambilDataAgenda(userAkun: 'Bapang'),
-                              builder: (context, snapshot) {
-                                if (snapshot.hasData) {
-                                  
-                                  return Container(
-                                    child: ListView.builder(
-                                      shrinkWrap: true,
-                                      itemCount: snapshot.data.length,
-                                      itemBuilder: (context, index) {
-                                        var dataAgenda = snapshot.data[index].data();
-                                        return GestureDetector(
-                                          onTap: () async {
-                                            print(dataAgenda);
-                                          },
-                                          child: KartuAgenda(
-                                            tajukAcara:
-                                                dataAgenda['tajukAgenda'],
-                                            lokasiAcara: dataAgenda['kotaKabAgenda'].join(', '),
-                                            waktuAcara: dataAgenda['waktuBerangkatAgenda'].toDate(),
-                                            statusApprove: true,
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  );
-                                }else if(snapshot.hasError){
-                                  return Text('Error leh ${snapshot.error}');
-                                }
-                                return Text('Sik Yo');
-                              })
+                          //Pin Lokasi dan HighPriority Card
+                          Container(
+                            margin: EdgeInsets.only(
+                                left: 5 / 100 * lebarLayar,
+                                right: 5 / 100 * lebarLayar,
+                                top: 0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                //Lokasi Device
+                                PinLokasi(),
+                                //High priority card
+                                GestureDetector(
+                                  onTap: () {
+                                    dialogViewAgenda(context, lebarLayar, snapshot.data[0].data());
+                                  },
+                                  child: HighPriorityCard(
+                                    dataAgenda: snapshot.data[0].data()
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
                         ],
                       ),
-                    ),
-                    //Pin Lokasi dan HighPriority Card
-                    Container(
-                      margin: EdgeInsets.only(
-                          left: 5 / 100 * lebarLayar,
-                          right: 5 / 100 * lebarLayar,
-                          top: 0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          //Lokasi Device
-                          PinLokasi(),
-                          //High priority card
-                          HighPriorityCard(),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
+                    ],
+                  ),
+                );
+                }else if(snapshot.hasError){
+                  return Text('Error leh ${snapshot.error}');
+                }else{
+                  return Text('Sik Yo Bro');
+                }
+              }),
           //Profile, Greeting, Notification
           Container(
             height: 50,
@@ -148,7 +162,7 @@ class Beranda extends StatelessWidget {
                             style: TextStyle(fontSize: 12, color: Colors.blue),
                           ),
                           Text(
-                            "Admisi Unimma!",
+                            userAkun,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.blue),
@@ -176,6 +190,36 @@ class Beranda extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<dynamic> dialogViewAgenda(BuildContext context, double lebarLayar, dataAgenda) {
+    return showDialog(
+                                          context: context,
+                                          builder: (context) {
+                                            return Center(
+                                              child: Container(
+                                                  margin: EdgeInsets.symmetric(
+                                                      horizontal:
+                                                          lebarLayar <= 720
+                                                              ? (5 /
+                                                                  100 *
+                                                                  lebarLayar)
+                                                              : (25 /
+                                                                  100 *
+                                                                  lebarLayar)),
+                                                  padding: EdgeInsets.all(15),
+                                                  height: 390,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            30),
+                                                  ),
+                                                  child: CardViewAgenda(
+                                                      hasilForm: dataAgenda)),
+                                            );
+                                          },
+                                        );
   }
 }
 
@@ -375,7 +419,8 @@ class PinLokasi extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 20),
       child: IconTextKecil(
         isiIkon: Icons.location_on_rounded,
-        isiText: "Mertoyudan, Magelang gfgsfgfsgfsgfsgfsgfsgsfgfgfsgsfgfgfsgsfggfgfsgfgfsgfgfgfsgfsggfgf ",
+        isiText:
+            "Mertoyudan, Magelang",
       ),
     );
   }
@@ -383,8 +428,10 @@ class PinLokasi extends StatelessWidget {
 
 class HighPriorityCard extends StatelessWidget {
   const HighPriorityCard({
-    super.key,
+    super.key, required this.dataAgenda
   });
+
+  final Map<String, dynamic> dataAgenda;
 
   @override
   Widget build(BuildContext context) {
@@ -415,7 +462,7 @@ class HighPriorityCard extends StatelessWidget {
                 style: TextStyle(fontSize: 12, color: Colors.black54),
               ),
               Text(
-                "Presentasi SMK Muhammadiyah Kebumen",
+                "${dataAgenda['tajukAgenda']}",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
@@ -431,9 +478,9 @@ class HighPriorityCard extends StatelessWidget {
             children: [
               IconTextKecil(
                   isiIkon: Icons.calendar_month_rounded,
-                  isiText: "Minggu, 14 November 2019"),
+                  isiText: "${DateFormat('EEEE, d MMMM y').format(dataAgenda['waktuBerangkatAgenda'].toDate())}"),
               IconTextKecil(
-                  isiIkon: Icons.schedule_rounded, isiText: "08:00 WIB")
+                  isiIkon: Icons.schedule_rounded, isiText: "${DateFormat.Hm().format(dataAgenda['waktuBerangkatAgenda'].toDate())} WIB")
             ],
           )
         ],
@@ -514,13 +561,15 @@ class KartuAgenda extends StatelessWidget {
                             Icon(
                               Icons.done_all_rounded,
                               size: 15,
-                              color: statusApprove ? Colors.blue : Colors.black12,
+                              color:
+                                  statusApprove ? Colors.blue : Colors.black12,
                             ),
                             Icon(
                               Icons.directions_car_filled_rounded,
                               size: 15,
-                              color:
-                                  statusKendaraan ? Colors.blue : Colors.black12,
+                              color: statusKendaraan
+                                  ? Colors.blue
+                                  : Colors.black12,
                             )
                           ],
                         ),

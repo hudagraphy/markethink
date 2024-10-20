@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
-import 'package:form_builder_file_picker/form_builder_file_picker.dart';
+
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
 import 'package:markethink/beranda.dart';
 import 'package:markethink/dbFirebase.dart';
 import 'package:multi_dropdown/multi_dropdown.dart';
-import  'package:uuid/uuid.dart';
+import 'package:uuid/uuid.dart';
 
 class InputAgenda extends StatefulWidget {
   const InputAgenda({super.key});
@@ -72,9 +72,9 @@ class _InputAgendaState extends State<InputAgenda> {
             Center(
               child: Container(
                 margin: EdgeInsets.symmetric(
-                  horizontal: lebarLayar <= 720
-                      ? (5 / 100 * lebarLayar)
-                      : (25 / 100 * lebarLayar)),
+                    horizontal: lebarLayar <= 720
+                        ? (5 / 100 * lebarLayar)
+                        : (25 / 100 * lebarLayar)),
                 clipBehavior: Clip.hardEdge,
                 height: 460,
                 decoration: BoxDecoration(
@@ -117,20 +117,22 @@ class _InputAgendaState extends State<InputAgenda> {
                           child: GestureDetector(
                             onTap: () async {
                               hasilForm = _kunciForm.currentState!.value;
-                              if (_kunciForm.currentState
-                                      ?.saveAndValidate() ==
+                              if (_kunciForm.currentState?.saveAndValidate() ==
                                   true) {
                                 //data sementara sambil nungnu field aman
-                                _kunciForm.currentState?.setInternalFieldValue('pinLocation', '-7.521917643849493, 110.22655455772104');
-                                _kunciForm.currentState?.setInternalFieldValue('berkasAgenda', 'https://drive.google.com/open?id=1PBnYQZ1VupTTgA4Zy6lQ90Wte3NZJARy&usp=drive_fs');
+                                _kunciForm.currentState?.setInternalFieldValue(
+                                    'pinLocation',
+                                    '-7.521917643849493, 110.22655455772104');
+                                _kunciForm.currentState?.setInternalFieldValue(
+                                    'berkasAgenda',
+                                    'https://drive.google.com/open?id=1PBnYQZ1VupTTgA4Zy6lQ90Wte3NZJARy&usp=drive_fs');
                                 step++;
-                                if (step == 7){
-                                  await tambahAgenda(hasilForm, "${hasilForm['jenisAgenda']}_${Uuid().v1().substring(0, 13)}");
+                                if (step == 7) {
+                                  await tambahAgenda(hasilForm,
+                                      "${hasilForm['jenisAgenda']}_${Uuid().v1().substring(0, 13)}");
                                   Navigator.pop(context);
                                   Navigator.pop(context);
-                                  setState(() {
-                                    
-                                  });
+                                  setState(() {});
                                 }
                               }
                               setState(() {});
@@ -214,8 +216,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                     hintText: "Mangkate?",
                                   ),
                                   onChanged: (value) => setState(() {
-                                    _kunciForm.currentState
-                                        ?.saveAndValidate();
+                                    _kunciForm.currentState?.saveAndValidate();
                                   }),
                                 ),
                                 SizedBox(height: 20),
@@ -278,8 +279,8 @@ class _InputAgendaState extends State<InputAgenda> {
                                   isiDropdown: personalBAM,
                                   hintText: "Personel BAM",
                                   isWajib: true,
-                                  selectedItems: _kunciForm.currentState
-                                          ?.value['personelBAM'] ??
+                                  selectedItems: _kunciForm
+                                          .currentState?.value['personelBAM'] ??
                                       [],
                                 ),
                                 SizedBox(height: 20),
@@ -365,8 +366,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                       hintText: 'Catatan (kalo ada)'),
                                   maxLines: 5,
                                   onChanged: (value) {
-                                    _kunciForm.currentState
-                                        ?.saveAndValidate();
+                                    _kunciForm.currentState?.saveAndValidate();
                                   },
                                 ),
                                 SizedBox(height: 20),
@@ -406,7 +406,6 @@ class _InputAgendaState extends State<InputAgenda> {
                 ),
               ),
             ),
-            
           ],
         ),
       ),
@@ -454,6 +453,11 @@ class CardViewAgenda extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime waktuBerangkatAgenda;
+    hasilForm['waktuBerangkatAgenda'] is! DateTime
+        ? waktuBerangkatAgenda = hasilForm['waktuBerangkatAgenda'].toDate()
+        : waktuBerangkatAgenda = hasilForm['waktuBerangkatAgenda'];
+
     return Container(
       child: IntrinsicHeight(
         child: Row(
@@ -502,8 +506,7 @@ class CardViewAgenda extends StatelessWidget {
                         ),
                         //tanggal berangkat
                         Text(
-                          DateFormat.d()
-                              .format(hasilForm['waktuBerangkatAgenda']),
+                          DateFormat.d().format(waktuBerangkatAgenda),
                           style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.bold,
@@ -511,8 +514,7 @@ class CardViewAgenda extends StatelessWidget {
                         ),
                         //bulan berangkat
                         Text(
-                          DateFormat.MMMM()
-                              .format(hasilForm['waktuBerangkatAgenda']),
+                          DateFormat.MMMM().format(waktuBerangkatAgenda),
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.blue,
@@ -520,14 +522,12 @@ class CardViewAgenda extends StatelessWidget {
                         ),
                         //tahun berangkat
                         Text(
-                          DateFormat.y()
-                              .format(hasilForm['waktuBerangkatAgenda']),
+                          DateFormat.y().format(waktuBerangkatAgenda),
                           style: TextStyle(fontSize: 12, color: Colors.blue),
                         ),
                         //jam event
                         Text(
-                          DateFormat.Hm()
-                              .format(hasilForm['waktuBerangkatAgenda']),
+                          DateFormat.Hm().format(waktuBerangkatAgenda),
                           style: TextStyle(
                             fontSize: 10,
                           ),
