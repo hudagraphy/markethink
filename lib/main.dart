@@ -1,8 +1,10 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:markethink/addAgenda.dart';
 import 'package:markethink/beranda.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:markethink/loginPage.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -21,7 +23,16 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(textTheme: GoogleFonts.latoTextTheme()),
-        home: Beranda(),
+        // routes: {
+        //   '/' : (context) => Beranda(),
+        //   '/login' : (context) => SignInScreen(
+        //     providers: [
+        //       EmailAuthProvider(),
+              
+        //     ],
+        //   )
+        // },
+        home: HalamanLogin()
         );
   }
 }

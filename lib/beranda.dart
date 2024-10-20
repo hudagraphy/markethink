@@ -1,4 +1,5 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:markethink/addAgenda.dart';
@@ -146,30 +147,35 @@ class Beranda extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //profile dan greetings
-                Container(
-                  //userProfile
-                  child: Row(
-                    children: [
-                      Container(
-                          padding: EdgeInsets.only(right: 5),
-                          child: CircleAvatar()),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Assalamualaikum",
-                            style: TextStyle(fontSize: 12, color: Colors.blue),
-                          ),
-                          Text(
-                            userAkun,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.blue),
-                          )
-                        ],
-                      )
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen(),),);
+                  },
+                  child: Container(
+                    //userProfile
+                    child: Row(
+                      children: [
+                        Container(
+                            padding: EdgeInsets.only(right: 5),
+                            child: CircleAvatar()),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Assalamualaikum",
+                              style: TextStyle(fontSize: 12, color: Colors.blue),
+                            ),
+                            Text(
+                              userAkun,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.blue),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 //notiifikasi
