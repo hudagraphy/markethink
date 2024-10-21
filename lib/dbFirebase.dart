@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/services.dart';
 
 Future tambahAgenda(Map<String, dynamic> dataAgenda, String idAgenda) {
   var db = FirebaseFirestore.instance;
@@ -16,4 +19,9 @@ Future ambilDataAgenda({required String userAkun, String dokumen = 'all'}) {
     return value.docs;
   },);
   return hasil;
+}
+
+Future ambilDataKotaKab(String filePath) async {
+  String jsonString = await rootBundle.loadString(filePath);
+  return json.decode(jsonString);
 }

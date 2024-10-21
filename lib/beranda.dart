@@ -1,10 +1,13 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:markethink/addAgenda.dart';
 import 'package:markethink/dbFirebase.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:markethink/loginPage.dart';
+import 'package:markethink/profilPage.dart';
 
 class Beranda extends StatelessWidget {
   const Beranda({super.key});
@@ -13,7 +16,8 @@ class Beranda extends StatelessWidget {
   Widget build(BuildContext context) {
     double lebarLayar = MediaQuery.of(context).size.width;
     double tinggiLayar = MediaQuery.of(context).size.height;
-    String userAkun = "Pungki";
+    late String userAkun =
+        FirebaseAuth.instance.currentUser?.displayName ?? 'Huda';
     return Scaffold(
       body: Stack(
         children: [
@@ -21,120 +25,128 @@ class Beranda extends StatelessWidget {
           FutureBuilder(
               future: ambilDataAgenda(userAkun: userAkun),
               builder: (context, snapshot) {
-                if(snapshot.hasData){
-                return Container(
-                  margin: EdgeInsets.only(top: 80),
-                  child: ListView(
-                    children: [
-                      Stack(
+                if (snapshot.hasData) {
+                  if (snapshot.data.length > 0) {
+                    return Container(
+                      margin: EdgeInsets.only(top: 80),
+                      child: ListView(
                         children: [
-                          //Agenda Berikutnya
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadiusDirectional.vertical(
-                                top: Radius.circular(30),
-                              ),
-                            ),
-                            margin: EdgeInsets.only(top: 100),
-                            padding: EdgeInsets.only(
-                              top: 100,
-                              bottom: 80,
-                              left: 5 / 100 * lebarLayar,
-                              right: 5 / 100 * lebarLayar,
-                            ),
-                            child: Column(
-                              children: [
-                                //Agenda akan datang - Lihat semua
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                          Stack(
+                            children: [
+                              //Agenda Berikutnya
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.blue,
+                                  borderRadius:
+                                      BorderRadiusDirectional.vertical(
+                                    top: Radius.circular(30),
+                                  ),
+                                ),
+                                margin: EdgeInsets.only(top: 100),
+                                padding: EdgeInsets.only(
+                                  top: 100,
+                                  bottom: 80,
+                                  left: 5 / 100 * lebarLayar,
+                                  right: 5 / 100 * lebarLayar,
+                                ),
+                                child: Column(
                                   children: [
-                                    Text(
-                                      "Agenda beriktunya",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
+                                    //Agenda akan datang - Lihat semua
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          "Agenda beriktunya",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        Text(
+                                          "Lihat semua",
+                                          style: TextStyle(
+                                            fontSize: 10,
+                                            color: Colors.white,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    //progressBarr
+                                    Container(
+                                      margin:
+                                          EdgeInsets.symmetric(vertical: 10),
+                                      child: Text(
+                                        "--Progress Bar di sini--",
+                                        style: TextStyle(fontSize: 10),
                                       ),
                                     ),
-                                    Text(
-                                      "Lihat semua",
-                                      style: TextStyle(
-                                        fontSize: 10,
-                                        color: Colors.white,
+                                    //List Kartu Agenda
+
+                                    Container(
+                                      child: ListView.builder(
+                                        shrinkWrap: true,
+                                        itemCount: snapshot.data.length - 1,
+                                        itemBuilder: (context, index) {
+                                          var dataAgenda =
+                                              snapshot.data[index + 1].data();
+                                          return GestureDetector(
+                                            onTap: () async {
+                                              dialogViewAgenda(context,
+                                                  lebarLayar, dataAgenda);
+                                            },
+                                            child: KartuAgenda(
+                                              tajukAcara:
+                                                  dataAgenda['tajukAgenda'],
+                                              lokasiAcara:
+                                                  dataAgenda['kotaKabAgenda']
+                                                      .join(', '),
+                                              waktuAcara: dataAgenda[
+                                                      'waktuBerangkatAgenda']
+                                                  .toDate(),
+                                              statusApprove: true,
+                                            ),
+                                          );
+                                        },
                                       ),
                                     )
                                   ],
                                 ),
-                                //progressBarr
-                                Container(
-                                  margin: EdgeInsets.symmetric(vertical: 10),
-                                  child: Text(
-                                    "--Progress Bar di sini--",
-                                    style: TextStyle(fontSize: 10),
-                                  ),
+                              ),
+                              //Pin Lokasi dan HighPriority Card
+                              Container(
+                                margin: EdgeInsets.only(
+                                    left: 5 / 100 * lebarLayar,
+                                    right: 5 / 100 * lebarLayar,
+                                    top: 0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    //Lokasi Device
+                                    PinLokasi(),
+                                    //High priority card
+                                    GestureDetector(
+                                      onTap: () {
+                                        dialogViewAgenda(context, lebarLayar,
+                                            snapshot.data[0].data());
+                                      },
+                                      child: HighPriorityCard(
+                                          dataAgenda: snapshot.data[0].data()),
+                                    ),
+                                  ],
                                 ),
-                                //List Kartu Agenda
-
-                                Container(
-                                  child: ListView.builder(
-                                    shrinkWrap: true,
-                                    itemCount: snapshot.data.length - 1,
-                                    itemBuilder: (context, index) {
-                                      var dataAgenda =
-                                          snapshot.data[index+1].data();
-                                      return GestureDetector(
-                                        onTap: () async {
-                                          dialogViewAgenda(context, lebarLayar, dataAgenda);
-                                        },
-                                        child: KartuAgenda(
-                                          tajukAcara: dataAgenda['tajukAgenda'],
-                                          lokasiAcara:
-                                              dataAgenda['kotaKabAgenda']
-                                                  .join(', '),
-                                          waktuAcara:
-                                              dataAgenda['waktuBerangkatAgenda']
-                                                  .toDate(),
-                                          statusApprove: true,
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                )
-                              ],
-                            ),
+                              )
+                            ],
                           ),
-                          //Pin Lokasi dan HighPriority Card
-                          Container(
-                            margin: EdgeInsets.only(
-                                left: 5 / 100 * lebarLayar,
-                                right: 5 / 100 * lebarLayar,
-                                top: 0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                //Lokasi Device
-                                PinLokasi(),
-                                //High priority card
-                                GestureDetector(
-                                  onTap: () {
-                                    dialogViewAgenda(context, lebarLayar, snapshot.data[0].data());
-                                  },
-                                  child: HighPriorityCard(
-                                    dataAgenda: snapshot.data[0].data()
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
                         ],
                       ),
-                    ],
-                  ),
-                );
-                }else if(snapshot.hasError){
+                    );
+                  }else{
+                    return Center(child: Text('Ga ada Agenda Buatmu'),);
+                  }
+                } else if (snapshot.hasError) {
                   return Text('Error leh ${snapshot.error}');
-                }else{
+                } else {
                   return Text('Sik Yo Bro');
                 }
               }),
@@ -149,7 +161,12 @@ class Beranda extends StatelessWidget {
                 //profile dan greetings
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen(),),);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HalamanProfil(),
+                      ),
+                    );
                   },
                   child: Container(
                     //userProfile
@@ -164,7 +181,8 @@ class Beranda extends StatelessWidget {
                           children: [
                             Text(
                               "Assalamualaikum",
-                              style: TextStyle(fontSize: 12, color: Colors.blue),
+                              style:
+                                  TextStyle(fontSize: 12, color: Colors.blue),
                             ),
                             Text(
                               userAkun,
@@ -180,7 +198,10 @@ class Beranda extends StatelessWidget {
                 ),
                 //notiifikasi
                 IconButton(
-                    onPressed: () => {},
+                    onPressed: () => {
+                          debugPrint(
+                              FirebaseAuth.instance.currentUser?.displayName)
+                        },
                     icon: Icon(
                       Icons.notifications_rounded,
                       color: Colors.blue,
@@ -198,34 +219,27 @@ class Beranda extends StatelessWidget {
     );
   }
 
-  Future<dynamic> dialogViewAgenda(BuildContext context, double lebarLayar, dataAgenda) {
+  Future<dynamic> dialogViewAgenda(
+      BuildContext context, double lebarLayar, dataAgenda) {
     return showDialog(
-                                          context: context,
-                                          builder: (context) {
-                                            return Center(
-                                              child: Container(
-                                                  margin: EdgeInsets.symmetric(
-                                                      horizontal:
-                                                          lebarLayar <= 720
-                                                              ? (5 /
-                                                                  100 *
-                                                                  lebarLayar)
-                                                              : (25 /
-                                                                  100 *
-                                                                  lebarLayar)),
-                                                  padding: EdgeInsets.all(15),
-                                                  height: 390,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                  ),
-                                                  child: CardViewAgenda(
-                                                      hasilForm: dataAgenda)),
-                                            );
-                                          },
-                                        );
+      context: context,
+      builder: (context) {
+        return Center(
+          child: Container(
+              margin: EdgeInsets.symmetric(
+                  horizontal: lebarLayar <= 720
+                      ? (5 / 100 * lebarLayar)
+                      : (25 / 100 * lebarLayar)),
+              padding: EdgeInsets.all(15),
+              height: 390,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: CardViewAgenda(hasilForm: dataAgenda)),
+        );
+      },
+    );
   }
 }
 
@@ -425,17 +439,14 @@ class PinLokasi extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 20),
       child: IconTextKecil(
         isiIkon: Icons.location_on_rounded,
-        isiText:
-            "Mertoyudan, Magelang",
+        isiText: "Mertoyudan, Magelang",
       ),
     );
   }
 }
 
 class HighPriorityCard extends StatelessWidget {
-  const HighPriorityCard({
-    super.key, required this.dataAgenda
-  });
+  const HighPriorityCard({super.key, required this.dataAgenda});
 
   final Map<String, dynamic> dataAgenda;
 
@@ -484,9 +495,12 @@ class HighPriorityCard extends StatelessWidget {
             children: [
               IconTextKecil(
                   isiIkon: Icons.calendar_month_rounded,
-                  isiText: "${DateFormat('EEEE, d MMMM y').format(dataAgenda['waktuBerangkatAgenda'].toDate())}"),
+                  isiText:
+                      "${DateFormat('EEEE, d MMMM y').format(dataAgenda['waktuBerangkatAgenda'].toDate())}"),
               IconTextKecil(
-                  isiIkon: Icons.schedule_rounded, isiText: "${DateFormat.Hm().format(dataAgenda['waktuBerangkatAgenda'].toDate())} WIB")
+                  isiIkon: Icons.schedule_rounded,
+                  isiText:
+                      "${DateFormat.Hm().format(dataAgenda['waktuBerangkatAgenda'].toDate())} WIB")
             ],
           )
         ],

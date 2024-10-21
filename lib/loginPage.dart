@@ -15,6 +15,9 @@ class HalamanLogin extends StatelessWidget {
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return SignInScreen(
+            styles: Set<FirebaseUIStyle>(
+              
+            ),
             providers: [
               EmailAuthProvider(),
             ],

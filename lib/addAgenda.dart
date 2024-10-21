@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:easy_stepper/easy_stepper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +44,8 @@ class _InputAgendaState extends State<InputAgenda> {
     "Kendaraan Pribadi"
   ];
   Map<String, dynamic> hasilForm = {};
+
+  
 
   final controlllerPeta = MapController.withPosition(
       initPosition: GeoPoint(latitude: 47.4358055, longitude: 8.4737324));
@@ -135,6 +140,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                   setState(() {});
                                 }
                               }
+                              print( (await ambilDataKotaKab('assets/kotaKab.json'))[1]);
                               setState(() {});
                             },
                             child: Container(
@@ -445,6 +451,7 @@ class _InputAgendaState extends State<InputAgenda> {
         filled: true);
   }
 }
+
 
 class CardViewAgenda extends StatelessWidget {
   const CardViewAgenda({super.key, required this.hasilForm});
