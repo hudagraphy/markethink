@@ -21,7 +21,7 @@ Future ambilDataAgenda({required String userAkun, String dokumen = 'all'}) {
   return hasil;
 }
 
-Future ambilDataKotaKab(String filePath) async {
+Future ambilDataJSON(String filePath, String param) async {
   String jsonString = await rootBundle.loadString(filePath);
-  return json.decode(jsonString);
+return jsonDecode(jsonString).map<String>((e) => e[param] as String).toList();
 }

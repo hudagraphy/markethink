@@ -45,12 +45,29 @@ class _InputAgendaState extends State<InputAgenda> {
   ];
   Map<String, dynamic> hasilForm = {};
 
-  
-
   final controlllerPeta = MapController.withPosition(
       initPosition: GeoPoint(latitude: 47.4358055, longitude: 8.4737324));
-
   final _kunciForm = GlobalKey<FormBuilderState>();
+
+  //inisiasi data dropdown kotaKab
+  List<String> kotaKabAgenda = [];
+
+  //fungsi bantuan untuk simpan data ke variabel isi data dropdown
+  Future fetchDataDropdown() async {
+    final tempDataKotaKab = await ambilDataJSON('assets/kotaKab.json', 'name');
+    
+    kotaKabAgenda = tempDataKotaKab;
+    
+  }
+
+  //init state untuk memanggil fungsi fectdata
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchDataDropdown();
+  }
+
   @override
   Widget build(BuildContext context) {
     double lebarLayar = MediaQuery.of(context).size.width;
@@ -140,7 +157,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                   setState(() {});
                                 }
                               }
-                              print( (await ambilDataKotaKab('assets/kotaKab.json'))[1]);
+
                               setState(() {});
                             },
                             child: Container(
@@ -252,7 +269,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 DropdownMultiple(
                                   fieldName: "kotaKabAgenda",
                                   kunciForm: _kunciForm,
-                                  isiDropdown: wilayahAgenda,
+                                  isiDropdown: kotaKabAgenda,
                                   hintText: "*Ningdi?",
                                   isWajib: true,
                                   selectedItems: _kunciForm.currentState
@@ -451,7 +468,6 @@ class _InputAgendaState extends State<InputAgenda> {
         filled: true);
   }
 }
-
 
 class CardViewAgenda extends StatelessWidget {
   const CardViewAgenda({super.key, required this.hasilForm});
