@@ -1,0 +1,1862 @@
+[
+    {
+      "idPersonel": "43DE8429",
+      "namaPersonel": "Dr. Rasidi, M.Pd",
+      "nicknamePersonel": "Rasidi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 128806103,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Ka. Biro Admisi dan Marketing",
+      "statusPersonel": "Personel BAM"
+    },
+    {
+      "idPersonel": "43DE8454",
+      "namaPersonel": "Kun Hisnan Hajron, M.Pd",
+      "nicknamePersonel": "Kun",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199108290,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Ka. Bagian Marketing",
+      "statusPersonel": "Personel BAM"
+    },
+    {
+      "idPersonel": "9E689EDD",
+      "namaPersonel": "Adina Nur Rahmani, S.Sos.I",
+      "nicknamePersonel": "Dina",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 179207179,
+      "pangkatPersonel": "Penata Muda / IIIa",
+      "jabatanPersonel": "Staf Bagian Marketing",
+      "statusPersonel": "Personel BAM"
+    },
+    {
+      "idPersonel": "0FBAADB6",
+      "namaPersonel": "Annisa Zafirah, S.I.Kom",
+      "nicknamePersonel": "Zafira",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 222007417,
+      "pangkatPersonel": "Penata Muda / IIIa",
+      "jabatanPersonel": "Staf Bagian Marketing",
+      "statusPersonel": "Personel BAM"
+    },
+    {
+      "idPersonel": "3DE2181F",
+      "namaPersonel": "Pungki Yuliyanti, S.M",
+      "nicknamePersonel": "Pungki",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 229707419,
+      "pangkatPersonel": "Penata Muda / IIIa",
+      "jabatanPersonel": "Staf Bagian Marketing",
+      "statusPersonel": "Personel BAM"
+    },
+    {
+      "idPersonel": "39BE70EC",
+      "namaPersonel": "Wachiddin M Huda, S.Kom",
+      "nicknamePersonel": "Huda",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 249907426,
+      "pangkatPersonel": "Penata Muda / IIIa",
+      "jabatanPersonel": "Staf Bagian Marketing",
+      "statusPersonel": "Personel BAM"
+    },
+    {
+      "idPersonel": "43DE8608",
+      "namaPersonel": "Indra Bayu Pangestu, S.Kom",
+      "nicknamePersonel": "Bapang",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 240107433,
+      "pangkatPersonel": "",
+      "jabatanPersonel": "Staf Magang Bagian Marketing",
+      "statusPersonel": "Personel BAM"
+    },
+    {
+      "idPersonel": "43DE8469",
+      "namaPersonel": "Istianto Zenuari S.Ak",
+      "nicknamePersonel": "Tian",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 249707424,
+      "pangkatPersonel": "Penata Muda / IIIa",
+      "jabatanPersonel": "Staf Bagian Marketing",
+      "statusPersonel": "Personel BAM"
+    },
+    {
+      "idPersonel": "9E67393D",
+      "namaPersonel": "Bustanul Arifin, A.Md",
+      "nicknamePersonel": "Arif",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 168808166,
+      "pangkatPersonel": "Pengatur / IIc",
+      "jabatanPersonel": "Staf LPMA",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8430",
+      "namaPersonel": "Pristi Sukmasetya, S.Komp., M.Kom",
+      "nicknamePersonel": "Pristi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199208245,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8430",
+      "namaPersonel": "Ariq Fikria Niagasi, SM., MM",
+      "nicknamePersonel": "Ariq",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 239708344,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Manajemen",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8431",
+      "namaPersonel": "Muhamad Wahid Ibrahim, SE., M.Sc",
+      "nicknamePersonel": "Ibrahim",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 229708333,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Manajemen",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8432",
+      "namaPersonel": "Wahyu Anggit Prasetya, SE. M.Sc",
+      "nicknamePersonel": "wahyu",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 219008331,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Akuntansi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8433",
+      "namaPersonel": "Norma Dewi Shalikhah,M.Pd.I",
+      "nicknamePersonel": "Norma",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 169108161,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen PGMI",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8434",
+      "namaPersonel": "M. Resa Arif Yudianto, M.Kom",
+      "nicknamePersonel": "Resa",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 219608336,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8435",
+      "namaPersonel": "Rofi Abul Hasani, S.Kom., M.Eng",
+      "nicknamePersonel": "Rofi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 219108337,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8436",
+      "namaPersonel": "Meidar Hadi Avizenna, S.Kom.,M.Eng.",
+      "nicknamePersonel": "Meidar",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199108293,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknologi Informasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8437",
+      "namaPersonel": "Farida, SE, M.Si",
+      "nicknamePersonel": "Farida",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 118506082,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Akuntansi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8438",
+      "namaPersonel": "Ns. Robiul Fitri Masithoh, M.Kep.",
+      "nicknamePersonel": "Fitri",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 118306083,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Keperawatan",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8439",
+      "namaPersonel": "Arief Kusuma Wardani, S.Si., M.Pharm.Sci",
+      "nicknamePersonel": "Arief",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 218408338,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Farmasi D3",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8440",
+      "namaPersonel": "Anissa Hakim Purwantini, S.E.,M. Sc.",
+      "nicknamePersonel": "Annisa",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 169008170,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Akuntansi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8441",
+      "namaPersonel": "Prihatin Dwihantoro, S.Sn.,M.I.Kom.",
+      "nicknamePersonel": "Hantoro",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 198708249,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Ilmu Komunikasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8442",
+      "namaPersonel": "Dwi Susanti, S.I.Kom., M.A.",
+      "nicknamePersonel": "Santi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 189008193,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Ilmu Komunikasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8443",
+      "namaPersonel": "Aning Az Zahra, M.A",
+      "nicknamePersonel": "Aning",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 179008185,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Psikologi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8444",
+      "namaPersonel": "Betari Maharani, S. E., M. Sc.",
+      "nicknamePersonel": "Eta",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199108239,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Akuntansi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8445",
+      "namaPersonel": "Pranita Siska Utami, SE., M.Sc.",
+      "nicknamePersonel": "Pranita",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 218608329,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Manajemen",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8446",
+      "namaPersonel": "Fungky Dyan Pertiwi, MT",
+      "nicknamePersonel": "Fungky",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 239008346,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknik Mesin",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8447",
+      "namaPersonel": "Akhmad Liana Amrul Haq, M. Psi., Psikolog",
+      "nicknamePersonel": "Amrul",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 179008184,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Psikologi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8448",
+      "namaPersonel": "Astiwi Kurniati, S.Pd., M. Psi.",
+      "nicknamePersonel": "Astiwi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 17008175,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Bimbingan dan Konseling",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8449",
+      "namaPersonel": "Rayinda Faizah, M.Psi.,Psi.",
+      "nicknamePersonel": "Rayinda",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 189008192,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Psikologi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8450",
+      "namaPersonel": "Khusnul Laely, S.P‹, M.Pd",
+      "nicknamePersonel": "Khusnul",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 138606115,
+      "pangkatPersonel": "Lektor",
+      "jabatanPersonel": "Dosen PG PAUD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8451",
+      "namaPersonel": "Zulfikar Bagus Pambuko, SEI., MEI",
+      "nicknamePersonel": "Zulfikar",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 168808173,
+      "pangkatPersonel": "Lektor",
+      "jabatanPersonel": "Dosen Hukum Ekonomi Syariah",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8452",
+      "namaPersonel": "Dr. Hermahayu, M.Si.",
+      "nicknamePersonel": "Hermahayu",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 98206041,
+      "pangkatPersonel": "Lektor",
+      "jabatanPersonel": "Dosen Psikologi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8453",
+      "namaPersonel": "Dakum, S.H.I., M.H",
+      "nicknamePersonel": "Dakum",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 198608241,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8455",
+      "namaPersonel": "Ida Uliyah, S.M.,MM",
+      "nicknamePersonel": "Ida",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 239308343,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Manajemen",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8456",
+      "namaPersonel": "Minzani Aufa, S. Pd. I., M.Pd.",
+      "nicknamePersonel": "Aufa",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 179108179,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen PGMI",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8457",
+      "namaPersonel": "Lintang Muliawanti, S.I.Kom., M.A",
+      "nicknamePersonel": "Lintang",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 189208194,
+      "pangkatPersonel": "Lektor",
+      "jabatanPersonel": "Dosen Ilmu Komunikasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8458",
+      "namaPersonel": "Dr. apt. Prasojo Pribadi, M.Sc.",
+      "nicknamePersonel": "Prasojo",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 118306080,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Farmasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8459",
+      "namaPersonel": "Dewi Liana Sari, M.Pd",
+      "nicknamePersonel": "Dewi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 128706088,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Bimbingan dan Konseling",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8460",
+      "namaPersonel": "Dr. Nasitotul Janah, S.Ag., M.S.I",
+      "nicknamePersonel": "Itoh",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 57108193,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Hukum Ekonomi Syariah",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8461",
+      "namaPersonel": "Ilham Habibi ST., MT.",
+      "nicknamePersonel": "Habibi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 219608335,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknik Mesin",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8462",
+      "namaPersonel": "Annis Azhar Suryaningtyas, S.I.Kom., M.I.Kom",
+      "nicknamePersonel": "Annis",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199008250,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Ilmu Komunikasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8463",
+      "namaPersonel": "Alan Kusuma, S.I.Kom., M.I.Kom",
+      "nicknamePersonel": "Alan",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 249408358,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Ilmu Komunikasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8464",
+      "namaPersonel": "Eko Kurniasih Pratiwi, SEI, MSI",
+      "nicknamePersonel": "Eko",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 138308118,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Hukum Ekonomi Syariah",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8465",
+      "namaPersonel": "Dr. Imron, S.Ag., MA.",
+      "nicknamePersonel": "Imron",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 47308188,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Manajemen Pendidikan Islam",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8466",
+      "namaPersonel": "Ns. Rohmayanti, M.Kep.",
+      "nicknamePersonel": "Rohmayanti",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 58006016,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Keperawatan",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8467",
+      "namaPersonel": "Fadil Muhammad, S.H., M.H",
+      "nicknamePersonel": "Fadil",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 249708353,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8468",
+      "namaPersonel": "Tsuroyyaa Maitsaa' Jaudah,S.H., M.Kn",
+      "nicknamePersonel": "Ayya",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 249808354,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8470",
+      "namaPersonel": "apt. Meilisa Putri, M.Farm",
+      "nicknamePersonel": "Melisa",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 249108356,
+      "pangkatPersonel": "penata muda tk I/ IIIb",
+      "jabatanPersonel": "Dosen Farmasi D3",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8471",
+      "namaPersonel": "Dra. Marlina Kurnia, MM",
+      "nicknamePersonel": "Marlina",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 916407034,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Manageman S1",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8472",
+      "namaPersonel": "Drs. Dahli Suhaeli, MM",
+      "nicknamePersonel": "Dahli",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 915905025,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Manageman S1",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8473",
+      "namaPersonel": "Luk Luk Atul Hidayati, SE.MM",
+      "nicknamePersonel": "Luk Luk",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 976508115,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Manageman S1",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8474",
+      "namaPersonel": "Dr. Rochiyati Murniningsih, SE., MP",
+      "nicknamePersonel": "Rochiyati",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 987208147,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Managemen S1",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8475",
+      "namaPersonel": "Muhdiyanto, SE., M.Si",
+      "nicknamePersonel": "Muhdi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 47606008,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Managemen S1",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8476",
+      "namaPersonel": "Mulato Santosa, SE., MSc",
+      "nicknamePersonel": "Mulato",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 67606019,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Managemen S1",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8477",
+      "namaPersonel": "Diesyana Ajeng Pramesti, SE.,M.Sc.",
+      "nicknamePersonel": "Ajeng",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 158308140,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Managemen S1",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8478",
+      "namaPersonel": "Nia Kurniati Bachtiar, SE., S.Si., M.Sc",
+      "nicknamePersonel": "Nia",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 188508186,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Managemen S1",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8479",
+      "namaPersonel": "Nur Hidayah, S.E., M.M",
+      "nicknamePersonel": "Nur",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199508238,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Managemen S1",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8480",
+      "namaPersonel": "Ravindra Ardiana Darmadi, S.M., M.Sc",
+      "nicknamePersonel": "Ravindra",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 219508330,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Managemen S1",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8481",
+      "namaPersonel": "Dr. Lilik Andriyani, SE., M.Si",
+      "nicknamePersonel": "Lilik",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 987208140,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Akuntansi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8482",
+      "namaPersonel": "Dr. Siti Noor Khikmah, SE., M.Si. Ak.",
+      "nicknamePersonel": "Siti",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 997308155,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Akuntansi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8483",
+      "namaPersonel": "Dr. Barkah Susanto, SE., M.Sc. Ak.",
+      "nicknamePersonel": "Barkah",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 68006021,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Akuntansi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8484",
+      "namaPersonel": "Nur Laila Yuliani, SE., M.Sc. Ak.",
+      "nicknamePersonel": "Yuliana",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 67806020,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Akuntansi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8485",
+      "namaPersonel": "Muji Mranani, SE., M.Si., Akt.",
+      "nicknamePersonel": "Mranani",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 67206022,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Akuntansi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8486",
+      "namaPersonel": "Dr. Wawan Sadtyo Nugroho, SE., M.Si",
+      "nicknamePersonel": "Wawan",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 108306059,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Akuntansi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8487",
+      "namaPersonel": "Yulinda Devi Pramita, SE.,M. Sc. Ak.",
+      "nicknamePersonel": "Yulinda",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 118806081,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Akuntansi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8488",
+      "namaPersonel": "Veni Soraya Dewi,SE.M.Si.",
+      "nicknamePersonel": "Veni",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 158608137,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Akuntansi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8489",
+      "namaPersonel": "Bambang Tjatur Iswanto, SH.,MH",
+      "nicknamePersonel": "Bambang",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 866003011,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8490",
+      "namaPersonel": "Basri, SH.,M. Hum",
+      "nicknamePersonel": "Basri",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 966906114,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8491",
+      "namaPersonel": "Suharso, SH.,MH",
+      "nicknamePersonel": "Suharso",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 875905018,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8492",
+      "namaPersonel": "Dr. Dyah Adriantini Sintha Dewi, SH., M.Hum",
+      "nicknamePersonel": "Sintha",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 196710031992032000,
+      "pangkatPersonel": "Pembina Tk. I / IVb",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8493",
+      "namaPersonel": "Dr. Habib Muhsin S., SH. M.Hum",
+      "nicknamePersonel": "Habib",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 207308158,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8494",
+      "namaPersonel": "Puji Sulistyaningsih, SH. MH.",
+      "nicknamePersonel": "Puji",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 876205019,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8495",
+      "namaPersonel": "Yulia Kurniaty, SH., MH",
+      "nicknamePersonel": "Yuliana",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 107606061,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8496",
+      "namaPersonel": "Chrisna Bagus Edhita Praja, SH. MH.",
+      "nicknamePersonel": "Chrisna",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 158908136,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8497",
+      "namaPersonel": "Dilli Trisna Noviasari, S.H., M.H.",
+      "nicknamePersonel": "Dilli",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 188708187,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8498",
+      "namaPersonel": "Hary Abdul Hakim, S.H, LLM",
+      "nicknamePersonel": "Hary",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 219108334,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Ilmu Hukum",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8499",
+      "namaPersonel": "Nofi Nur Yuhenita, S.Pd.,M.Psi",
+      "nicknamePersonel": "Nofi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 108706056,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Bimbingan dan Konseling",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8500",
+      "namaPersonel": "Sugiyadi, M.Pd. Kons",
+      "nicknamePersonel": "Sugiyadi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 47506010,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Bimbingan dan Konseling",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8501",
+      "namaPersonel": "Hijrah Eko Putro, M.Pd",
+      "nicknamePersonel": "Hijrah",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 128406089,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Bimbingan Dan Konseling",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8502",
+      "namaPersonel": "Paramita Nuraini, M.Pd., Kons.",
+      "nicknamePersonel": "Pramita",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 168808162,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Bimbingan Dan Konseling",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8503",
+      "namaPersonel": "Drs. Mujahidun, M.Pd.",
+      "nicknamePersonel": "Mujahidun",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 966706112,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Pendidikan Agama Isalam",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8504",
+      "namaPersonel": "Dr. M. Tohirin, S.Ag., M.Ag.",
+      "nicknamePersonel": "Tohirin",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 47106011,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Pendidikan Agama Isalam",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8505",
+      "namaPersonel": "Istania Widayati Hidayati, M.Pd.I",
+      "nicknamePersonel": "Istinia",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 148606126,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Pendidikan Agama Isalam",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8506",
+      "namaPersonel": "Akhmad Baihaqi, M.Pd.I.",
+      "nicknamePersonel": "Baihaqi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 168608171,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Pendidikan Agama Isalam",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8507",
+      "namaPersonel": "Subur, S.Pd.I, M.S.I",
+      "nicknamePersonel": "Subur",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 168608175,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Pendidikan Agama Isalam",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8508",
+      "namaPersonel": "Andi Triyanto, S.EI, MSI",
+      "nicknamePersonel": "Andi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 58106017,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Hukum Ekonomi Syariah",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8509",
+      "namaPersonel": "Fahmi Medias, SEI., MSI",
+      "nicknamePersonel": "Fahmi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 148806124,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Hukum Ekonomi Syariah",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8510",
+      "namaPersonel": "Agus Miswanto, S.Ag., M.A.",
+      "nicknamePersonel": "Miswanto",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 157208134,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Hukum Ekonomi Syariah",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8511",
+      "namaPersonel": "Dra. Kanthi Pamungkas Sari, M.Pd.",
+      "nicknamePersonel": "Kanthi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 16908177,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen PGMI",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8512",
+      "namaPersonel": "Muis Sad Iman, S.Ag.,M.Ag.",
+      "nicknamePersonel": "Muis",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 207108162,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen PGMI",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8513",
+      "namaPersonel": "Irham Nugroho, S.Pd.I, M.Pd.I",
+      "nicknamePersonel": "Irham",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 148806123,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen PGMI",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8514",
+      "namaPersonel": "Yun Arifatul Fatimah, MT., Ph.D",
+      "nicknamePersonel": "Yun",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 987408139,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Teknik Industri",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8515",
+      "namaPersonel": "Ir. Eko Muh Widodo, MT.",
+      "nicknamePersonel": "Eko",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 196509131991031000,
+      "pangkatPersonel": "Pembina Utama Muda / IVc",
+      "jabatanPersonel": "Dosen Teknik Industri",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8516",
+      "namaPersonel": "Dr. Muhammad Imron Rosyidi, ST., M.Si",
+      "nicknamePersonel": "Imron Rosyidi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 37208184,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Teknik Industri",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8517",
+      "namaPersonel": "Ir. Moehamad Aman, MT",
+      "nicknamePersonel": "Aman",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 916306031,
+      "pangkatPersonel": "Pembina Tk. I / IVb",
+      "jabatanPersonel": "Dosen Teknik Industri",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8518",
+      "namaPersonel": "Oesman Raliby Al Manan, ST.,M.Eng",
+      "nicknamePersonel": "Oesman",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 966806113,
+      "pangkatPersonel": "Pembina / IVa",
+      "jabatanPersonel": "Dosen Teknik Industri",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8519",
+      "namaPersonel": "Dr. Dra. Retno Rusdjijati, M.Kes",
+      "nicknamePersonel": "Retno",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 196902151993032000,
+      "pangkatPersonel": "Pembina / IVa",
+      "jabatanPersonel": "Dosen Teknik Industri",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8520",
+      "namaPersonel": "Ir. Affan Rifa'i, ST., M.T.",
+      "nicknamePersonel": "Affan",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 187708197,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknik Industri",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8521",
+      "namaPersonel": "Mukhtar Hanafi, ST., MCs.",
+      "nicknamePersonel": "Mukhtar",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 57508191,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Teknik Informasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8522",
+      "namaPersonel": "R. Arri Widyanto, S.Kom.,MT",
+      "nicknamePersonel": "Arri",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 27108182,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Teknik Informasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8523",
+      "namaPersonel": "Andi Widiyanto, M.Kom",
+      "nicknamePersonel": "Andi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 107906052,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Teknik Informasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8524",
+      "namaPersonel": "Bambang Pujiarto, M.Kom",
+      "nicknamePersonel": "Bambang",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 107806051,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknik Informasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8525",
+      "namaPersonel": "Nugroho Agung Prabowo, ST.,M.Kom",
+      "nicknamePersonel": "Agung",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 107306024,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Teknik Informasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8526",
+      "namaPersonel": "Meidar Hadi Avizenna, S.Kom.,M.Eng.",
+      "nicknamePersonel": "Meidar",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199108293,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknik Informasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8527",
+      "namaPersonel": "Bagiyo Condro Purnomo, ST, M.Eng",
+      "nicknamePersonel": "Bagiyo",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 87606031,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Mesin Otomatis",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8528",
+      "namaPersonel": "Tuessi Ari Purnomo, ST., M.Tech",
+      "nicknamePersonel": "Tuessi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 207308159,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Mesin Otomatis",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8529",
+      "namaPersonel": "Dr. Suroto Munahar, ST., M.T.",
+      "nicknamePersonel": "Suroto",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 157808164,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Mesin Otomatis",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8530",
+      "namaPersonel": "Muhammad Zuhron Arofi, M.Pd.I",
+      "nicknamePersonel": "Zuhron",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 218108341,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Mesin Otomatis",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8531",
+      "namaPersonel": "Dhimas Cahyo Anindito, B.Eng.,M.T",
+      "nicknamePersonel": "Dhimas",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 239208345,
+      "pangkatPersonel": "",
+      "jabatanPersonel": "Dosen Mesin Otomatis",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8532",
+      "namaPersonel": "Nuryanto, ST., M. Kom",
+      "nicknamePersonel": "Nuryanto",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 987008138,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8533",
+      "namaPersonel": "Purwono Hendradi, M.Kom",
+      "nicknamePersonel": "Hendra",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 57108188,
+      "pangkatPersonel": "Pembina / IVa",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8534",
+      "namaPersonel": "Dr. Uky Yudatama, S.Si.,M.Kom., M.M.",
+      "nicknamePersonel": "Uky",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 67206024,
+      "pangkatPersonel": "Pembina / IVa",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8535",
+      "namaPersonel": "Endah Ratna Arumi, M. Cs.",
+      "nicknamePersonel": "Endah",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 139006116,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8536",
+      "namaPersonel": "Agus Setiawan, M.Eng.",
+      "nicknamePersonel": "Agus",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 158808135,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8537",
+      "namaPersonel": "Emilya Ully Artha, M.Kom.",
+      "nicknamePersonel": "Ully",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 158108139,
+      "pangkatPersonel": "Penata Muda Tk. I / -",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8538",
+      "namaPersonel": "Ardhin Primadewi, S.Si, M.TI.",
+      "nicknamePersonel": "Ardhin",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 168508156,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8539",
+      "namaPersonel": "Setiya Nugroho, ST., M.Eng.",
+      "nicknamePersonel": "Setiya",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 168208163,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8540",
+      "namaPersonel": "Dimas Sasongko, S. Kom., M. Eng",
+      "nicknamePersonel": "Dimas",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 188508188,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8541",
+      "namaPersonel": "Maimunah, S. Si., M. Kom",
+      "nicknamePersonel": "Maimunah",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 187708189,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8542",
+      "namaPersonel": "Pristi Sukmasetya, S.Komp., M.Kom",
+      "nicknamePersonel": "Pristi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199208245,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8543",
+      "namaPersonel": "Rofi Abul Hasani, S.Kom., M.Eng",
+      "nicknamePersonel": "Rofi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 219108337,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Teknik Informatika",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8544",
+      "namaPersonel": "Dwi Sulistyono, BN., M.Kep",
+      "nicknamePersonel": "Sulistyono",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 937108060,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Keperawatan",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8545",
+      "namaPersonel": "Ns. Reni Mareta, M. Kep.",
+      "nicknamePersonel": "Reni",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 207708165,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Keperawatan",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8546",
+      "namaPersonel": "Ns. Sambodo Sriadi Pinilih, M.Kep., Sp.Kep.J",
+      "nicknamePersonel": "Pipin",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 47606006,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Keperawatan",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8547",
+      "namaPersonel": "Ns. Rohmayanti, M.Kep.",
+      "nicknamePersonel": "Rohamyanti",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 58006016,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Keperawatan",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8548",
+      "namaPersonel": "Ns. Robiul Fitri Masithoh, M.Kep.",
+      "nicknamePersonel": "Fitri",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 118306083,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Keperawatan",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8549",
+      "namaPersonel": "Ns. Estrin Handayani, S.Kep.,MAN",
+      "nicknamePersonel": "Estrin",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 118706081,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Keperawatan",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8550",
+      "namaPersonel": "Ns. Sumarno Adi Subrata, M.Kep.,Ph.D",
+      "nicknamePersonel": "Sumarno",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 118406072,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Keperawatan",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8551",
+      "namaPersonel": "Ns. Margono, M.Kep",
+      "nicknamePersonel": "Margono",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 158408153,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Keperawatan",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8552",
+      "namaPersonel": "apt. Herma Fanani Agusta, M.Sc.",
+      "nicknamePersonel": "Herma",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 158508138,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Farmasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8553",
+      "namaPersonel": "apt. Widarika Santi Hapsari, M.Sc.",
+      "nicknamePersonel": "Windarika",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 158408131,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Farmasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8554",
+      "namaPersonel": "Athia Fidian, M. Pd",
+      "nicknamePersonel": "Athia",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 169008158,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Farmasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8555",
+      "namaPersonel": "apt. Setiyo Budi Santoso, M. Farm.",
+      "nicknamePersonel": "Budi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 179108180,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Farmasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8556",
+      "namaPersonel": "Arief Kusuma Wardani, S.Si., M.Pharm.Sci",
+      "nicknamePersonel": "Arief Kusuma",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 218408338,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Farmasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8557",
+      "namaPersonel": "apt. Nurfina Dian K, M.Clin. Pharm",
+      "nicknamePersonel": "Nurfina",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 239508347,
+      "pangkatPersonel": "",
+      "jabatanPersonel": "Dosen Farmasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8558",
+      "namaPersonel": "apt. Meilisa Putri, M.Farm",
+      "nicknamePersonel": "Meilisa",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 249108356,
+      "pangkatPersonel": "",
+      "jabatanPersonel": "Dosen Farmasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8559",
+      "namaPersonel": "apt. Rafiastiana Capritasari, M.Farm",
+      "nicknamePersonel": "Rafiastana",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 249008355,
+      "pangkatPersonel": "",
+      "jabatanPersonel": "Dosen Farmasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8560",
+      "namaPersonel": "Puguh Widiyanto, M.Kep",
+      "nicknamePersonel": "Puguh",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 947308063,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Ilmu Keperawatan (S 1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8561",
+      "namaPersonel": "Ns. Sigit Priyanto, M. Kep.",
+      "nicknamePersonel": "Sigit",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 207608164,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Ilmu Keperawatan (S 1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8562",
+      "namaPersonel": "Ns. Kartika Wijayanti, M.Kep.",
+      "nicknamePersonel": "Kartika",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 207608163,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Ilmu Keperawatan (S 1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8563",
+      "namaPersonel": "Ns. Sodiq Kamal, S.Kep.,M.Sc",
+      "nicknamePersonel": "Sodiq",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 108006063,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Ilmu Keperawatan (S 1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8564",
+      "namaPersonel": "Ns. Muhammad Khoirul Amin, M. Kep.Sp.Kep.J",
+      "nicknamePersonel": "Amin",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 108006043,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Ilmu Keperawatan (S 1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8565",
+      "namaPersonel": "Ns. Eka Sakti Wahyuningtyas, M.Kep",
+      "nicknamePersonel": "Eka Sakti",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 168808174,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Ilmu Keperawatan (S 1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8566",
+      "namaPersonel": "Ns. Sri Hananto Ponco N.,M.Kep",
+      "nicknamePersonel": "Ponco",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 198408246,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Ilmu Keperawatan (S 1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8567",
+      "namaPersonel": "Dra. Indiati, M.Pd",
+      "nicknamePersonel": "Indiati",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 196003281988112000,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen PAUD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8568",
+      "namaPersonel": "Febru Puji Astuti, M.Pd",
+      "nicknamePersonel": "Fabru",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 128406099,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen PAUD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8569",
+      "namaPersonel": "Khusnul Laely, S.Pd., M.Pd",
+      "nicknamePersonel": "Khusnul Laely",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 138606115,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen PAUD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8570",
+      "namaPersonel": "Dra. Lilis Madyawati, M.Si.",
+      "nicknamePersonel": "Lilis",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 196409071989032000,
+      "pangkatPersonel": "Pembina / IVa",
+      "jabatanPersonel": "Dosen PAUD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8571",
+      "namaPersonel": "Reza Edwin Sulistyaningtyas, M.Pd",
+      "nicknamePersonel": "Reza Edwin",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199308243,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen PAUD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8572",
+      "namaPersonel": "Dr. Galih Istiningsih, S.Pd., M.Pd",
+      "nicknamePersonel": "Galih",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 128906100,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen PGSD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8573",
+      "namaPersonel": "Dr. Dhuta Sukmarani, S.Si., M.Si",
+      "nicknamePersonel": "Dhuta",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 138706114,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen PGSD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8574",
+      "namaPersonel": "Septiyati Purwandari, M.Pd.",
+      "nicknamePersonel": "Septi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 148306129,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen PGSD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8575",
+      "namaPersonel": "Ari Suryawan, M.Pd",
+      "nicknamePersonel": "Ari",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 158808132,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen PGSD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8576",
+      "namaPersonel": "Tria Mardiana, M.Pd.",
+      "nicknamePersonel": "Tria",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 169008165,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen PGSD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8577",
+      "namaPersonel": "Arif Wiyat Purnanto,S.Pd.,M.Pd.",
+      "nicknamePersonel": "Arif Wiyat",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 168808157,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen PGSD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8578",
+      "namaPersonel": "Agrissto Bintang Aji Pradana, M.Pd",
+      "nicknamePersonel": "Agriss",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 168808154,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen PGSD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8579",
+      "namaPersonel": "Putri Meinita Triana, M.Pd",
+      "nicknamePersonel": "Putri",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199308242,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen PGSD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8580",
+      "namaPersonel": "Sukma Wijayanto, M.Pd.",
+      "nicknamePersonel": "Sukma",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199008292,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen PGSD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8581",
+      "namaPersonel": "Puji Rahmawati, M. Pd.",
+      "nicknamePersonel": "Puji",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199208291,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen PGSD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8582",
+      "namaPersonel": "Aditia Eska Wardana, M.Pd",
+      "nicknamePersonel": "Aditia",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 199208289,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen PGSD",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8583",
+      "namaPersonel": "Ns. Priyo, M. Kep.",
+      "nicknamePersonel": "Priyo",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 977208116,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Profesi Ners",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8584",
+      "namaPersonel": "Dr. Heni Setyowati ER.,S.Kp., M.Kes",
+      "nicknamePersonel": "Heni",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 937008062,
+      "pangkatPersonel": "Pembina / IVa",
+      "jabatanPersonel": "Dosen Profesi Ners",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8585",
+      "namaPersonel": "Ns. Retna Tri Astuti, M.Kep.",
+      "nicknamePersonel": "Retna",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 47806007,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Profesi Ners",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8586",
+      "namaPersonel": "Ns. Septi Wardani, M.Kep.",
+      "nicknamePersonel": "Septi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 108306044,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Profesi Ners",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8587",
+      "namaPersonel": "Ns. Nurul Hidayah, S.Kep, MS",
+      "nicknamePersonel": "Nurul Hidayah",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 118506079,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Profesi Ners",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8588",
+      "namaPersonel": "Ns. Nurul Purborini, S. Kep., MS., Ph.D",
+      "nicknamePersonel": "Purbo",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 118806073,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Profesi Ners",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8589",
+      "namaPersonel": "apt. Imron Wahyu Hidayat, M.Sc.",
+      "nicknamePersonel": "Imron Wahyu",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 98106038,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Farmas ( S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8590",
+      "namaPersonel": "Dr. apt. Elmiawati Latifah, M.Sc.",
+      "nicknamePersonel": "Elmi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 108406049,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Farmas ( S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8591",
+      "namaPersonel": "apt. Heni Lutfiyati, S.Si, M.Sc.",
+      "nicknamePersonel": "Heni Lutfi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 107806048,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Farmas ( S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8592",
+      "namaPersonel": "apt. Tiara Mega Kusuma, M. Sc.",
+      "nicknamePersonel": "Tiara",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 108606050,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Farmas ( S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8593",
+      "namaPersonel": "apt. Puspita Septie Dianita, S.Farm., M.P.H.",
+      "nicknamePersonel": "Puspita",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 138906109,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Farmas ( S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8594",
+      "namaPersonel": "apt. Fitriana Yuliastuti, S.Farm., M.Sc.",
+      "nicknamePersonel": "Fitriana",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 138506110,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Farmas ( S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8595",
+      "namaPersonel": "Dr. apt. Prasojo Pribadi, M.Sc.",
+      "nicknamePersonel": "Prasojo Pribadi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 118306080,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Farmas ( S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8596",
+      "namaPersonel": "apt. Alfian Syarifuddin, M. Farm.",
+      "nicknamePersonel": "Alfian",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 189208190,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Farmas ( S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8597",
+      "namaPersonel": "apt. Ratna Wijayatri, M.Sc.",
+      "nicknamePersonel": "Ratna",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 198508247,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Farmas ( S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8598",
+      "namaPersonel": "apt. Perdana Priya Haresmita, M.Pharm.Sci",
+      "nicknamePersonel": "Perdana",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 218708339,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Farmas ( S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8599",
+      "namaPersonel": "Dr. Imam Mawardi, M.Ag",
+      "nicknamePersonel": "Imam Mawardi",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 17308176,
+      "pangkatPersonel": "Pembina / IVa",
+      "jabatanPersonel": "Dosen Manajemen Pendidikan Islam (S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8600",
+      "namaPersonel": "Dr. Nurodin Usman, Lc, MA",
+      "nicknamePersonel": "Nurodin",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 57508190,
+      "pangkatPersonel": "Pembina / IVa",
+      "jabatanPersonel": "Dosen Manajemen Pendidikan Islam (S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8601",
+      "namaPersonel": "Dr. Ahwy Oktradiksa, S.Pd.I., M.Pd.I",
+      "nicknamePersonel": "Ahwy",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 128506096,
+      "pangkatPersonel": "Penata Tk. I / IIId",
+      "jabatanPersonel": "Dosen Manajemen Pendidikan Islam (S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8602",
+      "namaPersonel": "Laili Qomariyah, M.Psi., Psi",
+      "nicknamePersonel": "Laili",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 198408248,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Psikologi (S1)",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8603",
+      "namaPersonel": "Lintang Muliawanti, S.I.Kom., M.A",
+      "nicknamePersonel": "Lintang",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 189208194,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Ilmu Komunikasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8604",
+      "namaPersonel": "Fadillah Sandy, S. Pd., M.A.",
+      "nicknamePersonel": "Sandy",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 198908237,
+      "pangkatPersonel": "Penata Muda Tk. I / IIIb",
+      "jabatanPersonel": "Dosen Ilmu Komunikasi",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8605",
+      "namaPersonel": "Saifudin, ST., M.Eng",
+      "nicknamePersonel": "Saifudin",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 17408179,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Teknik Mesin ( S1 )",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8606",
+      "namaPersonel": "Dr. Budi Waluyo, ST, MT",
+      "nicknamePersonel": "Budi Waluyo",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 67706026,
+      "pangkatPersonel": "Penata / IIIc",
+      "jabatanPersonel": "Dosen Teknik Mesin ( S1 )",
+      "statusPersonel": "Non BAM"
+    },
+    {
+      "idPersonel": "43DE8607",
+      "namaPersonel": "Prof. Dr. Ir. Muji Setiyo, ST., MT.",
+      "nicknamePersonel": "Muji",
+      "idKegiatanDiikuti": "",
+      "nikPersonel": 108306043,
+      "pangkatPersonel": "Pembina / IVa",
+      "jabatanPersonel": "Dosen Teknik Mesin ( S1 )",
+      "statusPersonel": "Non BAM"
+    }
+  ]

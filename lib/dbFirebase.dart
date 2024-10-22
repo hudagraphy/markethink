@@ -15,13 +15,29 @@ Future ambilDataAgenda({required String userAkun, String dokumen = 'all'}) {
   FirebaseFirestore db = FirebaseFirestore.instance;
   CollectionReference agenda = db.collection('agenda');
 
-  final hasil = agenda.where('personelBAM', arrayContains: userAkun).orderBy('waktuBerangkatAgenda').get().then((value) {
-    return value.docs;
-  },);
+  final hasil = agenda
+      .where('personelBAM', arrayContains: userAkun)
+      .orderBy('waktuBerangkatAgenda')
+      .get()
+      .then(
+    (value) {
+      return value.docs;
+    },
+  );
   return hasil;
 }
 
-Future ambilDataJSON(String filePath, String param) async {
+Future ambilDataJSON(String filePath, String param,
+    {String filter = 'no', String where = 'no'}) async {
   String jsonString = await rootBundle.loadString(filePath);
-return jsonDecode(jsonString).map<String>((e) => e[param] as String).toList();
+  if (filter == 'no') {
+    return jsonDecode(jsonString)
+        .map<String>((e) => e[param] as String)
+        .toList();
+  } else {
+    return jsonDecode(jsonString)
+        .where((data) => data[filter] == where)
+        .map<String>((e) => e[param] as String)
+        .toList();
+  }
 }

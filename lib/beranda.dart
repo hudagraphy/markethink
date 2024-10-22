@@ -141,8 +141,10 @@ class Beranda extends StatelessWidget {
                         ],
                       ),
                     );
-                  }else{
-                    return Center(child: Text('Ga ada Agenda Buatmu'),);
+                  } else {
+                    return Center(
+                      child: Text('Ga ada Agenda Buatmu'),
+                    );
                   }
                 } else if (snapshot.hasError) {
                   return Text('Error leh ${snapshot.error}');
@@ -323,11 +325,9 @@ class _NavigasiBarState extends State<NavigasiBar> {
                             ikon: Icons.calendar_month_rounded,
                             judul: "Buat Agenda",
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const InputAgenda(),
-                                ),
+                              showDialog(
+                                context: context,
+                                builder: (context) => InputAgenda(),
                               );
                             },
                           ),

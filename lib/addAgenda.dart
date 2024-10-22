@@ -33,7 +33,7 @@ class _InputAgendaState extends State<InputAgenda> {
     "Kabupaten Purworejo",
     "Kabupaten Kebumen"
   ];
-  List<String> personalBAM = ["Huda", "Pungki", "Zafir", "Bapang"];
+
   List<String> dataDosenTendik = ["Tuessi", "Zuhron", "Yudi", "Lilik"];
   List<String> dataKendaraan = [
     "Luxio BAM",
@@ -51,13 +51,21 @@ class _InputAgendaState extends State<InputAgenda> {
 
   //inisiasi data dropdown kotaKab
   List<String> kotaKabAgenda = [];
+  List<String> personelBAM = [];
+  List<String> personelDosenTenik = [];
 
   //fungsi bantuan untuk simpan data ke variabel isi data dropdown
   Future fetchDataDropdown() async {
     final tempDataKotaKab = await ambilDataJSON('assets/kotaKab.json', 'name');
-    
     kotaKabAgenda = tempDataKotaKab;
-    
+    final tempDataPersonelBam = await ambilDataJSON(
+        'assets/personel.json', 'namaPersonel',
+        filter: 'statusPersonel', where: 'Personel BAM');
+    personelBAM = tempDataPersonelBam;
+    final tempDataDosenTendik = await ambilDataJSON(
+        'assets/personel.json', 'namaPersonel',
+        filter: 'statusPersonel', where: 'Non BAM');
+    print(tempDataDosenTendik);
   }
 
   //init state untuk memanggil fungsi fectdata
@@ -80,13 +88,58 @@ class _InputAgendaState extends State<InputAgenda> {
             //background form
             GestureDetector(
               onTap: () {
-                Navigator.pop(context);
-                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Center(
+                      child: Container(
+                        height: 110,
+                        padding: EdgeInsets.all(20),
+                        margin: EdgeInsets.symmetric(
+                            horizontal: lebarLayar <= 720
+                                ? (5 / 100 * lebarLayar)
+                                : (25 / 100 * lebarLayar)),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Ga sido yo?',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.blue),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                                Navigator.pop(context);
+                                Navigator.pop(context);
+                              },
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    color: Colors.blue,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Text(
+                                    'Iyo ga sido',
+                                    style: TextStyle(color: Colors.white),
+                                    S),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
               },
               child: Opacity(
                 opacity: 0.1,
                 child: Container(
-                  color: Colors.white,
+                  color: Colors.transparent,
                 ),
               ),
             ),
@@ -141,7 +194,7 @@ class _InputAgendaState extends State<InputAgenda> {
                               hasilForm = _kunciForm.currentState!.value;
                               if (_kunciForm.currentState?.saveAndValidate() ==
                                   true) {
-                                //data sementara sambil nungnu field aman
+                                //data sementara sambil nunggu field aman
                                 _kunciForm.currentState?.setInternalFieldValue(
                                     'pinLocation',
                                     '-7.521917643849493, 110.22655455772104');
@@ -299,7 +352,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 DropdownMultiple(
                                   fieldName: "personelBAM",
                                   kunciForm: _kunciForm,
-                                  isiDropdown: personalBAM,
+                                  isiDropdown: personelBAM,
                                   hintText: "Personel BAM",
                                   isWajib: true,
                                   selectedItems: _kunciForm
