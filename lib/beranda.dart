@@ -80,9 +80,10 @@ class _BerandaState extends State<Beranda> {
                                           ),
                                           GestureDetector(
                                             onTap: () {
-                                              for (var dol in snapshot.data) {
-                                                print(dol.data());
-                                              }
+                                              var allData = snapshot.data;
+                                              List<QueryDocumentSnapshot>
+                                                  dataAgendaHuda = allData;
+                                              print(dataAgendaHuda);
                                             },
                                             child: Text(
                                               "Lihat semua",
@@ -244,29 +245,29 @@ class _BerandaState extends State<Beranda> {
       ),
     );
   }
+}
 
-  Future<dynamic> dialogViewAgenda(
-      BuildContext context, double lebarLayar, dataAgenda) {
-    return showDialog(
-      context: context,
-      builder: (context) {
-        return Center(
-          child: Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: lebarLayar <= 720
-                      ? (5 / 100 * lebarLayar)
-                      : (25 / 100 * lebarLayar)),
-              padding: EdgeInsets.all(15),
-              height: 390,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: CardViewAgenda(hasilForm: dataAgenda)),
-        );
-      },
-    );
-  }
+Future<dynamic> dialogViewAgenda(
+    BuildContext context, double lebarLayar, dataAgenda) {
+  return showDialog(
+    context: context,
+    builder: (context) {
+      return Center(
+        child: Container(
+            margin: EdgeInsets.symmetric(
+                horizontal: lebarLayar <= 720
+                    ? (5 / 100 * lebarLayar)
+                    : (25 / 100 * lebarLayar)),
+            padding: EdgeInsets.all(15),
+            height: 390,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: CardViewAgenda(hasilForm: dataAgenda)),
+      );
+    },
+  );
 }
 
 class NavigasiBar extends StatefulWidget {

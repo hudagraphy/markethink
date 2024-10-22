@@ -11,15 +11,31 @@ Future tambahAgenda(Map<String, dynamic> dataAgenda, String idAgenda) {
       );
 }
 
-Future ambilDataAgenda({required String userAkun, bool Alldokumen = false}) {
+Future ambilDataAgenda({required String userAkun, bool isAlldokumen = false}) {
   FirebaseFirestore db = FirebaseFirestore.instance;
   CollectionReference agenda = db.collection('agenda');
-  var hasil = agenda.orderBy('waktuBerangkatAgenda').get().then(
-    (value) {
-      return value.docs;
-    },
-  );
-  return hasil;
+
+  var hasil;
+
+  if (!isAlldokumen) {
+    hasil = agenda
+        .where('personelBAM', arrayContains: userAkun)
+        .orderBy('waktuBerangkatAgenda')
+        .get()
+        .then(
+      (value) {
+        return value.docs;
+      },
+    );
+    return hasil;
+  } else {
+    hasil = agenda.orderBy('waktuBerangkatAgenda').get().then(
+      (value) {
+        return value.docs;
+      },
+    );
+    return hasil;
+  }
 }
 
 Future ambilDataJSON(String filePath, String param,

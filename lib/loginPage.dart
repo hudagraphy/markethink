@@ -51,7 +51,7 @@ class HalamanLogin extends StatelessWidget {
             ],
           );
         }
-        return Beranda();
+        return ViewAllAgenda();
       },
     );
   }
