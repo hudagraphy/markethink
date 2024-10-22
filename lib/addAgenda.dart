@@ -124,9 +124,9 @@ class _InputAgendaState extends State<InputAgenda> {
                                     color: Colors.blue,
                                     borderRadius: BorderRadius.circular(10)),
                                 child: Text(
-                                    'Iyo ga sido',
-                                    style: TextStyle(color: Colors.white),
-                                    S),
+                                  'Iyo ga sido',
+                                  style: TextStyle(color: Colors.white),
+                                ),
                               ),
                             )
                           ],
@@ -364,7 +364,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 DropdownMultiple(
                                   fieldName: "personelDosenTendik",
                                   kunciForm: _kunciForm,
-                                  isiDropdown: dataDosenTendik,
+                                  isiDropdown: personelDosenTenik,
                                   hintText: "Personel Dosen/Tendik",
                                   selectedItems: _kunciForm.currentState
                                           ?.value['personelDosenTendik'] ??

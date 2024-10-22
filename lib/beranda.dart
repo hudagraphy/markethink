@@ -9,9 +9,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:markethink/loginPage.dart';
 import 'package:markethink/profilPage.dart';
 
-class Beranda extends StatelessWidget {
+class Beranda extends StatefulWidget {
   const Beranda({super.key});
 
+  @override
+  State<Beranda> createState() => _BerandaState();
+}
+
+class _BerandaState extends State<Beranda> {
   @override
   Widget build(BuildContext context) {
     double lebarLayar = MediaQuery.of(context).size.width;
@@ -22,136 +27,155 @@ class Beranda extends StatelessWidget {
       body: Stack(
         children: [
           //Main Content
-          FutureBuilder(
-              future: ambilDataAgenda(userAkun: userAkun),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  if (snapshot.data.length > 0) {
-                    return Container(
-                      margin: EdgeInsets.only(top: 80),
-                      child: ListView(
-                        children: [
-                          Stack(
-                            children: [
-                              //Agenda Berikutnya
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.blue,
-                                  borderRadius:
-                                      BorderRadiusDirectional.vertical(
-                                    top: Radius.circular(30),
+          RefreshIndicator.adaptive(
+            displacement: (18 / 100) * tinggiLayar,
+            color: Colors.amber,
+            backgroundColor: Colors.blue,
+            onRefresh: () {
+              return Future.delayed(
+                Duration(seconds: 3),
+                () => setState(() {}),
+              );
+            },
+            child: FutureBuilder(
+                future: ambilDataAgenda(userAkun: userAkun),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    if (snapshot.data.length > 0) {
+                      return Container(
+                        margin: EdgeInsets.only(top: 80),
+                        child: ListView(
+                          children: [
+                            Stack(
+                              children: [
+                                //Agenda Berikutnya
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue,
+                                    borderRadius:
+                                        BorderRadiusDirectional.vertical(
+                                      top: Radius.circular(30),
+                                    ),
                                   ),
-                                ),
-                                margin: EdgeInsets.only(top: 100),
-                                padding: EdgeInsets.only(
-                                  top: 100,
-                                  bottom: 80,
-                                  left: 5 / 100 * lebarLayar,
-                                  right: 5 / 100 * lebarLayar,
-                                ),
-                                child: Column(
-                                  children: [
-                                    //Agenda akan datang - Lihat semua
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Agenda beriktunya",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        Text(
-                                          "Lihat semua",
-                                          style: TextStyle(
-                                            fontSize: 10,
-                                            color: Colors.white,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    //progressBarr
-                                    Container(
-                                      margin:
-                                          EdgeInsets.symmetric(vertical: 10),
-                                      child: Text(
-                                        "--Progress Bar di sini--",
-                                        style: TextStyle(fontSize: 10),
-                                      ),
-                                    ),
-                                    //List Kartu Agenda
-
-                                    Container(
-                                      child: ListView.builder(
-                                        shrinkWrap: true,
-                                        itemCount: snapshot.data.length - 1,
-                                        itemBuilder: (context, index) {
-                                          var dataAgenda =
-                                              snapshot.data[index + 1].data();
-                                          return GestureDetector(
-                                            onTap: () async {
-                                              dialogViewAgenda(context,
-                                                  lebarLayar, dataAgenda);
-                                            },
-                                            child: KartuAgenda(
-                                              tajukAcara:
-                                                  dataAgenda['tajukAgenda'],
-                                              lokasiAcara:
-                                                  dataAgenda['kotaKabAgenda']
-                                                      .join(', '),
-                                              waktuAcara: dataAgenda[
-                                                      'waktuBerangkatAgenda']
-                                                  .toDate(),
-                                              statusApprove: true,
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              //Pin Lokasi dan HighPriority Card
-                              Container(
-                                margin: EdgeInsets.only(
+                                  margin: EdgeInsets.only(top: 100),
+                                  padding: EdgeInsets.only(
+                                    top: 100,
+                                    bottom: 80,
                                     left: 5 / 100 * lebarLayar,
                                     right: 5 / 100 * lebarLayar,
-                                    top: 0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    //Lokasi Device
-                                    PinLokasi(),
-                                    //High priority card
-                                    GestureDetector(
-                                      onTap: () {
-                                        dialogViewAgenda(context, lebarLayar,
-                                            snapshot.data[0].data());
-                                      },
-                                      child: HighPriorityCard(
-                                          dataAgenda: snapshot.data[0].data()),
-                                    ),
-                                  ],
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      //Agenda akan datang - Lihat semua
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Agenda beriktunya",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                          GestureDetector(
+                                            onTap: () {
+                                              for (var dol in snapshot.data) {
+                                                print(dol.data());
+                                              }
+                                            },
+                                            child: Text(
+                                              "Lihat semua",
+                                              style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      //progressBarr
+                                      Container(
+                                        margin:
+                                            EdgeInsets.symmetric(vertical: 10),
+                                        child: Text(
+                                          "--Progress Bar di sini--",
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                      ),
+                                      //List Kartu Agenda
+                                      Container(
+                                        child: ListView.builder(
+                                          shrinkWrap: true,
+                                          itemCount: snapshot.data.length - 1,
+                                          itemBuilder: (context, index) {
+                                            var dataAgenda =
+                                                snapshot.data[index + 1].data();
+                                            return GestureDetector(
+                                              onTap: () async {
+                                                dialogViewAgenda(context,
+                                                    lebarLayar, dataAgenda);
+                                              },
+                                              child: KartuAgenda(
+                                                tajukAcara:
+                                                    dataAgenda['tajukAgenda'],
+                                                lokasiAcara:
+                                                    dataAgenda['kotaKabAgenda']
+                                                        .join(', '),
+                                                waktuAcara: dataAgenda[
+                                                        'waktuBerangkatAgenda']
+                                                    .toDate(),
+                                                statusApprove: true,
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
+                                //Pin Lokasi dan HighPriority Card
+                                Container(
+                                  margin: EdgeInsets.only(
+                                      left: 5 / 100 * lebarLayar,
+                                      right: 5 / 100 * lebarLayar,
+                                      top: 0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      //Lokasi Device
+                                      PinLokasi(),
+                                      //High priority card
+                                      GestureDetector(
+                                        onTap: () {
+                                          dialogViewAgenda(context, lebarLayar,
+                                              snapshot.data[0].data());
+                                        },
+                                        child: HighPriorityCard(
+                                            dataAgenda:
+                                                snapshot.data[0].data()),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    } else {
+                      return Center(
+                        child: Text('Ga ada Agenda Buatmu'),
+                      );
+                    }
+                  } else if (snapshot.hasError) {
+                    return Text('Error leh ${snapshot.error}');
                   } else {
-                    return Center(
-                      child: Text('Ga ada Agenda Buatmu'),
-                    );
+                    return Text('Sik Yo Bro');
                   }
-                } else if (snapshot.hasError) {
-                  return Text('Error leh ${snapshot.error}');
-                } else {
-                  return Text('Sik Yo Bro');
-                }
-              }),
+                }),
+          ),
           //Profile, Greeting, Notification
           Container(
             height: 50,

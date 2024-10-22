@@ -11,15 +11,10 @@ Future tambahAgenda(Map<String, dynamic> dataAgenda, String idAgenda) {
       );
 }
 
-Future ambilDataAgenda({required String userAkun, String dokumen = 'all'}) {
+Future ambilDataAgenda({required String userAkun, bool Alldokumen = false}) {
   FirebaseFirestore db = FirebaseFirestore.instance;
   CollectionReference agenda = db.collection('agenda');
-
-  final hasil = agenda
-      .where('personelBAM', arrayContains: userAkun)
-      .orderBy('waktuBerangkatAgenda')
-      .get()
-      .then(
+  var hasil = agenda.orderBy('waktuBerangkatAgenda').get().then(
     (value) {
       return value.docs;
     },
