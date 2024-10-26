@@ -11,32 +11,7 @@ Future tambahAgenda(Map<String, dynamic> dataAgenda, String idAgenda) {
       );
 }
 
-Future ambilDataAgenda({required String userAkun, bool isAlldokumen = false}) {
-  FirebaseFirestore db = FirebaseFirestore.instance;
-  CollectionReference agenda = db.collection('agenda');
 
-  var hasil;
-
-  if (!isAlldokumen) {
-    hasil = agenda
-        .where('personelBAM', arrayContains: userAkun)
-        .orderBy('waktuBerangkatAgenda')
-        .get()
-        .then(
-      (value) {
-        return value.docs;
-      },
-    );
-    return hasil;
-  } else {
-    hasil = agenda.orderBy('waktuBerangkatAgenda').get().then(
-      (value) {
-        return value.docs;
-      },
-    );
-    return hasil;
-  }
-}
 
 Future ambilDataJSON(String filePath, String param,
     {String filter = 'no', String where = 'no'}) async {
@@ -51,4 +26,27 @@ Future ambilDataJSON(String filePath, String param,
         .map<String>((e) => e[param] as String)
         .toList();
   }
+}
+
+Future<List<Map<String, dynamic>>> ambilDataAgenda() async {
+  FirebaseFirestore db = FirebaseFirestore.instance;
+  CollectionReference agenda = db.collection('agenda');
+
+  List<Map<String, dynamic>> hasil = [];
+
+  await agenda
+      .where('waktuBerangkatAgenda', isGreaterThanOrEqualTo: Timestamp.now())
+      .orderBy('waktuBerangkatAgenda')
+      .get()
+      .then(
+    (QuerySnapshot value) {
+      value.docs.forEach(
+        (e) {
+          hasil.add(e.data() as Map<String, dynamic>);
+        },
+      );
+    },
+  );
+
+  return hasil;
 }

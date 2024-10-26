@@ -1,4 +1,4 @@
-package com.example.markethink
+package com.markethink.unimma
 
 import io.flutter.embedding.android.FlutterActivity
 

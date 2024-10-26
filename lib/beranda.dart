@@ -18,7 +18,7 @@ class Beranda extends StatefulWidget {
 
 class _BerandaState extends State<Beranda> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)  {
     double lebarLayar = MediaQuery.of(context).size.width;
     double tinggiLayar = MediaQuery.of(context).size.height;
     late String userAkun =
@@ -38,10 +38,11 @@ class _BerandaState extends State<Beranda> {
               );
             },
             child: FutureBuilder(
-                future: ambilDataAgenda(userAkun: userAkun),
+                future: ambilDataAgenda(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    if (snapshot.data.length > 0) {
+                    if (snapshot.data!.length > 0) {
+                      List<Map<String, dynamic>> dataAgenda = snapshot.data ?? [];
                       return Container(
                         margin: EdgeInsets.only(top: 80),
                         child: ListView(
@@ -79,11 +80,10 @@ class _BerandaState extends State<Beranda> {
                                             ),
                                           ),
                                           GestureDetector(
-                                            onTap: () {
-                                              var allData = snapshot.data;
-                                              List<QueryDocumentSnapshot>
-                                                  dataAgendaHuda = allData;
-                                              print(dataAgendaHuda);
+                                            onTap: () async{
+                                              //var tempData = await cobaAmbilDataAgenda();
+                                              
+                                              //debugPrint("${tempData.where((agenda)=> agenda['personelBAM'].any((personelBAM)=>personelBAM.toString().contains('Kun Hisnan Hajron, M.Pd'))).toList()}");
                                             },
                                             child: Text(
                                               "Lihat semua",
@@ -108,22 +108,21 @@ class _BerandaState extends State<Beranda> {
                                       Container(
                                         child: ListView.builder(
                                           shrinkWrap: true,
-                                          itemCount: snapshot.data.length - 1,
+                                          itemCount: dataAgenda.length - 1,
                                           itemBuilder: (context, index) {
-                                            var dataAgenda =
-                                                snapshot.data[index + 1].data();
+                                            Map<String, dynamic> agendaUser = dataAgenda[index];
                                             return GestureDetector(
                                               onTap: () async {
                                                 dialogViewAgenda(context,
-                                                    lebarLayar, dataAgenda);
+                                                    lebarLayar, dataAgenda[index]);
                                               },
                                               child: KartuAgenda(
                                                 tajukAcara:
-                                                    dataAgenda['tajukAgenda'],
+                                                    agendaUser['tajukAgenda'],
                                                 lokasiAcara:
-                                                    dataAgenda['kotaKabAgenda']
+                                                    agendaUser['kotaKabAgenda']
                                                         .join(', '),
-                                                waktuAcara: dataAgenda[
+                                                waktuAcara: agendaUser[
                                                         'waktuBerangkatAgenda']
                                                     .toDate(),
                                                 statusApprove: true,
@@ -151,11 +150,11 @@ class _BerandaState extends State<Beranda> {
                                       GestureDetector(
                                         onTap: () {
                                           dialogViewAgenda(context, lebarLayar,
-                                              snapshot.data[0].data());
+                                              dataAgenda[0]);
                                         },
                                         child: HighPriorityCard(
                                             dataAgenda:
-                                                snapshot.data[0].data()),
+                                                dataAgenda[0]),
                                       ),
                                     ],
                                   ),
@@ -167,7 +166,7 @@ class _BerandaState extends State<Beranda> {
                       );
                     } else {
                       return Center(
-                        child: Text('Ga ada Agenda Buatmu'),
+                        child: Text('Kamu sedang ga ada agenda ternyata :p'),
                       );
                     }
                   } else if (snapshot.hasError) {
@@ -237,10 +236,10 @@ class _BerandaState extends State<Beranda> {
             ),
           ),
           //NavBar
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: NavigasiBar(lebarLayar: lebarLayar),
-          )
+          // Align(
+          //   alignment: Alignment.bottomCenter,
+          //   child: NavigasiBar(lebarLayar: lebarLayar, indexNav: 1,),
+          // )
         ],
       ),
     );
@@ -274,10 +273,11 @@ class NavigasiBar extends StatefulWidget {
   NavigasiBar({
     super.key,
     required this.lebarLayar,
+    this.indexNav = 1
   });
 
   final double lebarLayar;
-  int indexNav = 1;
+  int indexNav;
 
   @override
   State<NavigasiBar> createState() => _NavigasiBarState();
@@ -315,6 +315,7 @@ class _NavigasiBarState extends State<NavigasiBar> {
             onPressed: () {
               setState(() {
                 widget.indexNav = 1;
+                //Navigator.pushNamed(context, 'Beranda');
               });
             },
           ),
@@ -324,6 +325,7 @@ class _NavigasiBarState extends State<NavigasiBar> {
             onPressed: () {
               setState(() {
                 widget.indexNav = 2;
+                Navigator.pushNamed(context, 'ViewAllAgenda');
               });
             },
           ),
@@ -380,6 +382,7 @@ class _NavigasiBarState extends State<NavigasiBar> {
             onPressed: () {
               setState(() {
                 widget.indexNav = 3;
+                // Navigator.pushNamed(context, 'ViewKeuangan');
               });
             },
           ),
@@ -389,6 +392,7 @@ class _NavigasiBarState extends State<NavigasiBar> {
             onPressed: () {
               setState(() {
                 widget.indexNav = 4;
+                // Navigator.pushNamed(context, 'ViewStats');
               });
             },
           ),

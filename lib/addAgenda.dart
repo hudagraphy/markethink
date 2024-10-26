@@ -6,8 +6,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
-
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
 import 'package:markethink/beranda.dart';
@@ -23,30 +21,27 @@ class InputAgenda extends StatefulWidget {
 }
 
 class _InputAgendaState extends State<InputAgenda> {
+  //index Step form
   int step = 1;
-  List<String> opsiJenisAgenda = ["Roadshow", "Expo", "Presentasi", "Rapat"];
-  List<String> wilayahAgenda = [
-    "Kota Magelang",
-    "Kabupaten Magelang",
-    "Kabupaten Temanggung",
-    "Kabupaten Wonosobo",
-    "Kabupaten Purworejo",
-    "Kabupaten Kebumen"
-  ];
 
-  List<String> dataDosenTendik = ["Tuessi", "Zuhron", "Yudi", "Lilik"];
+  //data form dropdown *next ganti dengan API
+  List<String> opsiJenisAgenda = ["Roadshow", "Expo", "Presentasi", "Rapat"];
   List<String> dataKendaraan = [
     "Luxio BAM",
     "Avanza",
     "Innova",
     "Ambulance",
+    "Pick Up"
     "Hi Ace",
+    "Bus"
     "Kendaraan Pribadi"
   ];
   Map<String, dynamic> hasilForm = {};
 
-  final controlllerPeta = MapController.withPosition(
-      initPosition: GeoPoint(latitude: 47.4358055, longitude: 8.4737324));
+  //var controller untuk location pick
+ 
+  
+  //kunciForm tambah Agenda
   final _kunciForm = GlobalKey<FormBuilderState>();
 
   //inisiasi data dropdown kotaKab

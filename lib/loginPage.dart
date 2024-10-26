@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:markethink/beranda.dart';
+import 'package:markethink/afterLogin.dart';
+import 'package:markethink/statsPage.dart';
 import 'package:markethink/viewAllAgenda.dart';
 
 class HalamanLogin extends StatelessWidget {
@@ -51,7 +53,7 @@ class HalamanLogin extends StatelessWidget {
             ],
           );
         }
-        return ViewAllAgenda();
+        return AfterLogin();
       },
     );
   }
