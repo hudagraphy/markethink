@@ -14,7 +14,14 @@ import 'package:multi_dropdown/multi_dropdown.dart';
 import 'package:uuid/uuid.dart';
 
 class InputAgenda extends StatefulWidget {
-  const InputAgenda({super.key});
+  const InputAgenda({
+    super.key,
+    this.isEdit = false,
+    this.dataAgenda = const{}
+  });
+
+  final bool isEdit;
+  final Map<String, dynamic> dataAgenda;
 
   @override
   State<InputAgenda> createState() => _InputAgendaState();
@@ -32,12 +39,12 @@ class _InputAgendaState extends State<InputAgenda> {
     "Innova",
     "Ambulance",
     "Pick Up"
-    "Hi Ace",
+        "Hi Ace",
     "Bus"
-    "Kendaraan Pribadi"
+        "Kendaraan Pribadi"
   ];
   Map<String, dynamic> hasilForm = {};
-  
+
   //kunciForm tambah Agenda
   final _kunciForm = GlobalKey<FormBuilderState>();
 
@@ -57,8 +64,9 @@ class _InputAgendaState extends State<InputAgenda> {
     final tempDataDosenTendik = await ambilDataJSON(
         'assets/personel.json', 'namaPersonel',
         filter: 'statusPersonel', where: 'Non BAM');
-    print(tempDataDosenTendik);
   }
+
+  
 
   //init state untuk memanggil fungsi fectdata dropdown
   @override
@@ -66,6 +74,8 @@ class _InputAgendaState extends State<InputAgenda> {
     // TODO: implement initState
     super.initState();
     fetchDataDropdown();
+    
+    
   }
 
   @override
@@ -73,6 +83,7 @@ class _InputAgendaState extends State<InputAgenda> {
     double lebarLayar = MediaQuery.of(context).size.width;
     double tinggiLayar = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: FormBuilder(
         key: _kunciForm,
         child: Stack(
@@ -83,45 +94,48 @@ class _InputAgendaState extends State<InputAgenda> {
                 showDialog(
                   context: context,
                   builder: (context) {
-                    return Center(
-                      child: Container(
-                        height: 110,
-                        padding: EdgeInsets.all(20),
-                        margin: EdgeInsets.symmetric(
-                            horizontal: lebarLayar <= 720
-                                ? (5 / 100 * lebarLayar)
-                                : (25 / 100 * lebarLayar)),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Ga sido yo?',
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.blue),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.pop(context);
-                                Navigator.pop(context);
-                                Navigator.pop(context);
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                    color: Colors.blue,
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: Text(
-                                  'Iyo ga sido',
-                                  style: TextStyle(color: Colors.white),
-                                ),
+                    return Scaffold(
+                      backgroundColor: Colors.transparent,
+                      body: Center(
+                        child: Container(
+                          height: 110,
+                          padding: EdgeInsets.all(20),
+                          margin: EdgeInsets.symmetric(
+                              horizontal: lebarLayar <= 720
+                                  ? (5 / 100 * lebarLayar)
+                                  : (25 / 100 * lebarLayar)),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Ga sido yo?',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blue),
                               ),
-                            )
-                          ],
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      color: Colors.blue,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Text(
+                                    'Iyo ga sido',
+                                    style: TextStyle(color: Colors.white, fontSize: 16),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     );
@@ -184,8 +198,24 @@ class _InputAgendaState extends State<InputAgenda> {
                           child: GestureDetector(
                             onTap: () async {
                               hasilForm = _kunciForm.currentState!.value;
+                              print(hasilForm);
                               if (_kunciForm.currentState?.saveAndValidate() ==
                                   true) {
+                                    //jika kondisi wdiget.agenda ada (edit state) maka..
+                                    if (widget.dataAgenda["jenisAgenda"] != null) {
+                                      //isi data initial untuk edit kotaKabAgenda, personelBAM, personel
+                                      _kunciForm.currentState?.setInternalFieldValue('kotaKabAgenda', List<String>.from(widget.dataAgenda['kotaKabAgenda']));
+                                      _kunciForm.currentState?.setInternalFieldValue('personelBAM', List<String>.from(widget.dataAgenda['personelBAM']));
+                                      //cek apabila personelDosenTendik kosong (karena opsional)
+                                     if (widget.dataAgenda['personelDosenTendik'] != null) {
+                                        _kunciForm.currentState?.setInternalFieldValue('personelDosenTendik', List<String>.from(widget.dataAgenda['personelDosenTendik']));
+                                     }
+                                     if (widget.dataAgenda['kendaraanAgenda'] != null) {
+                                        _kunciForm.currentState?.setInternalFieldValue('kendaraanAgenda', List<String>.from(widget.dataAgenda['kendaraanAgenda']));
+                                     }
+                                    //simpan pada _kunciForm
+                                    _kunciForm.currentState?.save();
+                                    }
                                 //data sementara sambil nunggu field aman
                                 _kunciForm.currentState?.setInternalFieldValue(
                                     'pinLocation',
@@ -195,15 +225,25 @@ class _InputAgendaState extends State<InputAgenda> {
                                     'https://drive.google.com/open?id=1PBnYQZ1VupTTgA4Zy6lQ90Wte3NZJARy&usp=drive_fs');
                                 step++;
                                 if (step == 7) {
-                                  await tambahAgenda(hasilForm,
+                                  //jika kondisi edit update maka
+                                  if(widget.dataAgenda['jenisAgenda'] != null){
+                                    //update berdasarkkan id document
+                                    await tambahAgenda(hasilForm,
+                                      "${widget.dataAgenda['idDokumen']}");
+                                  }else{
+                                    await tambahAgenda(hasilForm,
                                       "${hasilForm['jenisAgenda']}_${Uuid().v1().substring(0, 13)}");
+                                  }
+                                  
                                   Navigator.pop(context);
                                   Navigator.pop(context);
                                   setState(() {});
                                 }
                               }
 
-                              setState(() {});
+                              setState(() {
+
+                              });
                             },
                             child: Container(
                               padding: EdgeInsets.all(20),
@@ -250,6 +290,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 //jenis Agenda660
                                 FormBuilderDropdown<String>(
                                   name: "jenisAgenda",
+                                  initialValue: widget.dataAgenda['jenisAgenda'],
                                   decoration: PengaturanDekorasiField(
                                       hintText: "Jenis Agenda"),
                                   validator: FormBuilderValidators.required(
@@ -266,6 +307,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 //field Taju Acara
                                 FormBuilderTextField(
                                   name: 'tajukAgenda',
+                                  initialValue: widget.dataAgenda['tajukAgenda'],
                                   decoration: PengaturanDekorasiField(
                                       hintText: 'Tajuk Agenda'),
                                   validator: FormBuilderValidators.required(
@@ -276,6 +318,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 //fieldMangkate
                                 FormBuilderDateTimePicker(
                                   name: "waktuBerangkatAgenda",
+                                  initialValue: widget.dataAgenda['waktuBerangkatAgenda']?.toDate(),
                                   firstDate: DateTime.now(),
                                   lastDate: DateTime(2030, 12, 31),
                                   validator: FormBuilderValidators.required(
@@ -290,10 +333,11 @@ class _InputAgendaState extends State<InputAgenda> {
                                 SizedBox(height: 20),
                                 //field Balikke?
                                 Visibility(
-                                  visible: _kunciForm.currentState
+                                  visible: (_kunciForm.currentState
                                           ?.value['waktuBerangkatAgenda'] !=
-                                      null,
+                                      null) || (widget.dataAgenda["waktuPulangAgenda"] != null) ,
                                   child: FormBuilderDateTimePicker(
+                                    initialValue: widget.dataAgenda['waktuPulangAgenda']?.toDate(),
                                     name: "waktuPulangAgenda",
                                     firstDate: DateTime.now(),
                                     lastDate: DateTime(2024, 12, 31),
@@ -327,6 +371,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 //detil Lokasi
                                 FormBuilderTextField(
                                   name: "detilLokasiAgenda",
+                                  initialValue: widget.dataAgenda['detilLokasiAgenda'],
                                   validator: FormBuilderValidators.required(),
                                   decoration: PengaturanDekorasiField(
                                       hintText: "*Detail Lokasi"),
@@ -366,6 +411,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 //personelLainnya
                                 FormBuilderTextField(
                                   name: "personelTambahanAgenda",
+                                  initialValue: widget.dataAgenda['personelTambahangAgenda'],
                                   decoration: PengaturanDekorasiField(
                                       hintText: "Personel Lainnya"),
                                 )
@@ -391,7 +437,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 //suratpinjam kendaraan
                                 FormBuilderSwitch(
                                   name: 'suratPinjamKendaraan',
-                                  initialValue: false,
+                                  initialValue: widget.dataAgenda['suratPinjamKendaraan'] ?? false,
                                   title: Text(
                                     'Butuh pinjam kendaraan?',
                                     style: TextStyle(
@@ -407,7 +453,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 //Surat tugas
                                 FormBuilderSwitch(
                                   name: 'suratTugasAgenda',
-                                  initialValue: false,
+                                  initialValue: widget.dataAgenda['suratTugasAgenda'] ?? false,
                                   title: Text(
                                     'Butuh surat tugas?',
                                     style: TextStyle(
@@ -430,6 +476,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 //notes
                                 FormBuilderTextField(
                                   name: 'notesAgenda',
+                                  initialValue: widget.dataAgenda['notesAgenda'],
                                   decoration: PengaturanDekorasiField(
                                       hintText: 'Catatan (kalo ada)'),
                                   maxLines: 5,
@@ -801,6 +848,7 @@ class DropdownMultiple extends StatelessWidget {
       dropdownDecoration: DropdownDecoration(
         backgroundColor: Colors.white,
         borderRadius: BorderRadius.circular(30),
+        maxHeight: 300
       ),
       searchDecoration: SearchFieldDecoration(
         border: OutlineInputBorder(
@@ -818,6 +866,7 @@ class DropdownMultiple extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           wrap: true),
       searchEnabled: true,
+      
       onSelectionChange: (selectedItems) {
         kunciForm.currentState?.setInternalFieldValue(fieldName, selectedItems);
       },

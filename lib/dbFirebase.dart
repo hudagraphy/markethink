@@ -41,12 +41,15 @@ Future<List<Map<String, dynamic>>> ambilDataAgenda() async {
       .then(
     (QuerySnapshot value) {
       value.docs.forEach(
-        (e) {
-          hasil.add(e.data() as Map<String, dynamic>);
+        (dokumen) {
+          var tempDataHasil = dokumen.data() as Map<String, dynamic>;
+          tempDataHasil['idDokumen'] = dokumen.id;
+          hasil.add(tempDataHasil);
+          
         },
       );
     },
   );
-
+  
   return hasil;
 }

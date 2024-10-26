@@ -82,7 +82,7 @@ class _BerandaState extends State<Beranda> {
                                           GestureDetector(
                                             onTap: () async{
                                               //var tempData = await cobaAmbilDataAgenda();
-                                              
+                                              print(dataAgenda);
                                               //debugPrint("${tempData.where((agenda)=> agenda['personelBAM'].any((personelBAM)=>personelBAM.toString().contains('Kun Hisnan Hajron, M.Pd'))).toList()}");
                                             },
                                             child: Text(
@@ -270,7 +270,7 @@ Future<dynamic> dialogViewAgenda(
             //Update Data
             GestureDetector(
               onTap: () {
-                
+               showDialog(context: context, builder: (context) => InputAgenda(dataAgenda: dataAgenda),);
               },
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: lebarLayar <= 720
