@@ -252,18 +252,39 @@ Future<dynamic> dialogViewAgenda(
     context: context,
     builder: (context) {
       return Center(
-        child: Container(
-            margin: EdgeInsets.symmetric(
-                horizontal: lebarLayar <= 720
-                    ? (5 / 100 * lebarLayar)
-                    : (25 / 100 * lebarLayar)),
-            padding: EdgeInsets.all(15),
-            height: 390,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: CardViewAgenda(hasilForm: dataAgenda)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: lebarLayar <= 720
+                        ? (5 / 100 * lebarLayar)
+                        : (25 / 100 * lebarLayar)),
+                padding: EdgeInsets.all(15),
+                height: 390,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: CardViewAgenda(hasilForm: dataAgenda)),
+            //Update Data
+            GestureDetector(
+              onTap: () {
+                
+              },
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: lebarLayar <= 720
+                          ? (5 / 100 * lebarLayar)
+                          : (25 / 100 * lebarLayar), vertical: 10),
+                
+                height: 50,
+                width: double.infinity,
+                decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(30)),
+                child: Center(child: Text('Perbaharui Agenda', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
+              ),
+            )
+          ],
+        ),
       );
     },
   );

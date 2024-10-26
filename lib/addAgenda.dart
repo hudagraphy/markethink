@@ -37,9 +37,6 @@ class _InputAgendaState extends State<InputAgenda> {
     "Kendaraan Pribadi"
   ];
   Map<String, dynamic> hasilForm = {};
-
-  //var controller untuk location pick
- 
   
   //kunciForm tambah Agenda
   final _kunciForm = GlobalKey<FormBuilderState>();
@@ -63,7 +60,7 @@ class _InputAgendaState extends State<InputAgenda> {
     print(tempDataDosenTendik);
   }
 
-  //init state untuk memanggil fungsi fectdata
+  //init state untuk memanggil fungsi fectdata dropdown
   @override
   void initState() {
     // TODO: implement initState
@@ -80,7 +77,7 @@ class _InputAgendaState extends State<InputAgenda> {
         key: _kunciForm,
         child: Stack(
           children: [
-            //background form
+            //background form, jika dkilik dialog muncul untuk menutup form
             GestureDetector(
               onTap: () {
                 showDialog(
