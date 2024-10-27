@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 
 Future tambahAgenda(Map<String, dynamic> dataAgenda, String idAgenda) {
   var db = FirebaseFirestore.instance;
-  CollectionReference agenda = db.collection('agenda');
+  //CollectionReference agenda = db.collection('agenda');
   return db.collection('agenda').doc(idAgenda).set(dataAgenda).onError(
         (error, stackTrace) => print('Gagal input agenda : $error'),
       );
@@ -28,6 +28,12 @@ Future ambilDataJSON(String filePath, String param,
   }
 }
 
+Future hapusAgenda(String idAgenda) async{
+  //koneksi ke firestore
+  var db = FirebaseFirestore.instance;
+  return db.collection('agenda').doc(idAgenda).delete().whenComplete(() => true,).onError((error, stackTrace) => false,);
+}
+
 Future<List<Map<String, dynamic>>> ambilDataAgenda() async {
   FirebaseFirestore db = FirebaseFirestore.instance;
   CollectionReference agenda = db.collection('agenda');
@@ -42,8 +48,8 @@ Future<List<Map<String, dynamic>>> ambilDataAgenda() async {
     (QuerySnapshot value) {
       value.docs.forEach(
         (dokumen) {
-          var tempDataHasil = dokumen.data() as Map<String, dynamic>;
-          tempDataHasil['idDokumen'] = dokumen.id;
+          var tempDataHasil = dokumen.data() as Map<String, dynamic>; //simpan sementara hasil ke variabel
+          tempDataHasil['idDokumen'] = dokumen.id; //menambahkan id dokumen ke hasil
           hasil.add(tempDataHasil);
           
         },

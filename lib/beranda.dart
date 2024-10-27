@@ -18,7 +18,7 @@ class Beranda extends StatefulWidget {
 
 class _BerandaState extends State<Beranda> {
   @override
-  Widget build(BuildContext context)  {
+  Widget build(BuildContext context) {
     double lebarLayar = MediaQuery.of(context).size.width;
     double tinggiLayar = MediaQuery.of(context).size.height;
     late String userAkun =
@@ -42,7 +42,8 @@ class _BerandaState extends State<Beranda> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     if (snapshot.data!.length > 0) {
-                      List<Map<String, dynamic>> dataAgenda = snapshot.data ?? [];
+                      List<Map<String, dynamic>> dataAgenda =
+                          snapshot.data?.where((agenda) => (agenda['personelBAM'] as List).contains(userAkun)).toList() ?? [];
                       return Container(
                         margin: EdgeInsets.only(top: 80),
                         child: ListView(
@@ -80,9 +81,9 @@ class _BerandaState extends State<Beranda> {
                                             ),
                                           ),
                                           GestureDetector(
-                                            onTap: () async{
+                                            onTap: () async {
                                               //var tempData = await cobaAmbilDataAgenda();
-                                              print(dataAgenda);
+
                                               //debugPrint("${tempData.where((agenda)=> agenda['personelBAM'].any((personelBAM)=>personelBAM.toString().contains('Kun Hisnan Hajron, M.Pd'))).toList()}");
                                             },
                                             child: Text(
@@ -108,13 +109,16 @@ class _BerandaState extends State<Beranda> {
                                       Container(
                                         child: ListView.builder(
                                           shrinkWrap: true,
-                                          itemCount: dataAgenda.length - 1,
+                                          itemCount: dataAgenda.length < 6 ? dataAgenda.length - 1 : 5,
                                           itemBuilder: (context, index) {
-                                            Map<String, dynamic> agendaUser = dataAgenda[index];
+                                            Map<String, dynamic> agendaUser =
+                                                dataAgenda[index+1];
                                             return GestureDetector(
                                               onTap: () async {
-                                                dialogViewAgenda(context,
-                                                    lebarLayar, dataAgenda[index]);
+                                                dialogViewAgenda(
+                                                    context,
+                                                    lebarLayar,
+                                                    agendaUser);
                                               },
                                               child: KartuAgenda(
                                                 tajukAcara:
@@ -153,8 +157,7 @@ class _BerandaState extends State<Beranda> {
                                               dataAgenda[0]);
                                         },
                                         child: HighPriorityCard(
-                                            dataAgenda:
-                                                dataAgenda[0]),
+                                            dataAgenda: dataAgenda[0]),
                                       ),
                                     ],
                                   ),
@@ -270,17 +273,46 @@ Future<dynamic> dialogViewAgenda(
             //Update Data
             GestureDetector(
               onTap: () {
-               showDialog(context: context, builder: (context) => InputAgenda(dataAgenda: dataAgenda),);
+                showDialog(
+                  context: context,
+                  builder: (context) => InputAgenda(dataAgenda: dataAgenda),
+                );
+              },
+              onLongPress: () {
+                showAdaptiveDialog(
+                  context: context,
+                  builder: (context) => DialogDuaOpsi(
+                    textUtama: 'Serius mo dihapus?',
+                    textTombolKiri: 'Ga jadi',
+                    textTombolKanan: 'Gas hapus',
+                    onTombolKiri: () => Navigator.pop(context),
+                    onTombolKanan: () async{
+                      await hapusAgenda(dataAgenda['idDokumen']);
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                      
+                    },
+                    
+                  ),
+                );
               },
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: lebarLayar <= 720
-                          ? (5 / 100 * lebarLayar)
-                          : (25 / 100 * lebarLayar), vertical: 10),
-                
+                margin: EdgeInsets.symmetric(
+                    horizontal: lebarLayar <= 720
+                        ? (5 / 100 * lebarLayar)
+                        : (25 / 100 * lebarLayar),
+                    vertical: 10),
                 height: 50,
                 width: double.infinity,
-                decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(30)),
-                child: Center(child: Text('Perbaharui Agenda', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30)),
+                child: Center(
+                    child: Text(
+                  'Perbaharui Agenda',
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                )),
               ),
             )
           ],
@@ -290,12 +322,100 @@ Future<dynamic> dialogViewAgenda(
   );
 }
 
+class DialogDuaOpsi extends StatefulWidget {
+  const DialogDuaOpsi(
+      {super.key,
+      required this.textUtama,
+      required this.textTombolKiri,
+      required this.textTombolKanan,
+      this.onTombolKiri,
+      this.onTombolKanan});
+
+  final String textUtama;
+  final String textTombolKiri;
+  final String textTombolKanan;
+  final Function()? onTombolKiri;
+  final Function()? onTombolKanan;
+
+  @override
+  State<DialogDuaOpsi> createState() => _DialogDuaOpsiState();
+}
+
+class _DialogDuaOpsiState extends State<DialogDuaOpsi> {
+  @override
+  Widget build(BuildContext context) {
+    double lebarLayar = MediaQuery.of(context).size.width;
+    double tinggiLayar = MediaQuery.of(context).size.height;
+    return Center(
+      child: Container(
+        height: 100,
+        clipBehavior: Clip.hardEdge,
+        margin: EdgeInsets.symmetric(
+            horizontal: lebarLayar <= 720
+                ? (20 / 100 * lebarLayar)
+                : (25 / 100 * lebarLayar)),
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(30)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            //Promp text
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Text(
+                widget.textUtama,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue,
+                    fontSize: 18),
+              ),
+            ),
+            //Button
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                //tombol kiri
+                Expanded(
+                  child: GestureDetector(
+                    onTap: widget.onTombolKiri,
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(color: Colors.blue),
+                      alignment: Alignment.center,
+                      child: Text(
+                        widget.textTombolKiri,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+                //tombol kanan
+                Expanded(
+                  child: GestureDetector(
+                    onTap: widget.onTombolKanan,
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(color: Colors.white),
+                      alignment: Alignment.center,
+                      child: Text(
+                        widget.textTombolKanan,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class NavigasiBar extends StatefulWidget {
-  NavigasiBar({
-    super.key,
-    required this.lebarLayar,
-    this.indexNav = 1
-  });
+  NavigasiBar({super.key, required this.lebarLayar, this.indexNav = 1});
 
   final double lebarLayar;
   int indexNav;

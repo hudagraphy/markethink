@@ -594,7 +594,7 @@ class CardViewAgenda extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          "2",
+                          waktuBerangkatAgenda.difference(DateTime.now()).inDays.toString(),
                           style: TextStyle(
                             fontSize: 26,
                             fontWeight: FontWeight.bold,
@@ -613,7 +613,7 @@ class CardViewAgenda extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          "Event",
+                          DateFormat.EEEE().format(waktuBerangkatAgenda),
                           style: TextStyle(
                             fontSize: 10,
                             fontWeight: FontWeight.bold,
