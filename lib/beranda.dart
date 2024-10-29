@@ -41,7 +41,7 @@ class _BerandaState extends State<Beranda> {
                 future: ambilDataAgenda(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    if (snapshot.data!.length > 0) {
+                    if (snapshot.data!.isNotEmpty) {
                       List<Map<String, dynamic>> dataAgenda =
                           snapshot.data?.where((agenda) => (agenda['personelBAM'] as List).contains(userAkun)).toList() ?? [];
                       return Container(
@@ -81,11 +81,6 @@ class _BerandaState extends State<Beranda> {
                                             ),
                                           ),
                                           GestureDetector(
-                                            onTap: () async {
-                                              //var tempData = await cobaAmbilDataAgenda();
-
-                                              //debugPrint("${tempData.where((agenda)=> agenda['personelBAM'].any((personelBAM)=>personelBAM.toString().contains('Kun Hisnan Hajron, M.Pd'))).toList()}");
-                                            },
                                             child: Text(
                                               "Lihat semua",
                                               style: TextStyle(
@@ -109,7 +104,7 @@ class _BerandaState extends State<Beranda> {
                                       Container(
                                         child: ListView.builder(
                                           shrinkWrap: true,
-                                          itemCount: dataAgenda.length < 6 ? dataAgenda.length - 1 : 5,
+                                          itemCount: 1,
                                           itemBuilder: (context, index) {
                                             Map<String, dynamic> agendaUser =
                                                 dataAgenda[index+1];

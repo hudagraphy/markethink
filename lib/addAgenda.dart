@@ -10,6 +10,7 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
 import 'package:markethink/beranda.dart';
 import 'package:markethink/dbFirebase.dart';
+import 'package:markethink/methods.dart';
 import 'package:multi_dropdown/multi_dropdown.dart';
 import 'package:uuid/uuid.dart';
 
@@ -40,7 +41,7 @@ class _InputAgendaState extends State<InputAgenda> {
     "Ambulance",
     "Pick Up"
         "Hi Ace",
-    "Bus"
+    "Bus",
         "Kendaraan Pribadi"
   ];
   Map<String, dynamic> hasilForm = {};
@@ -51,7 +52,7 @@ class _InputAgendaState extends State<InputAgenda> {
   //inisiasi data dropdown kotaKab
   List<String> kotaKabAgenda = [];
   List<String> personelBAM = [];
-  List<String> personelDosenTenik = [];
+  List<String> personelDosenTendik = [];
 
   //fungsi bantuan untuk simpan data ke variabel isi data dropdown
   Future fetchDataDropdown() async {
@@ -64,6 +65,7 @@ class _InputAgendaState extends State<InputAgenda> {
     final tempDataDosenTendik = await ambilDataJSON(
         'assets/personel.json', 'namaPersonel',
         filter: 'statusPersonel', where: 'Non BAM');
+    personelDosenTendik = tempDataDosenTendik;
   }
 
   
@@ -401,7 +403,7 @@ class _InputAgendaState extends State<InputAgenda> {
                                 DropdownMultiple(
                                   fieldName: "personelDosenTendik",
                                   kunciForm: _kunciForm,
-                                  isiDropdown: personelDosenTenik,
+                                  isiDropdown: personelDosenTendik,
                                   hintText: "Personel Dosen/Tendik",
                                   selectedItems: _kunciForm.currentState
                                           ?.value['personelDosenTendik'] ??
@@ -572,7 +574,7 @@ class CardViewAgenda extends StatelessWidget {
     hasilForm['waktuBerangkatAgenda'] is! DateTime
         ? waktuBerangkatAgenda = hasilForm['waktuBerangkatAgenda'].toDate()
         : waktuBerangkatAgenda = hasilForm['waktuBerangkatAgenda'];
-
+    String sisaHari = countDownAgenda(waktuBerangkatAgenda);
     return Container(
       child: IntrinsicHeight(
         child: Row(
@@ -594,9 +596,14 @@ class CardViewAgenda extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          waktuBerangkatAgenda.difference(DateTime.now()).inDays.toString(),
+                          sisaHari,
                           style: TextStyle(
-                            fontSize: 26,
+                            fontSize: switch (sisaHari) {
+                              'Besok' => 14,
+                              'Sekarang' => 12,
+                              'Hari ini' => 12,
+                              _=> 22
+                            },
                             fontWeight: FontWeight.bold,
                             color: Colors.amber,
                           ),

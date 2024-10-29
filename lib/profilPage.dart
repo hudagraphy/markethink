@@ -50,7 +50,18 @@ class HalamanProfil extends StatelessWidget {
                           fontSize: 20),
                     ),
                   ),
-                  SignOutButton(variant: ButtonVariant.filled,)
+                  TextButton.icon(
+                    onPressed: () async {
+                      await FirebaseAuth.instance.signOut();
+                      Navigator.pop(context);
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(Colors.white),
+                      foregroundColor: WidgetStatePropertyAll(Colors.blue)
+                    ),
+                    label: Text('Keluar'),
+                    icon: Icon(Icons.logout_rounded),
+                  )
                 ],
               ),
             )

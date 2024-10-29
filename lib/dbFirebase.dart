@@ -41,7 +41,7 @@ Future<List<Map<String, dynamic>>> ambilDataAgenda() async {
   List<Map<String, dynamic>> hasil = [];
 
   await agenda
-      .where('waktuBerangkatAgenda', isGreaterThanOrEqualTo: Timestamp.now())
+      .where('waktuBerangkatAgenda', isGreaterThanOrEqualTo: Timestamp.fromDate(DateTime.now().add(const Duration(hours: 6))))
       .orderBy('waktuBerangkatAgenda')
       .get()
       .then(
