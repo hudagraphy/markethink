@@ -1,20 +1,21 @@
+
+
 String countDownAgenda(DateTime tanggalBerangkatAgenda){
 
   final selisih = tanggalBerangkatAgenda.difference(DateTime.now());
-  if (selisih.inDays > 1) {
+  if (selisih.inDays > 1) { //is sebelum
     return selisih.inDays.toString();
   }else if(selisih.inDays == 1){
     return 'Besok';
   }else if(selisih.inDays == 0){
-    if(tanggalBerangkatAgenda.hour < DateTime.now().hour){
-      return 'Besok';
+    if ((DateTime.now().hour < tanggalBerangkatAgenda.hour && selisih.inHours < 24)) {
+      return 'Hari ini';
+    }else if(tanggalBerangkatAgenda.isBefore(DateTime.now())){
+      return 'Sekarang';
     }else{
-      if (DateTime.now().hour > tanggalBerangkatAgenda.hour && tanggalBerangkatAgenda.hour < tanggalBerangkatAgenda.add(Duration(hours: 6)).hour) {
-        return 'Sekarang';
-      }else{
-        return 'Hari ini';
-      }
+      return 'Besok';
     }
+    
   }else{
     return 'Terlalui';
   }

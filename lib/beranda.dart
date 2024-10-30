@@ -41,9 +41,9 @@ class _BerandaState extends State<Beranda> {
                 future: ambilDataAgenda(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    if (snapshot.data!.isNotEmpty) {
-                      List<Map<String, dynamic>> dataAgenda =
+                    List<Map<String, dynamic>> dataAgenda =
                           snapshot.data?.where((agenda) => (agenda['personelBAM'] as List).contains(userAkun)).toList() ?? [];
+                    if (dataAgenda.isNotEmpty) {
                       return Container(
                         margin: EdgeInsets.only(top: 80),
                         child: ListView(
@@ -104,7 +104,7 @@ class _BerandaState extends State<Beranda> {
                                       Container(
                                         child: ListView.builder(
                                           shrinkWrap: true,
-                                          itemCount: 1,
+                                          itemCount: dataAgenda.length < 6 ? dataAgenda.length-1 : 5,
                                           itemBuilder: (context, index) {
                                             Map<String, dynamic> agendaUser =
                                                 dataAgenda[index+1];
