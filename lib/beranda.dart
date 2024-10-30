@@ -8,6 +8,7 @@ import 'package:markethink/dbFirebase.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:markethink/loginPage.dart';
 import 'package:markethink/profilPage.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class Beranda extends StatefulWidget {
   const Beranda({super.key});
@@ -31,6 +32,7 @@ class _BerandaState extends State<Beranda> {
             displacement: (18 / 100) * tinggiLayar,
             color: Colors.amber,
             backgroundColor: Colors.blue,
+            triggerMode: RefreshIndicatorTriggerMode.anywhere,
             onRefresh: () {
               return Future.delayed(
                 Duration(seconds: 3),
@@ -41,8 +43,11 @@ class _BerandaState extends State<Beranda> {
                 future: ambilDataAgenda(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    List<Map<String, dynamic>> dataAgenda =
-                          snapshot.data?.where((agenda) => (agenda['personelBAM'] as List).contains(userAkun)).toList() ?? [];
+                    List<Map<String, dynamic>> dataAgenda = snapshot.data
+                            ?.where((agenda) => (agenda['personelBAM'] as List)
+                                .contains(userAkun))
+                            .toList() ??
+                        [];
                     if (dataAgenda.isNotEmpty) {
                       return Container(
                         margin: EdgeInsets.only(top: 80),
@@ -104,16 +109,16 @@ class _BerandaState extends State<Beranda> {
                                       Container(
                                         child: ListView.builder(
                                           shrinkWrap: true,
-                                          itemCount: dataAgenda.length < 6 ? dataAgenda.length-1 : 5,
+                                          itemCount: dataAgenda.length < 6
+                                              ? dataAgenda.length - 1
+                                              : 5,
                                           itemBuilder: (context, index) {
                                             Map<String, dynamic> agendaUser =
-                                                dataAgenda[index+1];
+                                                dataAgenda[index + 1];
                                             return GestureDetector(
                                               onTap: () async {
-                                                dialogViewAgenda(
-                                                    context,
-                                                    lebarLayar,
-                                                    agendaUser);
+                                                dialogViewAgenda(context,
+                                                    lebarLayar, agendaUser);
                                               },
                                               child: KartuAgenda(
                                                 tajukAcara:
@@ -163,14 +168,23 @@ class _BerandaState extends State<Beranda> {
                         ),
                       );
                     } else {
-                      return Center(
-                        child: Text('Kamu sedang ga ada agenda ternyata :p'),
+                      return GestureDetector(
+                        onTap: () => setState(() {
+                          
+                        }),
+                        child: Center(
+                          child: Container(
+                              child:
+                                  Text('Kamu sedang ga ada agenda ternyata :p')),
+                        ),
                       );
                     }
                   } else if (snapshot.hasError) {
                     return Text('Error leh ${snapshot.error}');
                   } else {
-                    return Text('Sik Yo Bro');
+                    return Center(
+                      child: LoadingAnimationWidget.staggeredDotsWave(color: Colors.amber, size: 15),
+                    );
                   }
                 }),
           ),
@@ -281,13 +295,11 @@ Future<dynamic> dialogViewAgenda(
                     textTombolKiri: 'Ga jadi',
                     textTombolKanan: 'Gas hapus',
                     onTombolKiri: () => Navigator.pop(context),
-                    onTombolKanan: () async{
+                    onTombolKanan: () async {
                       await hapusAgenda(dataAgenda['idDokumen']);
                       Navigator.pop(context);
                       Navigator.pop(context);
-                      
                     },
-                    
                   ),
                 );
               },

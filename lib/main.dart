@@ -1,13 +1,10 @@
 
 
-import 'package:firebase_admin/firebase_admin.dart';
-import 'package:firebase_ui_auth/firebase_ui_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:intl/locale.dart';
-import 'package:markethink/addAgenda.dart';
 import 'package:markethink/beranda.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:markethink/loginPage.dart';
@@ -16,17 +13,14 @@ import 'package:markethink/viewAllAgenda.dart';
 import 'package:markethink/halamanKeuangan.dart';
 import 'firebase_options.dart';
 
-
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Intl.defaultLocale = "id_ID";
   await Firebase.initializeApp(
-    // name: 'Markethink',
+    //name: 'Markethink',
     options: DefaultFirebaseOptions.web,
   );
 
-  
 
   initializeDateFormatting('id_ID');
    runApp(MainApp());

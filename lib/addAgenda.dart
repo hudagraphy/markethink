@@ -269,8 +269,8 @@ class _InputAgendaState extends State<InputAgenda> {
                     ),
                     //form input
                     Container(
-                      height: 390,
                       padding: EdgeInsets.all(20),
+                      margin: EdgeInsets.only(bottom: 70),//kasih jarak agar tombol di stack bawahnya keliatan
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(30),
@@ -281,242 +281,247 @@ class _InputAgendaState extends State<InputAgenda> {
                           )
                         ],
                       ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          //Step 1
-                          Visibility(
-                            visible: step == 1,
-                            child: Column(
-                              children: [
-                                //jenis Agenda660
-                                FormBuilderDropdown<String>(
-                                  name: "jenisAgenda",
-                                  initialValue: widget.dataAgenda['jenisAgenda'],
-                                  decoration: PengaturanDekorasiField(
-                                      hintText: "Jenis Agenda"),
-                                  validator: FormBuilderValidators.required(
-                                      errorText: 'Wajib diisi leh'),
-                                  items: opsiJenisAgenda
-                                      .map((e) => DropdownMenuItem(
-                                            //alignment: AlignmentDirectional.center,
-                                            value: e,
-                                            child: Text(e),
-                                          ))
-                                      .toList(),
-                                ),
-                                SizedBox(height: 20),
-                                //field Taju Acara
-                                FormBuilderTextField(
-                                  name: 'tajukAgenda',
-                                  initialValue: widget.dataAgenda['tajukAgenda'],
-                                  decoration: PengaturanDekorasiField(
-                                      hintText: 'Tajuk Agenda'),
-                                  validator: FormBuilderValidators.required(
-                                      errorText:
-                                          'Agenda apaan, mosok kagak ada nama acaranya'),
-                                ),
-                                SizedBox(height: 20),
-                                //fieldMangkate
-                                FormBuilderDateTimePicker(
-                                  name: "waktuBerangkatAgenda",
-                                  initialValue: widget.dataAgenda['waktuBerangkatAgenda']?.toDate(),
-                                  firstDate: DateTime.now(),
-                                  lastDate: DateTime(2030, 12, 31),
-                                  validator: FormBuilderValidators.required(
-                                      errorText: 'Harus ada tanggalnya woy'),
-                                  decoration: PengaturanDekorasiField(
-                                    hintText: "Mangkate?",
-                                  ),
-                                  onChanged: (value) => setState(() {
-                                    _kunciForm.currentState?.saveAndValidate();
-                                  }),
-                                ),
-                                SizedBox(height: 20),
-                                //field Balikke?
-                                Visibility(
-                                  visible: (_kunciForm.currentState
-                                          ?.value['waktuBerangkatAgenda'] !=
-                                      null) || (widget.dataAgenda["waktuPulangAgenda"] != null) ,
-                                  child: FormBuilderDateTimePicker(
-                                    initialValue: widget.dataAgenda['waktuPulangAgenda']?.toDate(),
-                                    name: "waktuPulangAgenda",
-                                    firstDate: DateTime.now(),
-                                    lastDate: DateTime(2024, 12, 31),
-                                    decoration: PengaturanDekorasiField(
-                                        hintText: "Balikke?"),
-                                  ),
-                                ),
-                                //
-                              ],
-                            ),
-                          ),
-                          //Step 2
-                          Visibility(
-                            visible: step == 2,
-                            child: Column(
-                              children: [
-                                //wilayah Agenda
-                                DropdownMultiple(
-                                  fieldName: "kotaKabAgenda",
-                                  kunciForm: _kunciForm,
-                                  isiDropdown: kotaKabAgenda,
-                                  hintText: "*Ningdi?",
-                                  isWajib: true,
-                                  selectedItems: _kunciForm.currentState
-                                          ?.value['kotaKabAgenda'] ??
-                                      [],
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                //detil Lokasi
-                                FormBuilderTextField(
-                                  name: "detilLokasiAgenda",
-                                  initialValue: widget.dataAgenda['detilLokasiAgenda'],
-                                  validator: FormBuilderValidators.required(),
-                                  decoration: PengaturanDekorasiField(
-                                      hintText: "*Detail Lokasi"),
-                                ),
-                                //pinPicker
-                              ],
-                            ),
-                          ),
-                          //Step 3
-                          Visibility(
-                            visible: step == 3,
-                            child: Column(
-                              children: [
-                                //personelBAM
-                                DropdownMultiple(
-                                  fieldName: "personelBAM",
-                                  kunciForm: _kunciForm,
-                                  isiDropdown: personelBAM,
-                                  hintText: "Personel BAM",
-                                  isWajib: true,
-                                  selectedItems: _kunciForm
-                                          .currentState?.value['personelBAM'] ??
-                                      [],
-                                ),
-                                SizedBox(height: 20),
-                                //personelDosenTendik
-                                DropdownMultiple(
-                                  fieldName: "personelDosenTendik",
-                                  kunciForm: _kunciForm,
-                                  isiDropdown: personelDosenTendik,
-                                  hintText: "Personel Dosen/Tendik",
-                                  selectedItems: _kunciForm.currentState
-                                          ?.value['personelDosenTendik'] ??
-                                      [],
-                                ),
-                                SizedBox(height: 20),
-                                //personelLainnya
-                                FormBuilderTextField(
-                                  name: "personelTambahanAgenda",
-                                  initialValue: widget.dataAgenda['personelTambahangAgenda'],
-                                  decoration: PengaturanDekorasiField(
-                                      hintText: "Personel Lainnya"),
-                                )
-                              ],
-                            ),
-                          ), //step 4
-                          //step 4
-                          Visibility(
-                            visible: step == 4,
-                            child: Column(
-                              children: [
-                                //field Kendaraan
-                                DropdownMultiple(
-                                  fieldName: 'kendaraanAgenda',
-                                  kunciForm: _kunciForm,
-                                  hintText: 'Numpak Opo?',
-                                  isiDropdown: dataKendaraan,
-                                  selectedItems: _kunciForm.currentState
-                                          ?.value['kendaraanAgenda'] ??
-                                      [],
-                                ),
-                                SizedBox(height: 20),
-                                //suratpinjam kendaraan
-                                FormBuilderSwitch(
-                                  name: 'suratPinjamKendaraan',
-                                  initialValue: widget.dataAgenda['suratPinjamKendaraan'] ?? false,
-                                  title: Text(
-                                    'Butuh pinjam kendaraan?',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.black54,
+                      child: SingleChildScrollView(
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(minHeight: 390),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              //Step 1
+                              Visibility(
+                                visible: step == 1,
+                                child: Column(
+                                  children: [
+                                    //jenis Agenda660
+                                    FormBuilderDropdown<String>(
+                                      name: "jenisAgenda",
+                                      initialValue: widget.dataAgenda['jenisAgenda'],
+                                      decoration: PengaturanDekorasiField(
+                                          hintText: "Jenis Agenda"),
+                                      validator: FormBuilderValidators.required(
+                                          errorText: 'Wajib diisi leh'),
+                                      items: opsiJenisAgenda
+                                          .map((e) => DropdownMenuItem(
+                                                //alignment: AlignmentDirectional.center,
+                                                value: e,
+                                                child: Text(e),
+                                              ))
+                                          .toList(),
                                     ),
-                                  ),
-                                  activeColor: Colors.blue,
-                                  decoration: PengaturanDekorasiField(
-                                      hintText: "hintText"),
-                                ),
-                                SizedBox(height: 20),
-                                //Surat tugas
-                                FormBuilderSwitch(
-                                  name: 'suratTugasAgenda',
-                                  initialValue: widget.dataAgenda['suratTugasAgenda'] ?? false,
-                                  title: Text(
-                                    'Butuh surat tugas?',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.black54,
+                                    SizedBox(height: 20),
+                                    //field Taju Acara
+                                    FormBuilderTextField(
+                                      name: 'tajukAgenda',
+                                      initialValue: widget.dataAgenda['tajukAgenda'],
+                                      decoration: PengaturanDekorasiField(
+                                          hintText: 'Tajuk Agenda'),
+                                      validator: FormBuilderValidators.required(
+                                          errorText:
+                                              'Agenda apaan, mosok kagak ada nama acaranya'),
                                     ),
-                                  ),
-                                  activeColor: Colors.blue,
-                                  decoration: PengaturanDekorasiField(
-                                      hintText: "hintText"),
-                                )
-                              ],
-                            ),
-                          ),
-                          //step 5
-                          Visibility(
-                            visible: step == 5,
-                            child: Column(
-                              children: [
-                                //notes
-                                FormBuilderTextField(
-                                  name: 'notesAgenda',
-                                  initialValue: widget.dataAgenda['notesAgenda'],
-                                  decoration: PengaturanDekorasiField(
-                                      hintText: 'Catatan (kalo ada)'),
-                                  maxLines: 5,
-                                  onChanged: (value) {
-                                    _kunciForm.currentState?.saveAndValidate();
-                                  },
+                                    SizedBox(height: 20),
+                                    //fieldMangkate
+                                    FormBuilderDateTimePicker(
+                                      name: "waktuBerangkatAgenda",
+                                      initialValue: widget.dataAgenda['waktuBerangkatAgenda']?.toDate(),
+                                      firstDate: DateTime.now(),
+                                      lastDate: DateTime(2030, 12, 31),
+                                      validator: FormBuilderValidators.required(
+                                          errorText: 'Harus ada tanggalnya woy'),
+                                      decoration: PengaturanDekorasiField(
+                                        hintText: "Mangkate?",
+                                      ),
+                                      onChanged: (value) => setState(() {
+                                        _kunciForm.currentState?.saveAndValidate();
+                                      }),
+                                    ),
+                                    SizedBox(height: 20),
+                                    //field Balikke?
+                                    Visibility(
+                                      visible: (_kunciForm.currentState
+                                              ?.value['waktuBerangkatAgenda'] !=
+                                          null) || (widget.dataAgenda["waktuPulangAgenda"] != null) ,
+                                      child: FormBuilderDateTimePicker(
+                                        initialValue: widget.dataAgenda['waktuPulangAgenda']?.toDate(),
+                                        name: "waktuPulangAgenda",
+                                        firstDate: DateTime.now(),
+                                        lastDate: DateTime(2024, 12, 31),
+                                        decoration: PengaturanDekorasiField(
+                                            hintText: "Balikke?"),
+                                      ),
+                                    ),
+                                    //
+                                  ],
                                 ),
-                                SizedBox(height: 20),
-                                //filePicker
-                                // FormBuilderFilePicker(
-                                //   name: 'berkasPendukungAgenda',
-                                //   typeSelectors: [
-                                //     TypeSelector(
-                                //       type: FileType.any,
-                                //       selector: Row(
-                                //         children: [
-                                //           Icon(Icons.add_circle_rounded),
-                                //           Text('Tambah Berkas Pendukung')
-                                //         ],
-                                //       ),
-                                //     ),
-                                //   ],
-                                //   allowCompression: true,
-                                //   previewImages: false,
-                                //   decoration: PengaturanDekorasiField(
-                                //       hintText: 'Berkas Pendukung'),
-                                // )
-                              ],
-                            ),
+                              ),
+                              //Step 2
+                              Visibility(
+                                visible: step == 2,
+                                child: Column(
+                                  children: [
+                                    //wilayah Agenda
+                                    DropdownMultiple(
+                                      fieldName: "kotaKabAgenda",
+                                      kunciForm: _kunciForm,
+                                      isiDropdown: kotaKabAgenda,
+                                      hintText: "*Ningdi?",
+                                      isWajib: true,
+                                      selectedItems: _kunciForm.currentState
+                                              ?.value['kotaKabAgenda'] ??
+                                          [],
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    //detil Lokasi
+                                    FormBuilderTextField(
+                                      name: "detilLokasiAgenda",
+                                      initialValue: widget.dataAgenda['detilLokasiAgenda'],
+                                      validator: FormBuilderValidators.required(),
+                                      decoration: PengaturanDekorasiField(
+                                          hintText: "*Detail Lokasi"),
+                                    ),
+                                    //pinPicker
+                                  ],
+                                ),
+                              ),
+                              //Step 3
+                              Visibility(
+                                visible: step == 3,
+                                child: Column(
+                                  children: [
+                                    //personelBAM
+                                    DropdownMultiple(
+                                      fieldName: "personelBAM",
+                                      kunciForm: _kunciForm,
+                                      isiDropdown: personelBAM,
+                                      hintText: "*Personel BAM",
+                                      isWajib: true,
+                                      selectedItems: _kunciForm
+                                              .currentState?.value['personelBAM'] ??
+                                          [],
+                                    ),
+                                    SizedBox(height: 20),
+                                    //personelDosenTendik
+                                    DropdownMultiple(
+                                      fieldName: "personelDosenTendik",
+                                      kunciForm: _kunciForm,
+                                      isiDropdown: personelDosenTendik,
+                                      hintText: "Personel Dosen/Tendik",
+                                      selectedItems: _kunciForm.currentState
+                                              ?.value['personelDosenTendik'] ??
+                                          [],
+                                    ),
+                                    SizedBox(height: 20),
+                                    //personelLainnya
+                                    FormBuilderTextField(
+                                      name: "personelTambahanAgenda",
+                                      initialValue: widget.dataAgenda['personelTambahangAgenda'],
+                                      decoration: PengaturanDekorasiField(
+                                          hintText: "Personel Lainnya"),
+                                    )
+                                  ],
+                                ),
+                              ), //step 4
+                              //step 4
+                              Visibility(
+                                visible: step == 4,
+                                child: Column(
+                                  children: [
+                                    //field Kendaraan
+                                    DropdownMultiple(
+                                      fieldName: 'kendaraanAgenda',
+                                      kunciForm: _kunciForm,
+                                      hintText: 'Numpak Opo?',
+                                      isiDropdown: dataKendaraan,
+                                      selectedItems: _kunciForm.currentState
+                                              ?.value['kendaraanAgenda'] ??
+                                          [],
+                                    ),
+                                    SizedBox(height: 20),
+                                    //suratpinjam kendaraan
+                                    FormBuilderSwitch(
+                                      name: 'suratPinjamKendaraan',
+                                      initialValue: widget.dataAgenda['suratPinjamKendaraan'] ?? false,
+                                      title: Text(
+                                        'Butuh pinjam kendaraan?',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.black54,
+                                        ),
+                                      ),
+                                      activeColor: Colors.blue,
+                                      decoration: PengaturanDekorasiField(
+                                          hintText: "hintText"),
+                                    ),
+                                    SizedBox(height: 20),
+                                    //Surat tugas
+                                    FormBuilderSwitch(
+                                      name: 'suratTugasAgenda',
+                                      initialValue: widget.dataAgenda['suratTugasAgenda'] ?? false,
+                                      title: Text(
+                                        'Butuh surat tugas?',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.black54,
+                                        ),
+                                      ),
+                                      activeColor: Colors.blue,
+                                      decoration: PengaturanDekorasiField(
+                                          hintText: "hintText"),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              //step 5
+                              Visibility(
+                                visible: step == 5,
+                                child: Column(
+                                  children: [
+                                    //notes
+                                    FormBuilderTextField(
+                                      name: 'notesAgenda',
+                                      initialValue: widget.dataAgenda['notesAgenda'],
+                                      decoration: PengaturanDekorasiField(
+                                          hintText: 'Catatan (kalo ada)'),
+                                      maxLines: 5,
+                                      onChanged: (value) {
+                                        _kunciForm.currentState?.saveAndValidate();
+                                      },
+                                    ),
+                                    SizedBox(height: 20),
+                                    //filePicker
+                                    // FormBuilderFilePicker(
+                                    //   name: 'berkasPendukungAgenda',
+                                    //   typeSelectors: [
+                                    //     TypeSelector(
+                                    //       type: FileType.any,
+                                    //       selector: Row(
+                                    //         children: [
+                                    //           Icon(Icons.add_circle_rounded),
+                                    //           Text('Tambah Berkas Pendukung')
+                                    //         ],
+                                    //       ),
+                                    //     ),
+                                    //   ],
+                                    //   allowCompression: true,
+                                    //   previewImages: false,
+                                    //   decoration: PengaturanDekorasiField(
+                                    //       hintText: 'Berkas Pendukung'),
+                                    // )
+                                  ],
+                                ),
+                              ),
+                              //preview Agenda
+                              Visibility(
+                                visible: step == 6,
+                                child: CardViewAgenda(
+                                  hasilForm: hasilForm,
+                                ),
+                              )
+                            ],
                           ),
-                          //preview Agenda
-                          Visibility(
-                            visible: step == 6,
-                            child: CardViewAgenda(
-                              hasilForm: hasilForm,
-                            ),
-                          )
-                        ],
+                        ),
                       ),
                     ),
                   ],
@@ -816,11 +821,12 @@ class DropdownMultiple extends StatelessWidget {
       required this.kunciForm,
       required this.fieldName,
       required this.selectedItems,
-      this.isWajib = false});
+      this.isWajib = false,
+      this.isSingle = false});
 
   final List<String> isiDropdown;
   final String hintText;
-
+  final bool isSingle;
   final GlobalKey<FormBuilderState> kunciForm;
   final String fieldName;
   final List<String> selectedItems;
@@ -845,6 +851,7 @@ class DropdownMultiple extends StatelessWidget {
         ),
         borderRadius: 30,
         padding: EdgeInsets.all(25),
+        animateSuffixIcon: true,
         backgroundColor: Colors.blue.shade50,
         hintText: hintText,
         hintStyle: TextStyle(
@@ -871,9 +878,10 @@ class DropdownMultiple extends StatelessWidget {
       chipDecoration: ChipDecoration(
           backgroundColor: Colors.amber,
           borderRadius: BorderRadius.circular(10),
+          labelStyle: TextStyle(fontSize: 12),
           wrap: true),
       searchEnabled: true,
-      
+      singleSelect: isSingle,
       onSelectionChange: (selectedItems) {
         kunciForm.currentState?.setInternalFieldValue(fieldName, selectedItems);
       },
