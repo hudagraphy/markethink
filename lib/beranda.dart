@@ -168,14 +168,14 @@ class _BerandaState extends State<Beranda> {
                         ),
                       );
                     } else {
-                      return GestureDetector(
-                        onTap: () => setState(() {
-                          
-                        }),
-                        child: Center(
+                      return Center(
+                        child: SingleChildScrollView(
+                          physics: AlwaysScrollableScrollPhysics(),
                           child: Container(
-                              child:
-                                  Text('Kamu sedang ga ada agenda ternyata :p')),
+                              height: 80 / 100 * tinggiLayar,
+                              alignment: Alignment.center,
+                              child: Text(
+                                  'Kamu sedang ga ada agenda ternyata :p')),
                         ),
                       );
                     }
@@ -183,7 +183,8 @@ class _BerandaState extends State<Beranda> {
                     return Text('Error leh ${snapshot.error}');
                   } else {
                     return Center(
-                      child: LoadingAnimationWidget.staggeredDotsWave(color: Colors.amber, size: 15),
+                      child: LoadingAnimationWidget.staggeredDotsWave(
+                          color: Colors.amber, size: 15),
                     );
                   }
                 }),
